@@ -22,13 +22,14 @@ export class MapsComponent implements AfterViewInit {
     }
     this.initializedMap = true;
     const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
+      zoom: 8,
       center: crnec
     });
     const marker = new google.maps.Marker({
       position: crnec,
       map: map
     });
+    this.adjustBackground();
   }
 
   initMapTimeout() {
@@ -42,5 +43,15 @@ export class MapsComponent implements AfterViewInit {
     subscribeToGoogleMapInit(() => {
       setTimeout(() => that.initMap(), 2000);
     });
+  }
+
+  adjustBackground() {
+    const that = this;
+    const background = document.getElementById('map');
+    if (background) {
+      background.style.height = (window.innerHeight - 64 - 48) + 'px';
+    } else {
+      setTimeout(() => that.adjustBackground(), 100);
+    }
   }
 }

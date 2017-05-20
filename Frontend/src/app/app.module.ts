@@ -32,7 +32,7 @@ import {DialogComponent} from './dialog/dialog.component';
 
 import {HomeComponent} from './home/home.component';
 import {TestComponent} from './test/test.component';
-import {CardComponent} from './card/card.component';
+import {RescueActionComponent} from './rescue-action/rescue-action.component';
 import {GenericService} from 'app/services/generic.service';
 import {UserService} from './services/user.service';
 import {LoginService} from './services/login.service';
@@ -40,6 +40,9 @@ import {RegisterService} from './services/register.service';
 import {SessionService} from './services/session.service';
 import {CookieService} from 'angular2-cookie/core';
 import {MapsComponent} from './maps/maps.component';
+import {LoginDialogComponent} from "./login-dialog/login-dialog.component";
+import {RegisterDialogComponent} from "./register-dialog/register-dialog.component";
+import {RescuersComponent} from "./rescuers/rescuers.component";
 
 const apiKey = 'AIzaSyCaNJfY49tznGZ9V_rofRFt0bIB8uNqFEY';
 
@@ -56,11 +59,14 @@ const appRoutes: Routes = [
     DialogComponent,
     HomeComponent,
     TestComponent,
-    CardComponent,
-    MapsComponent
+    RescueActionComponent,
+    MapsComponent,
+    LoginDialogComponent,
+    RegisterDialogComponent,
+    RescuersComponent
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent, LoginDialogComponent, RegisterDialogComponent
   ],
   imports: [
     BrowserModule,

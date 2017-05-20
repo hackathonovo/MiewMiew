@@ -1,0 +1,16 @@
+<h1 md-dialog-title class="accent-color">Edit rescuer</h1>
+<md-dialog-content class="primary-color" style="width: 300px; height: 150px">
+  <form style="width: 100%;">
+    <md-input-container style="width: 100%;">
+      <input mdInput placeholder="username" [(ngModel)]="user.username" name="username">
+    </md-input-container>
+    <br>
+    <md-input-container style="width: 100%;">
+      <input type="password" mdInput placeholder="password" [(ngModel)]="user.password" name="password">
+    </md-input-container>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-raised-button color="accent" (click)="login()">Login</button>
+  <button md-button color="primary" (click)="openRegisterDialog()" md-dialog-close style="margin-left: auto">Join HGSS</button>
+</md-dialog-actions>

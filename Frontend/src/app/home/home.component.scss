@@ -25,7 +25,7 @@
 
 .home-center-logo {
   /* autoprefixer: off */
-  grid-row: 7 / 10;
+  grid-row: 5 / 10;
 
   background: {
     image: url("../../img/hgss.png");
@@ -37,19 +37,19 @@
 }
 
 .home-center-first {
-  grid-row: 10;
-  @extend .home-big-text;
-  @extend .home-all-columns;
-}
-
-.home-center-second {
   grid-row: 11;
   @extend .home-big-text;
   @extend .home-all-columns;
 }
 
+.home-center-second {
+  grid-row: 12;
+  @extend .home-big-text;
+  @extend .home-all-columns;
+}
+
 .home-button-below {
-  grid-row: 13;
+  grid-row: 14;
   /* autoprefixer: off */
   @extend .home-all-columns;
   margin: 0 auto;
@@ -62,9 +62,14 @@
 
 .home-big-text {
   font: {
-    size: 60px;
+    size: 50px;
     weight: 700;
   }
   color: white;
   text-align: center;
+}
+
+.home-big-button {
+  height : 46px;
+  font-size: 18px
 }

@@ -1,4 +1,6 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component} from "@angular/core";
+import {MdDialog} from "@angular/material";
+import {LoginDialogComponent} from "../login-dialog/login-dialog.component";
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,27 @@ import {AfterViewInit, Component} from '@angular/core';
 })
 export class HomeComponent implements AfterViewInit {
 
-  ngAfterViewInit() {
+  constructor(public dialog: MdDialog) {
+  }
+
+  adjustBackground() {
+    const that = this;
     const background = document.getElementById('home-background');
-    background.style.height = (window.innerHeight - 64 - 48) + 'px';
+    if (background) {
+      background.style.height = (window.innerHeight - 64 - 48) + 'px';
+    } else {
+      setTimeout(() => that.adjustBackground(), 100);
+    }
+  }
+
+  ngAfterViewInit() {
+    const that = this;
+    setTimeout(() => {
+      that.adjustBackground();
+    }, 100);
+  }
+
+  openLoginDialog() {
+    this.dialog.open(LoginDialogComponent);
   }
 }

@@ -17,3 +17,7 @@
   -o-border-image: -o-linear-gradient(right, rgba(100, 100, 100, 0.5), rgba(0, 0, 0, 0)) 1 100%;
   border-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)) 1 100%;
 }
+
+.hidden-element {
+  visibility: hidden;
+}

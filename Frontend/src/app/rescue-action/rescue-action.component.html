@@ -1,0 +1,22 @@
+<div class="left-shadow fix-height">
+  <div class="page-content margin-left-right-50">
+    <template ngFor let-rescueAction [ngForOf]="rescueActions">
+      <md-card class="rescue-action-card">
+        <md-card-header>
+          <div md-card-avatar class="hgss-header-image"></div>
+          <md-card-title>{{rescueAction.naziv}}</md-card-title>
+          <md-card-subtitle>{{rescueAction.nazivLokacije}}</md-card-subtitle>
+        </md-card-header>
+        <div id="map-actions-{{rescueAction.id}}" class="rescue-action-map"></div>
+        <md-card-content class="map-actions-card-content">
+          <p> {{rescueAction.opis}} </p>
+        </md-card-content>
+        <md-card-actions class="accent-color">
+          <button md-button>OPEN</button>
+          <button md-button>EDIT</button>
+        </md-card-actions>
+      </md-card>
+    </template>
+
+  </div>
+</div>
