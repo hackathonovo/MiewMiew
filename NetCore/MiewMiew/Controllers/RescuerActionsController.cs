@@ -40,7 +40,7 @@ namespace MiewMiew.Controllers
 			{
 				return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.Unknown));
 			}
-			return Ok();
+			return Ok(Mapper.Map<AkcijaSpasavanje, RescueActionDto>(action));
 		}
 
 		[HttpPost("save")]

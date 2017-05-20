@@ -24,18 +24,18 @@ namespace MiewMiew.RescueAction
 
 		public IEnumerable<AkcijaSpasavanje> GetAllActions()
 		{
-			return _context.AkcijaSpasavanje.Include(a => a.Voditelj);
+			return _context.AkcijaSpasavanje.Include(a => a.Voditelj).Include(a => a.VrstaSpasavanja);
 		}
 
 		public IEnumerable<AkcijaSpasavanje> GetAllActionsActive()
 		{
-			return _context.AkcijaSpasavanje.Where(a => a.VrstaSpasavanjaId != (int) RescueCycleTypeEnum.FinishedFailed ||
+			return _context.AkcijaSpasavanje.Include(a => a.Voditelj).Include(a => a.VrstaSpasavanja).Where(a => a.VrstaSpasavanjaId != (int) RescueCycleTypeEnum.FinishedFailed ||
 			                                            a.VrstaSpasavanjaId != (int) RescueCycleTypeEnum.FinishedSuccessfully);
 		}
 
 		public AkcijaSpasavanje GetActionById(int id)
 		{
-			return _context.AkcijaSpasavanje.SingleOrDefault(a => a.Id == id);
+			return _context.AkcijaSpasavanje.Include(a => a.Voditelj).Include(a => a.VrstaSpasavanja).SingleOrDefault(a => a.Id == id);
 		}
 
 		public AkcijaSpasavanje AddAction(AkcijaSpasavanje action, string identityName)
