@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
+using AutoMapper;
 using MiewMiew.Models;
 using MiewMiew.Repository;
 using MiewMiew.RescueAction.Models;
@@ -42,6 +43,14 @@ namespace MiewMiew.RescueAction
 			action.FazaZivotnogCiklusa = (int)RescueCycleTypeEnum.Created;
 			action.VoditeljId = _userRepository.GetUserByName(identityName).Id;
 			_context.Add(action);
+			Commit();
+			return action;
+		}
+
+		public AkcijaSpasavanje EditAction(RescueActionDto dto, int id)
+		{
+			var action = GetActionById(id);
+			Mapper.Map<RescueActionDto, AkcijaSpasavanje>(dto, action);
 			Commit();
 			return action;
 		}

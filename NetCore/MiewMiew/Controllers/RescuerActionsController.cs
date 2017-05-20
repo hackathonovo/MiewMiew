@@ -23,6 +23,7 @@ namespace MiewMiew.Controllers
 			_rescuersService = rescuersService;
 		}
 
+		[Produces(typeof(IEnumerable<RescueActionDto>))]
 		[HttpGet("getAll")]
 		public IActionResult GetAll()
 		{
@@ -30,8 +31,21 @@ namespace MiewMiew.Controllers
 			return Ok(Mapper.Map<IEnumerable<AkcijaSpasavanje>, IEnumerable<RescueActionDto>>(actions));
 		}
 
+		[HttpGet("{id}")]
+		[Produces(typeof(RescueActionDto))]
+		public IActionResult GetById(int id)
+		{
+			var action = _rescuersService.GetActionById(id);
+			if (action == null)
+			{
+				return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.Unknown));
+			}
+			return Ok();
+		}
+
 		[HttpPost("save")]
 		[Authorize("Bearer")]
+		[Produces(typeof(RescueActionDto))]
 		public IActionResult Save([FromBody] RescueActionDto dto)
 		{
 			var action = Mapper.Map<RescueActionDto, AkcijaSpasavanje>(dto);
@@ -42,8 +56,16 @@ namespace MiewMiew.Controllers
 			}
 			Enum.TryParse(dto.RescueType, out RescueTypeEnum type);
 			action.VrstaSpasavanjaId = (int) type;
+			AkcijaSpasavanje actionNew = null;
 
-			var actionNew = _rescuersService.AddAction(action, User.Identity.Name);
+			if (dto.Id != 0)
+			{
+				actionNew = _rescuersService.EditAction(dto, dto.Id);
+			}
+			else
+			{
+				actionNew = _rescuersService.AddAction(action, User.Identity.Name);
+			}
 			return Ok(Mapper.Map<AkcijaSpasavanje, RescueActionDto>(actionNew));
 		}
 	}
