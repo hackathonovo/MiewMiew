@@ -23,9 +23,12 @@
 		4F2E30271ED05FA900BC14B4 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30211ED05FA900BC14B4 /* PresenterInterface.swift */; };
 		4F2E30281ED05FA900BC14B4 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30221ED05FA900BC14B4 /* ViewInterface.swift */; };
 		4F2E302A1ED0603400BC14B4 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30291ED0603400BC14B4 /* RootWireframe.swift */; };
+		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02DCD11529484FC6A2744C5A /* Pods-HGSS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.debug.xcconfig"; sourceTree = "<group>"; };
+		203CE570BF52D7D946D037BF /* Pods_HGSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HGSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2E2FE01ED05E2900BC14B4 /* HGSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HGSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2E2FFC1ED05F1000BC14B4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F2E30001ED05F1000BC14B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		4F2E30211ED05FA900BC14B4 /* PresenterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
 		4F2E30221ED05FA900BC14B4 /* ViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		4F2E30291ED0603400BC14B4 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,8 @@
 			children = (
 				4F2E2FE21ED05E2900BC14B4 /* HGSS */,
 				4F2E2FE11ED05E2900BC14B4 /* Products */,
+				5B6FDD0BF2955E7691E34984 /* Pods */,
+				5BF2F36C74C2D1DB252278C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +176,23 @@
 			path = VIPER;
 			sourceTree = "<group>";
 		};
+		5B6FDD0BF2955E7691E34984 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02DCD11529484FC6A2744C5A /* Pods-HGSS.debug.xcconfig */,
+				B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5BF2F36C74C2D1DB252278C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				203CE570BF52D7D946D037BF /* Pods_HGSS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F2E2FF41ED05E2A00BC14B4 /* Build configuration list for PBXNativeTarget "HGSS" */;
 			buildPhases = (
+				00062A5BAF23B74A0BD55919 /* [CP] Check Pods Manifest.lock */,
 				4F2E2FDC1ED05E2900BC14B4 /* Sources */,
 				4F2E2FDD1ED05E2900BC14B4 /* Frameworks */,
 				4F2E2FDE1ED05E2900BC14B4 /* Resources */,
+				312CC1482F4FB182FED3D7BE /* [CP] Embed Pods Frameworks */,
+				3B1942188B7A3C260A2457AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +263,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00062A5BAF23B74A0BD55919 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		312CC1482F4FB182FED3D7BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HGSS/Pods-HGSS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B1942188B7A3C260A2457AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HGSS/Pods-HGSS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F2E2FDC1ED05E2900BC14B4 /* Sources */ = {
@@ -367,6 +442,7 @@
 		};
 		4F2E2FF51ED05E2A00BC14B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02DCD11529484FC6A2744C5A /* Pods-HGSS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UR88X5AHVX;
@@ -381,6 +457,7 @@
 		};
 		4F2E2FF61ED05E2A00BC14B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UR88X5AHVX;

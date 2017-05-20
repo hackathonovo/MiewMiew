@@ -1,0 +1,62 @@
+PODS:
+  - Alamofire (4.3.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - FontAwesome.swift (1.0.0)
+  - GoogleMaps (2.2.0):
+    - GoogleMaps/Maps (= 2.2.0)
+  - GoogleMaps/Base (2.2.0)
+  - GoogleMaps/Maps (2.2.0):
+    - GoogleMaps/Base
+  - IQKeyboardManagerSwift (4.0.9)
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
+  - Starscream (2.0.4)
+  - Unbox (2.4.0)
+  - Wrap (2.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - FontAwesome.swift
+  - GoogleMaps
+  - IQKeyboardManagerSwift
+  - JSQMessagesViewController
+  - RealmSwift
+  - Starscream (~> 2.0.3)
+  - Unbox
+  - Wrap
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
+  GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
+  IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
+  Starscream: df5974ee928b157c8eda8af8de7c620276b7dfcc
+  Unbox: c8b2ab69d3337597b4a3f47a0538807dc12db670
+  Wrap: 731fe4fe3c2429c913a8252a17dbe8bb191e69e1
+
+PODFILE CHECKSUM: 97a7c1f832c4cedb470034b9a8335aa2168ec5d1
+
+COCOAPODS: 1.2.0
