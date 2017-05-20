@@ -50,6 +50,28 @@
 		4F2E30631ED0A04E00BC14B4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305E1ED0A04E00BC14B4 /* ProfileViewController.swift */; };
 		4F2E30641ED0A04E00BC14B4 /* ProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305F1ED0A04E00BC14B4 /* ProfileWireframe.swift */; };
 		4F2E30671ED0A1D400BC14B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30661ED0A1D400BC14B4 /* Constants.swift */; };
+		4F2E306B1ED0AFFF00BC14B4 /* AppearanceInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E306A1ED0AFFF00BC14B4 /* AppearanceInitializer.swift */; };
+		4F2E306D1ED0B01200BC14B4 /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E306C1ED0B01200BC14B4 /* Initializable.swift */; };
+		4F2E306F1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E306E1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift */; };
+		4F2E30711ED0B05900BC14B4 /* GoogleMapsInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30701ED0B05900BC14B4 /* GoogleMapsInitializer.swift */; };
+		4F2E30731ED0B48300BC14B4 /* RescueAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30721ED0B48300BC14B4 /* RescueAction.storyboard */; };
+		4F2E30791ED0B49000BC14B4 /* RescueActionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30741ED0B49000BC14B4 /* RescueActionInteractor.swift */; };
+		4F2E307A1ED0B49000BC14B4 /* RescueActionInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30751ED0B49000BC14B4 /* RescueActionInterfaces.swift */; };
+		4F2E307B1ED0B49000BC14B4 /* RescueActionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30761ED0B49000BC14B4 /* RescueActionPresenter.swift */; };
+		4F2E307C1ED0B49000BC14B4 /* RescueActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30771ED0B49000BC14B4 /* RescueActionViewController.swift */; };
+		4F2E307D1ED0B49000BC14B4 /* RescueActionWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30781ED0B49000BC14B4 /* RescueActionWireframe.swift */; };
+		4F2E30841ED0B6B300BC14B4 /* ActionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E307F1ED0B6B300BC14B4 /* ActionsInteractor.swift */; };
+		4F2E30851ED0B6B300BC14B4 /* ActionsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30801ED0B6B300BC14B4 /* ActionsInterfaces.swift */; };
+		4F2E30861ED0B6B300BC14B4 /* ActionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30811ED0B6B300BC14B4 /* ActionsPresenter.swift */; };
+		4F2E30871ED0B6B300BC14B4 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30821ED0B6B300BC14B4 /* ActionsViewController.swift */; };
+		4F2E30881ED0B6B300BC14B4 /* ActionsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30831ED0B6B300BC14B4 /* ActionsWireframe.swift */; };
+		4F2E308A1ED0B6BE00BC14B4 /* Actions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30891ED0B6BE00BC14B4 /* Actions.storyboard */; };
+		4F2E308D1ED0B7C700BC14B4 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E308C1ED0B7C700BC14B4 /* Map.storyboard */; };
+		4F2E30931ED0B7DA00BC14B4 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E308E1ED0B7DA00BC14B4 /* MapInteractor.swift */; };
+		4F2E30941ED0B7DA00BC14B4 /* MapInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E308F1ED0B7DA00BC14B4 /* MapInterfaces.swift */; };
+		4F2E30951ED0B7DA00BC14B4 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30901ED0B7DA00BC14B4 /* MapPresenter.swift */; };
+		4F2E30961ED0B7DA00BC14B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30911ED0B7DA00BC14B4 /* MapViewController.swift */; };
+		4F2E30971ED0B7DA00BC14B4 /* MapWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30921ED0B7DA00BC14B4 /* MapWireframe.swift */; };
 		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +123,28 @@
 		4F2E305E1ED0A04E00BC14B4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4F2E305F1ED0A04E00BC14B4 /* ProfileWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWireframe.swift; sourceTree = "<group>"; };
 		4F2E30661ED0A1D400BC14B4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4F2E306A1ED0AFFF00BC14B4 /* AppearanceInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceInitializer.swift; sourceTree = "<group>"; };
+		4F2E306C1ED0B01200BC14B4 /* Initializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializable.swift; sourceTree = "<group>"; };
+		4F2E306E1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IQKeyboardManagerInitializer.swift; sourceTree = "<group>"; };
+		4F2E30701ED0B05900BC14B4 /* GoogleMapsInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsInitializer.swift; sourceTree = "<group>"; };
+		4F2E30721ED0B48300BC14B4 /* RescueAction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RescueAction.storyboard; sourceTree = "<group>"; };
+		4F2E30741ED0B49000BC14B4 /* RescueActionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueActionInteractor.swift; sourceTree = "<group>"; };
+		4F2E30751ED0B49000BC14B4 /* RescueActionInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueActionInterfaces.swift; sourceTree = "<group>"; };
+		4F2E30761ED0B49000BC14B4 /* RescueActionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueActionPresenter.swift; sourceTree = "<group>"; };
+		4F2E30771ED0B49000BC14B4 /* RescueActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueActionViewController.swift; sourceTree = "<group>"; };
+		4F2E30781ED0B49000BC14B4 /* RescueActionWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueActionWireframe.swift; sourceTree = "<group>"; };
+		4F2E307F1ED0B6B300BC14B4 /* ActionsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsInteractor.swift; sourceTree = "<group>"; };
+		4F2E30801ED0B6B300BC14B4 /* ActionsInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsInterfaces.swift; sourceTree = "<group>"; };
+		4F2E30811ED0B6B300BC14B4 /* ActionsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsPresenter.swift; sourceTree = "<group>"; };
+		4F2E30821ED0B6B300BC14B4 /* ActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		4F2E30831ED0B6B300BC14B4 /* ActionsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsWireframe.swift; sourceTree = "<group>"; };
+		4F2E30891ED0B6BE00BC14B4 /* Actions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Actions.storyboard; sourceTree = "<group>"; };
+		4F2E308C1ED0B7C700BC14B4 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		4F2E308E1ED0B7DA00BC14B4 /* MapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		4F2E308F1ED0B7DA00BC14B4 /* MapInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInterfaces.swift; sourceTree = "<group>"; };
+		4F2E30901ED0B7DA00BC14B4 /* MapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		4F2E30911ED0B7DA00BC14B4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4F2E30921ED0B7DA00BC14B4 /* MapWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapWireframe.swift; sourceTree = "<group>"; };
 		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +201,7 @@
 		4F2E2FFD1ED05F1000BC14B4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E30691ED0AFF200BC14B4 /* Initializers */,
 				4F2E30651ED0A19D00BC14B4 /* Utils */,
 				4F2E30421ED0844200BC14B4 /* Models */,
 				4F2E303F1ED0825D00BC14B4 /* Networking */,
@@ -170,9 +215,12 @@
 		4F2E2FFE1ED05F1000BC14B4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E300C1ED05F4B00BC14B4 /* Login */,
+				4F2E307E1ED0B6A300BC14B4 /* Actions */,
+				4F2E308B1ED0B7BD00BC14B4 /* Map */,
+				4F2E30681ED0AF6500BC14B4 /* RescueAction */,
 				4F2E30581ED0A03600BC14B4 /* Profile */,
 				4F2E30491ED08BA500BC14B4 /* TabBar */,
-				4F2E300C1ED05F4B00BC14B4 /* Login */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -230,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2E301D1ED05FA900BC14B4 /* TabBarItemSetupable.swift */,
+				4F2E306C1ED0B01200BC14B4 /* Initializable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -295,6 +344,55 @@
 				4F2E30661ED0A1D400BC14B4 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4F2E30681ED0AF6500BC14B4 /* RescueAction */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30721ED0B48300BC14B4 /* RescueAction.storyboard */,
+				4F2E30741ED0B49000BC14B4 /* RescueActionInteractor.swift */,
+				4F2E30751ED0B49000BC14B4 /* RescueActionInterfaces.swift */,
+				4F2E30761ED0B49000BC14B4 /* RescueActionPresenter.swift */,
+				4F2E30771ED0B49000BC14B4 /* RescueActionViewController.swift */,
+				4F2E30781ED0B49000BC14B4 /* RescueActionWireframe.swift */,
+			);
+			path = RescueAction;
+			sourceTree = "<group>";
+		};
+		4F2E30691ED0AFF200BC14B4 /* Initializers */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E306A1ED0AFFF00BC14B4 /* AppearanceInitializer.swift */,
+				4F2E306E1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift */,
+				4F2E30701ED0B05900BC14B4 /* GoogleMapsInitializer.swift */,
+			);
+			path = Initializers;
+			sourceTree = "<group>";
+		};
+		4F2E307E1ED0B6A300BC14B4 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30891ED0B6BE00BC14B4 /* Actions.storyboard */,
+				4F2E307F1ED0B6B300BC14B4 /* ActionsInteractor.swift */,
+				4F2E30801ED0B6B300BC14B4 /* ActionsInterfaces.swift */,
+				4F2E30811ED0B6B300BC14B4 /* ActionsPresenter.swift */,
+				4F2E30821ED0B6B300BC14B4 /* ActionsViewController.swift */,
+				4F2E30831ED0B6B300BC14B4 /* ActionsWireframe.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		4F2E308B1ED0B7BD00BC14B4 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E308C1ED0B7C700BC14B4 /* Map.storyboard */,
+				4F2E308E1ED0B7DA00BC14B4 /* MapInteractor.swift */,
+				4F2E308F1ED0B7DA00BC14B4 /* MapInterfaces.swift */,
+				4F2E30901ED0B7DA00BC14B4 /* MapPresenter.swift */,
+				4F2E30911ED0B7DA00BC14B4 /* MapViewController.swift */,
+				4F2E30921ED0B7DA00BC14B4 /* MapWireframe.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		5B6FDD0BF2955E7691E34984 /* Pods */ = {
@@ -377,15 +475,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2E308A1ED0B6BE00BC14B4 /* Actions.storyboard in Resources */,
 				4F2E303B1ED073FA00BC14B4 /* Lato-Italic.ttf in Resources */,
 				4F2E30351ED073FA00BC14B4 /* Lato-Black.ttf in Resources */,
 				4F2E30371ED073FA00BC14B4 /* Lato-Bold.ttf in Resources */,
+				4F2E30731ED0B48300BC14B4 /* RescueAction.storyboard in Resources */,
 				4F2E303C1ED073FA00BC14B4 /* Lato-Light.ttf in Resources */,
 				4F2E300E1ED05F5400BC14B4 /* Login.storyboard in Resources */,
 				4F2E30361ED073FA00BC14B4 /* Lato-BlackItalic.ttf in Resources */,
 				4F2E30081ED05F1000BC14B4 /* Assets.xcassets in Resources */,
 				4F2E303D1ED073FA00BC14B4 /* Lato-LightItalic.ttf in Resources */,
 				4F2E303A1ED073FA00BC14B4 /* Lato-HairlineItalic.ttf in Resources */,
+				4F2E308D1ED0B7C700BC14B4 /* Map.storyboard in Resources */,
 				4F2E30381ED073FA00BC14B4 /* Lato-BoldItalic.ttf in Resources */,
 				4F2E303E1ED073FA00BC14B4 /* Lato-Regular.ttf in Resources */,
 				4F2E30391ED073FA00BC14B4 /* Lato-Hairline.ttf in Resources */,
@@ -451,33 +552,52 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F2E30251ED05FA900BC14B4 /* BaseWireframe.swift in Sources */,
+				4F2E306D1ED0B01200BC14B4 /* Initializable.swift in Sources */,
+				4F2E30951ED0B7DA00BC14B4 /* MapPresenter.swift in Sources */,
+				4F2E30841ED0B6B300BC14B4 /* ActionsInteractor.swift in Sources */,
 				4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */,
 				4F2E30161ED05F5F00BC14B4 /* LoginPresenter.swift in Sources */,
 				4F2E30641ED0A04E00BC14B4 /* ProfileWireframe.swift in Sources */,
 				4F2E30271ED05FA900BC14B4 /* PresenterInterface.swift in Sources */,
+				4F2E307C1ED0B49000BC14B4 /* RescueActionViewController.swift in Sources */,
+				4F2E30961ED0B7DA00BC14B4 /* MapViewController.swift in Sources */,
 				4F2E30141ED05F5F00BC14B4 /* LoginInteractor.swift in Sources */,
 				4F2E30181ED05F5F00BC14B4 /* LoginWireframe.swift in Sources */,
+				4F2E30711ED0B05900BC14B4 /* GoogleMapsInitializer.swift in Sources */,
 				4F2E30231ED05FA900BC14B4 /* UIFont.swift in Sources */,
+				4F2E306B1ED0AFFF00BC14B4 /* AppearanceInitializer.swift in Sources */,
+				4F2E30871ED0B6B300BC14B4 /* ActionsViewController.swift in Sources */,
 				4F2E30241ED05FA900BC14B4 /* TabBarItemSetupable.swift in Sources */,
+				4F2E306F1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift in Sources */,
 				4F2E30521ED08BB500BC14B4 /* TabBarController.swift in Sources */,
+				4F2E307D1ED0B49000BC14B4 /* RescueActionWireframe.swift in Sources */,
+				4F2E307A1ED0B49000BC14B4 /* RescueActionInterfaces.swift in Sources */,
 				4F2E30261ED05FA900BC14B4 /* InteractorInterface.swift in Sources */,
 				4F2E30671ED0A1D400BC14B4 /* Constants.swift in Sources */,
 				4F2E30631ED0A04E00BC14B4 /* ProfileViewController.swift in Sources */,
 				4F2E30601ED0A04E00BC14B4 /* ProfileInteractor.swift in Sources */,
 				4F2E30441ED0844800BC14B4 /* User.swift in Sources */,
+				4F2E30941ED0B7DA00BC14B4 /* MapInterfaces.swift in Sources */,
 				4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */,
+				4F2E30931ED0B7DA00BC14B4 /* MapInteractor.swift in Sources */,
+				4F2E30971ED0B7DA00BC14B4 /* MapWireframe.swift in Sources */,
 				4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */,
+				4F2E30881ED0B6B300BC14B4 /* ActionsWireframe.swift in Sources */,
 				4F2E30461ED085AC00BC14B4 /* Credentials.swift in Sources */,
+				4F2E30861ED0B6B300BC14B4 /* ActionsPresenter.swift in Sources */,
 				4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */,
 				4F2E30071ED05F1000BC14B4 /* AppDelegate.swift in Sources */,
 				4F2E30171ED05F5F00BC14B4 /* LoginViewController.swift in Sources */,
 				4F2E30621ED0A04E00BC14B4 /* ProfilePresenter.swift in Sources */,
 				4F2E304F1ED08BB500BC14B4 /* TabBarInteractor.swift in Sources */,
 				4F2E30281ED05FA900BC14B4 /* ViewInterface.swift in Sources */,
+				4F2E30791ED0B49000BC14B4 /* RescueActionInteractor.swift in Sources */,
 				4F2E30511ED08BB500BC14B4 /* TabBarPresenter.swift in Sources */,
+				4F2E30851ED0B6B300BC14B4 /* ActionsInterfaces.swift in Sources */,
 				4F2E302A1ED0603400BC14B4 /* RootWireframe.swift in Sources */,
 				4F2E30151ED05F5F00BC14B4 /* LoginInterfaces.swift in Sources */,
 				4F2E30611ED0A04E00BC14B4 /* ProfileInterfaces.swift in Sources */,
+				4F2E307B1ED0B49000BC14B4 /* RescueActionPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

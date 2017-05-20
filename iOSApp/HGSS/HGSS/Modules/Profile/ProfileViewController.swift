@@ -48,10 +48,9 @@ extension ProfileViewController: ProfileViewInterface {
 extension ProfileViewController: TabBarItemSetupable {
     
     func setupTabBarItem() {
-        func setupTabBarItem() {
-            tabBarItem.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
-            tabBarItem.title = "Profile"
-        }
+        tabBarItem.image = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
+        tabBarItem.selectedImage = UIImage.fontAwesomeIcon(name: .user, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
+        tabBarItem.title = "Profile"
     }
 }
 

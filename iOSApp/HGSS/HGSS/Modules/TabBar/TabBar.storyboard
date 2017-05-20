@@ -11,8 +11,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TP0-XZ-pbr">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="tch-pe-IMa" customClass="TabBarController" customModule="HGSS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="U4U-Y1-nbc">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="tch-pe-IMa" customClass="TabBarController" customModule="HGSS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="U4U-Y1-nbc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -7,7 +7,6 @@ target 'HGSS' do
   # Pods for HGSS
   pod 'Alamofire', :inhibit_warnings => true
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'FontAwesome.swift', :inhibit_warnings => true
   pod 'GoogleMaps', :inhibit_warnings => true
   pod 'IQKeyboardManagerSwift', :inhibit_warnings => true
   pod 'JSQMessagesViewController', :inhibit_warnings => true
@@ -16,5 +15,6 @@ target 'HGSS' do
   pod 'Starscream', '~> 2.0.3', :inhibit_warnings => true
   pod "Unbox", :inhibit_warnings => true
   pod "Wrap", :inhibit_warnings => true
+  pod 'FontAwesome.swift', :inhibit_warnings => true
 
 end
