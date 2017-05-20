@@ -38,6 +38,15 @@ namespace MiewMiew.RescueAction
 			return _context.AkcijaSpasavanje.Include(a => a.Voditelj).Include(a => a.VrstaSpasavanja).SingleOrDefault(a => a.Id == id);
 		}
 
+		public IEnumerable<AkcijaSpasavanje> GetActionByUserId(string userId)
+		{
+			return _context.AkcijaSpasavanje.Include(a => a.Voditelj)
+				.Include(a => a.VrstaSpasavanja)
+				.Include(a => a.Sudionici)
+				.Where(a => a.VoditeljId == userId || a.Sudionici.Any(s => s.KorisnikId == userId));
+		}
+
+
 		public AkcijaSpasavanje AddAction(AkcijaSpasavanje action, string identityName)
 		{
 			action.Vrijeme = DateTime.Now;

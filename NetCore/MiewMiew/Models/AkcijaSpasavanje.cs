@@ -19,10 +19,10 @@ namespace MiewMiew.Models
         public int? FazaZivotnogCiklusa { get; set; }
         public string VoditeljId { get; set; }
         public int? VrstaSpasavanjaId { get; set; }
-        public decimal? Longitude { get; set; }
-        public decimal? Latitude { get; set; }
+        public double? Longitude { get; set; }
+        public double? Latitude { get; set; }
         public string NazivLokacije { get; set; }
-        public decimal? Radius { get; set; }
+        public double? Radius { get; set; }
 
         public virtual ICollection<Poruka> Poruka { get; set; }
         public virtual ICollection<Sudionici> Sudionici { get; set; }

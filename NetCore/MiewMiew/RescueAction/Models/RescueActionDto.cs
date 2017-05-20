@@ -20,8 +20,8 @@ namespace MiewMiew.RescueAction.Models
 		public int? FazaZivotnogCiklusa { get; set; }
 		public string VoditeljId { get; set; }
 		public int? VrstaSpasavanjaId { get; set; }
-		public decimal? Longitude { get; set; }
-		public decimal? Latitude { get; set; }
+		public double? Longitude { get; set; }
+		public double? Latitude { get; set; }
 		public string RescueLiveCycle { get; set; }
 		public string RescueType { get; set; }
 	}

@@ -43,6 +43,14 @@ namespace MiewMiew.Controllers
 			return Ok(Mapper.Map<AkcijaSpasavanje, RescueActionDto>(action));
 		}
 
+		[HttpGet("fetchMine")]
+		[Produces(typeof(IEnumerable<RescueActionDto>))]
+		public IActionResult Fetch_mine(string userId)
+		{
+			var actions = _rescuersService.GetActionByUserId(userId);
+			return Ok(Mapper.Map<IEnumerable<AkcijaSpasavanje>, IEnumerable<RescueActionDto>>(actions));
+		}
+
 		[HttpPost("save")]
 		[Authorize("Bearer")]
 		[Produces(typeof(RescueActionDto))]
