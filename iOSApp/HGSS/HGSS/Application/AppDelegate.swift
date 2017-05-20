@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate let rootWireframe = RootWireframe()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
 //        setup(initializers: IQKeyboardManagerInitializer(), GoogleMapsInitializer(), AppearanceInitializer())
         window = rootWireframe.setupApplication()
         

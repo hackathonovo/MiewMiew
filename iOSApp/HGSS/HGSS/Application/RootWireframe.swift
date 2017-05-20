@@ -15,14 +15,11 @@ class RootWireframe {
     func setupApplication() -> UIWindow {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        LoginWireframe(navigationController: navigationController).show(with: .root, animated: false)
-        
-        
-        //        if let _ = UserDefaults.standard.value(forKey: "userToken") as? String {
-        //            TabBarWireframe(navigationController: navigationController).show(with: .root, animated: false)
-        //        } else {
-        //            LoginWireframe(navigationController: navigationController).show(with: .root, animated: false)
-        //        }
+        if let _ = UserDefaults.standard.value(forKey: Constants.UserDefaults.userToken) as? String {
+            TabBarWireframe(navigationController: navigationController).show(with: .root, animated: false)
+        } else {
+            LoginWireframe(navigationController: navigationController).show(with: .root, animated: false)
+        }
         
         navigationController.setNavigationBarHidden(true, animated: false)
         

@@ -29,7 +29,7 @@ class APIService {
                     } else if let _value = value as? UnboxableDictionary, let error: APIError = try? unbox(dictionary: _value) {
                         completion(.failure(error))
                     } else {
-                        completion(.failure(APIError(message: "Error did occured.")))
+                        completion(.failure(APIError(message: "Error did occured")))
                     }
                 case .failure(let error):
                     completion(.failure(error))

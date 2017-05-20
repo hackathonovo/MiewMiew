@@ -17,7 +17,7 @@ class User: Unboxable {
     
     required init(unboxer: Unboxer) throws {
         token = try unboxer.unbox(key: "token")
-        id = try unboxer.unbox(key: "userInfo.id")
-        username = try unboxer.unbox(key: "userInfo.username")
+        id = try unboxer.unbox(keyPath: "userInfo.id")
+        username = try unboxer.unbox(keyPath: "userInfo.username")
     }
 }

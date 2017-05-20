@@ -23,7 +23,14 @@ final class LoginPresenter {
         _view = view
         _interactor = interactor
     }
-
+    
+    // MARK: - Private methods
+    
+    fileprivate func _saveUserData(userInfo: User) {
+        UserDefaults.standard.set(userInfo.id, forKey: Constants.UserDefaults.userId)
+        UserDefaults.standard.set(userInfo.token, forKey: Constants.UserDefaults.userToken)
+        UserDefaults.standard.set(userInfo.username, forKey: Constants.UserDefaults.username)
+    }
 }
 
 // MARK: - Extensions -
@@ -36,11 +43,14 @@ extension LoginPresenter: LoginPresenterInterface {
             return
         }
         
+        _wireframe.showLoading()
         _interactor.login(with: _username, password: _password) { [weak self] result in
             guard let _self = self else { return }
+            _self._wireframe.hideLoading()
             switch result {
-            case .success(_):
-                print("Open app")
+            case .success(let userInfo):
+                _self._saveUserData(userInfo: userInfo)
+                _self._wireframe.navigate(to: .home)
             case .failure(let error):
                 _self._view?.showLoginError(with: error.localizedDescription)
             }

@@ -18,13 +18,11 @@ final class TabBarWireframe: BaseWireframe {
     fileprivate let messagingNavigationController = UINavigationController()
     
     fileprivate lazy var tabBarWireframes: [BaseWireframe] =  {
-//        let maps = MapsWireframe(navigationController: self.mapsNavigationController)
-//        let messaging = MessagingWireframe(navigationController: self.messagingNavigationController)
+        let profile = ProfileWireframe(navigationController: self.messagingNavigationController)
         
-//        maps.show(with: .root, animated: false)
-//        messaging.show(with: .root, animated: false)
+        profile.show(with: .root, animated: false)
         
-        return [] //[maps, messaging]
+        return [profile]
     }()
     
     // MARK: - Module setup -
@@ -32,8 +30,11 @@ final class TabBarWireframe: BaseWireframe {
     func configureModule(with tabBarController: TabBarController) {
         let interactor = TabBarInteractor()
         let presenter = TabBarPresenter(wireframe: self, view: tabBarController, interactor: interactor)
+        
         tabBarController.presenter = presenter
         tabBarController.viewControllers = tabBarWireframes.map({ $0.navigationController })
+        
+        navigationController.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: - Transitions -
@@ -41,7 +42,6 @@ final class TabBarWireframe: BaseWireframe {
     func show(with transition: Transition, animated: Bool = true) {
         let moduleViewController = _storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
         configureModule(with: moduleViewController)
-        
         show(moduleViewController, with: transition, animated: animated)
     }
 }

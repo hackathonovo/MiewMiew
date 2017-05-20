@@ -25,7 +25,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameField.delegate = self
-        passwordField.delegate = self
+        passwordField.delegate = self        
     }
     
     // MARK: - Actions

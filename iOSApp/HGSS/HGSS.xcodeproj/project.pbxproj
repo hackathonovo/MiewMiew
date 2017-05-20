@@ -43,6 +43,13 @@
 		4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304E1ED08BB500BC14B4 /* TabBarWireframe.swift */; };
 		4F2E30551ED08DE400BC14B4 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30541ED08DE400BC14B4 /* TabBar.storyboard */; };
 		4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30561ED090F600BC14B4 /* APIError.swift */; };
+		4F2E305A1ED0A04100BC14B4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30591ED0A04100BC14B4 /* Profile.storyboard */; };
+		4F2E30601ED0A04E00BC14B4 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305B1ED0A04E00BC14B4 /* ProfileInteractor.swift */; };
+		4F2E30611ED0A04E00BC14B4 /* ProfileInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305C1ED0A04E00BC14B4 /* ProfileInterfaces.swift */; };
+		4F2E30621ED0A04E00BC14B4 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305D1ED0A04E00BC14B4 /* ProfilePresenter.swift */; };
+		4F2E30631ED0A04E00BC14B4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305E1ED0A04E00BC14B4 /* ProfileViewController.swift */; };
+		4F2E30641ED0A04E00BC14B4 /* ProfileWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E305F1ED0A04E00BC14B4 /* ProfileWireframe.swift */; };
+		4F2E30671ED0A1D400BC14B4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30661ED0A1D400BC14B4 /* Constants.swift */; };
 		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +94,13 @@
 		4F2E304E1ED08BB500BC14B4 /* TabBarWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarWireframe.swift; sourceTree = "<group>"; };
 		4F2E30541ED08DE400BC14B4 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		4F2E30561ED090F600BC14B4 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		4F2E30591ED0A04100BC14B4 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		4F2E305B1ED0A04E00BC14B4 /* ProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		4F2E305C1ED0A04E00BC14B4 /* ProfileInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInterfaces.swift; sourceTree = "<group>"; };
+		4F2E305D1ED0A04E00BC14B4 /* ProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		4F2E305E1ED0A04E00BC14B4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4F2E305F1ED0A04E00BC14B4 /* ProfileWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileWireframe.swift; sourceTree = "<group>"; };
+		4F2E30661ED0A1D400BC14B4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +157,7 @@
 		4F2E2FFD1ED05F1000BC14B4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E30651ED0A19D00BC14B4 /* Utils */,
 				4F2E30421ED0844200BC14B4 /* Models */,
 				4F2E303F1ED0825D00BC14B4 /* Networking */,
 				4F2E301A1ED05FA900BC14B4 /* Extensions */,
@@ -155,6 +170,7 @@
 		4F2E2FFE1ED05F1000BC14B4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E30581ED0A03600BC14B4 /* Profile */,
 				4F2E30491ED08BA500BC14B4 /* TabBar */,
 				4F2E300C1ED05F4B00BC14B4 /* Login */,
 			);
@@ -260,6 +276,27 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		4F2E30581ED0A03600BC14B4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30591ED0A04100BC14B4 /* Profile.storyboard */,
+				4F2E305B1ED0A04E00BC14B4 /* ProfileInteractor.swift */,
+				4F2E305C1ED0A04E00BC14B4 /* ProfileInterfaces.swift */,
+				4F2E305D1ED0A04E00BC14B4 /* ProfilePresenter.swift */,
+				4F2E305E1ED0A04E00BC14B4 /* ProfileViewController.swift */,
+				4F2E305F1ED0A04E00BC14B4 /* ProfileWireframe.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4F2E30651ED0A19D00BC14B4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30661ED0A1D400BC14B4 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		5B6FDD0BF2955E7691E34984 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +389,7 @@
 				4F2E30381ED073FA00BC14B4 /* Lato-BoldItalic.ttf in Resources */,
 				4F2E303E1ED073FA00BC14B4 /* Lato-Regular.ttf in Resources */,
 				4F2E30391ED073FA00BC14B4 /* Lato-Hairline.ttf in Resources */,
+				4F2E305A1ED0A04100BC14B4 /* Profile.storyboard in Resources */,
 				4F2E30551ED08DE400BC14B4 /* TabBar.storyboard in Resources */,
 				4F2E30091ED05F1000BC14B4 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -415,6 +453,7 @@
 				4F2E30251ED05FA900BC14B4 /* BaseWireframe.swift in Sources */,
 				4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */,
 				4F2E30161ED05F5F00BC14B4 /* LoginPresenter.swift in Sources */,
+				4F2E30641ED0A04E00BC14B4 /* ProfileWireframe.swift in Sources */,
 				4F2E30271ED05FA900BC14B4 /* PresenterInterface.swift in Sources */,
 				4F2E30141ED05F5F00BC14B4 /* LoginInteractor.swift in Sources */,
 				4F2E30181ED05F5F00BC14B4 /* LoginWireframe.swift in Sources */,
@@ -422,6 +461,9 @@
 				4F2E30241ED05FA900BC14B4 /* TabBarItemSetupable.swift in Sources */,
 				4F2E30521ED08BB500BC14B4 /* TabBarController.swift in Sources */,
 				4F2E30261ED05FA900BC14B4 /* InteractorInterface.swift in Sources */,
+				4F2E30671ED0A1D400BC14B4 /* Constants.swift in Sources */,
+				4F2E30631ED0A04E00BC14B4 /* ProfileViewController.swift in Sources */,
+				4F2E30601ED0A04E00BC14B4 /* ProfileInteractor.swift in Sources */,
 				4F2E30441ED0844800BC14B4 /* User.swift in Sources */,
 				4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */,
 				4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */,
@@ -429,11 +471,13 @@
 				4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */,
 				4F2E30071ED05F1000BC14B4 /* AppDelegate.swift in Sources */,
 				4F2E30171ED05F5F00BC14B4 /* LoginViewController.swift in Sources */,
+				4F2E30621ED0A04E00BC14B4 /* ProfilePresenter.swift in Sources */,
 				4F2E304F1ED08BB500BC14B4 /* TabBarInteractor.swift in Sources */,
 				4F2E30281ED05FA900BC14B4 /* ViewInterface.swift in Sources */,
 				4F2E30511ED08BB500BC14B4 /* TabBarPresenter.swift in Sources */,
 				4F2E302A1ED0603400BC14B4 /* RootWireframe.swift in Sources */,
 				4F2E30151ED05F5F00BC14B4 /* LoginInterfaces.swift in Sources */,
+				4F2E30611ED0A04E00BC14B4 /* ProfileInterfaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

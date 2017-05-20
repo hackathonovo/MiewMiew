@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 enum Transition {
     case root
@@ -53,10 +54,10 @@ extension BaseWireframe: WireframeInterface {
     }
     
     func showLoading() {
-        
+        MBProgressHUD.showAdded(to: navigationController.view, animated: true)
     }
     
     func hideLoading() {
-        
+        MBProgressHUD.hide(for: navigationController.view, animated: true)
     }
 }

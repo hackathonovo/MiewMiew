@@ -11,6 +11,7 @@ target 'HGSS' do
   pod 'GoogleMaps', :inhibit_warnings => true
   pod 'IQKeyboardManagerSwift', :inhibit_warnings => true
   pod 'JSQMessagesViewController', :inhibit_warnings => true
+  pod 'MBProgressHUD', '~> 1.0.0'
   pod 'RealmSwift', :inhibit_warnings => true
   pod 'Starscream', '~> 2.0.3', :inhibit_warnings => true
   pod "Unbox", :inhibit_warnings => true
