@@ -12,6 +12,8 @@ import UIKit
 
 final class ActionsViewController: UIViewController {
 
+    @IBOutlet weak var actionsTableView: UITableView!
+    
      // MARK: - Public properties -
 
      var presenter: ActionsPresenterInterface!
@@ -21,13 +23,28 @@ final class ActionsViewController: UIViewController {
      override func viewDidLoad() {
          super.viewDidLoad()
         title = "Actions"
+        actionsTableView.delegate = self
+        actionsTableView.dataSource = self
+        actionsTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        
+        actionsTableView.estimatedRowHeight = 101
+        actionsTableView.rowHeight = UITableViewAutomaticDimension
      }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear(animated: animated)
+    }
 
 }
 
 // MARK: - Extensions -
 
 extension ActionsViewController: ActionsViewInterface {
+    
+    func reloadView() {
+        actionsTableView.reloadData()
+    }
 }
 
 extension ActionsViewController: TabBarItemSetupable {
@@ -36,5 +53,26 @@ extension ActionsViewController: TabBarItemSetupable {
         tabBarItem.image = UIImage.fontAwesomeIcon(name: .map, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
         tabBarItem.selectedImage = UIImage.fontAwesomeIcon(name: .map, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
         tabBarItem.title = "Actions"
+    }
+}
+
+extension ActionsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfActionItems()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActionsTableViewCell", for: indexPath) as! ActionsTableViewCell
+        cell.configureCell(with: presenter.action(for: indexPath))
+        return cell
+    }
+}
+
+extension ActionsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        presenter.didSelectRescueAction(at: indexPath)
     }
 }

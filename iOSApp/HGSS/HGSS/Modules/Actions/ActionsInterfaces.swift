@@ -11,6 +11,7 @@
 import UIKit
 
 enum ActionsNavigationOption {
+    case details(RescueAction)
 }
 
 protocol ActionsWireframeInterface: WireframeInterface {
@@ -18,10 +19,15 @@ protocol ActionsWireframeInterface: WireframeInterface {
 }
 
 protocol ActionsViewInterface: ViewInterface {
+    func reloadView()
 }
 
 protocol ActionsPresenterInterface: PresenterInterface {
+    func numberOfActionItems() -> Int
+    func action(for indexPath: IndexPath) -> RescueAction
+    func didSelectRescueAction(at indexPath: IndexPath)
 }
 
 protocol ActionsInteractorInterface: InteractorInterface {
+    func getActions(completion: @escaping (Result<[RescueAction]>) -> Void)
 }

@@ -39,6 +39,11 @@ final class ActionsWireframe: BaseWireframe {
 extension ActionsWireframe: ActionsWireframeInterface {
 
     func navigate(to option: ActionsNavigationOption) {
+        switch option {
+        case .details(let action):
+            let wireframe = ActionDetailsWireframe(navigationController: navigationController)
+            wireframe.show(with: .push, action: action)
+        }
     }
 
 }

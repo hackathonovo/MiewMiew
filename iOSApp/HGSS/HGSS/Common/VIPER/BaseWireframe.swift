@@ -20,6 +20,7 @@ protocol WireframeInterface: class {
     func dismiss(animated: Bool)
     func showLoading()
     func hideLoading()
+    func showAlert(with message: String, with completion: ((UIAlertAction) -> Void)?)
 }
 
 class BaseWireframe {
@@ -59,5 +60,12 @@ extension BaseWireframe: WireframeInterface {
     
     func hideLoading() {
         MBProgressHUD.hide(for: navigationController.view, animated: true)
+    }
+    
+    func showAlert(with message: String, with completion: ((UIAlertAction) -> Void)?) {
+        let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: completion)
+        alertController.addAction(okAction)
+        navigationController.present(alertController, animated: true, completion: nil)
     }
 }

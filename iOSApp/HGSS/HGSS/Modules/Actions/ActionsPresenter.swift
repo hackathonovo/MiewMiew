@@ -17,6 +17,8 @@ final class ActionsPresenter {
     fileprivate weak var _view: ActionsViewInterface?
     fileprivate var _interactor: ActionsInteractorInterface
     fileprivate var _wireframe: ActionsWireframeInterface
+    
+    fileprivate var _actions: [RescueAction] = []
 
     // MARK: - Lifecycle -
 
@@ -25,10 +27,36 @@ final class ActionsPresenter {
         _view = view
         _interactor = interactor
     }
-
 }
 
 // MARK: - Extensions -
 
 extension ActionsPresenter: ActionsPresenterInterface {
+    
+    func viewWillAppear(animated: Bool) {
+        _wireframe.showLoading()
+        _interactor.getActions { [weak self] (result) in
+            guard let _self = self else { return }
+            _self._wireframe.hideLoading()
+            switch result {
+            case .success(let actions):
+                _self._actions = actions
+                _self._view?.reloadView()
+            case .failure(let error):
+                _self._wireframe.showAlert(with: error.localizedDescription, with: nil)
+            }
+        }
+    }
+    
+    func numberOfActionItems() -> Int {
+        return _actions.count
+    }
+    
+    func action(for indexPath: IndexPath) -> RescueAction {
+        return _actions[indexPath.row]
+    }
+    
+    func didSelectRescueAction(at indexPath: IndexPath) {
+        _wireframe.navigate(to: .details(_actions[indexPath.row]))
+    }
 }

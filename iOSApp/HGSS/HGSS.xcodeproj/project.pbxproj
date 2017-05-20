@@ -72,6 +72,14 @@
 		4F2E30951ED0B7DA00BC14B4 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30901ED0B7DA00BC14B4 /* MapPresenter.swift */; };
 		4F2E30961ED0B7DA00BC14B4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30911ED0B7DA00BC14B4 /* MapViewController.swift */; };
 		4F2E30971ED0B7DA00BC14B4 /* MapWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30921ED0B7DA00BC14B4 /* MapWireframe.swift */; };
+		4F2E30991ED0BBAA00BC14B4 /* RescueAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30981ED0BBAA00BC14B4 /* RescueAction.swift */; };
+		4F2E309C1ED0D71200BC14B4 /* ActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E309B1ED0D71200BC14B4 /* ActionsTableViewCell.swift */; };
+		4F2E309E1ED0D9A700BC14B4 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E309D1ED0D9A700BC14B4 /* Date+Formatter.swift */; };
+		4F2E30A51ED0DB1800BC14B4 /* ActionDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A01ED0DB1800BC14B4 /* ActionDetailsInteractor.swift */; };
+		4F2E30A61ED0DB1800BC14B4 /* ActionDetailsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A11ED0DB1800BC14B4 /* ActionDetailsInterfaces.swift */; };
+		4F2E30A71ED0DB1800BC14B4 /* ActionDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A21ED0DB1800BC14B4 /* ActionDetailsPresenter.swift */; };
+		4F2E30A81ED0DB1800BC14B4 /* ActionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */; };
+		4F2E30A91ED0DB1800BC14B4 /* ActionDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */; };
 		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +153,14 @@
 		4F2E30901ED0B7DA00BC14B4 /* MapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		4F2E30911ED0B7DA00BC14B4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4F2E30921ED0B7DA00BC14B4 /* MapWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapWireframe.swift; sourceTree = "<group>"; };
+		4F2E30981ED0BBAA00BC14B4 /* RescueAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueAction.swift; sourceTree = "<group>"; };
+		4F2E309B1ED0D71200BC14B4 /* ActionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsTableViewCell.swift; sourceTree = "<group>"; };
+		4F2E309D1ED0D9A700BC14B4 /* Date+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		4F2E30A01ED0DB1800BC14B4 /* ActionDetailsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsInteractor.swift; sourceTree = "<group>"; };
+		4F2E30A11ED0DB1800BC14B4 /* ActionDetailsInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsInterfaces.swift; sourceTree = "<group>"; };
+		4F2E30A21ED0DB1800BC14B4 /* ActionDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsPresenter.swift; sourceTree = "<group>"; };
+		4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsViewController.swift; sourceTree = "<group>"; };
+		4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsWireframe.swift; sourceTree = "<group>"; };
 		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2E301B1ED05FA900BC14B4 /* UIFont.swift */,
+				4F2E309D1ED0D9A700BC14B4 /* Date+Formatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +325,7 @@
 				4F2E30561ED090F600BC14B4 /* APIError.swift */,
 				4F2E30451ED085AC00BC14B4 /* Credentials.swift */,
 				4F2E30431ED0844800BC14B4 /* User.swift */,
+				4F2E30981ED0BBAA00BC14B4 /* RescueAction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,6 +390,8 @@
 		4F2E307E1ED0B6A300BC14B4 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E309F1ED0DB0000BC14B4 /* Details */,
+				4F2E309A1ED0D70100BC14B4 /* Cells */,
 				4F2E30891ED0B6BE00BC14B4 /* Actions.storyboard */,
 				4F2E307F1ED0B6B300BC14B4 /* ActionsInteractor.swift */,
 				4F2E30801ED0B6B300BC14B4 /* ActionsInterfaces.swift */,
@@ -393,6 +413,26 @@
 				4F2E30921ED0B7DA00BC14B4 /* MapWireframe.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		4F2E309A1ED0D70100BC14B4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E309B1ED0D71200BC14B4 /* ActionsTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4F2E309F1ED0DB0000BC14B4 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30A01ED0DB1800BC14B4 /* ActionDetailsInteractor.swift */,
+				4F2E30A11ED0DB1800BC14B4 /* ActionDetailsInterfaces.swift */,
+				4F2E30A21ED0DB1800BC14B4 /* ActionDetailsPresenter.swift */,
+				4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */,
+				4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		5B6FDD0BF2955E7691E34984 /* Pods */ = {
@@ -557,6 +597,7 @@
 				4F2E30841ED0B6B300BC14B4 /* ActionsInteractor.swift in Sources */,
 				4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */,
 				4F2E30161ED05F5F00BC14B4 /* LoginPresenter.swift in Sources */,
+				4F2E309C1ED0D71200BC14B4 /* ActionsTableViewCell.swift in Sources */,
 				4F2E30641ED0A04E00BC14B4 /* ProfileWireframe.swift in Sources */,
 				4F2E30271ED05FA900BC14B4 /* PresenterInterface.swift in Sources */,
 				4F2E307C1ED0B49000BC14B4 /* RescueActionViewController.swift in Sources */,
@@ -566,9 +607,11 @@
 				4F2E30711ED0B05900BC14B4 /* GoogleMapsInitializer.swift in Sources */,
 				4F2E30231ED05FA900BC14B4 /* UIFont.swift in Sources */,
 				4F2E306B1ED0AFFF00BC14B4 /* AppearanceInitializer.swift in Sources */,
+				4F2E30A91ED0DB1800BC14B4 /* ActionDetailsWireframe.swift in Sources */,
 				4F2E30871ED0B6B300BC14B4 /* ActionsViewController.swift in Sources */,
 				4F2E30241ED05FA900BC14B4 /* TabBarItemSetupable.swift in Sources */,
 				4F2E306F1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift in Sources */,
+				4F2E30991ED0BBAA00BC14B4 /* RescueAction.swift in Sources */,
 				4F2E30521ED08BB500BC14B4 /* TabBarController.swift in Sources */,
 				4F2E307D1ED0B49000BC14B4 /* RescueActionWireframe.swift in Sources */,
 				4F2E307A1ED0B49000BC14B4 /* RescueActionInterfaces.swift in Sources */,
@@ -579,19 +622,24 @@
 				4F2E30441ED0844800BC14B4 /* User.swift in Sources */,
 				4F2E30941ED0B7DA00BC14B4 /* MapInterfaces.swift in Sources */,
 				4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */,
+				4F2E309E1ED0D9A700BC14B4 /* Date+Formatter.swift in Sources */,
 				4F2E30931ED0B7DA00BC14B4 /* MapInteractor.swift in Sources */,
 				4F2E30971ED0B7DA00BC14B4 /* MapWireframe.swift in Sources */,
 				4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */,
+				4F2E30A71ED0DB1800BC14B4 /* ActionDetailsPresenter.swift in Sources */,
 				4F2E30881ED0B6B300BC14B4 /* ActionsWireframe.swift in Sources */,
 				4F2E30461ED085AC00BC14B4 /* Credentials.swift in Sources */,
 				4F2E30861ED0B6B300BC14B4 /* ActionsPresenter.swift in Sources */,
 				4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */,
 				4F2E30071ED05F1000BC14B4 /* AppDelegate.swift in Sources */,
 				4F2E30171ED05F5F00BC14B4 /* LoginViewController.swift in Sources */,
+				4F2E30A61ED0DB1800BC14B4 /* ActionDetailsInterfaces.swift in Sources */,
 				4F2E30621ED0A04E00BC14B4 /* ProfilePresenter.swift in Sources */,
 				4F2E304F1ED08BB500BC14B4 /* TabBarInteractor.swift in Sources */,
 				4F2E30281ED05FA900BC14B4 /* ViewInterface.swift in Sources */,
+				4F2E30A51ED0DB1800BC14B4 /* ActionDetailsInteractor.swift in Sources */,
 				4F2E30791ED0B49000BC14B4 /* RescueActionInteractor.swift in Sources */,
+				4F2E30A81ED0DB1800BC14B4 /* ActionDetailsViewController.swift in Sources */,
 				4F2E30511ED08BB500BC14B4 /* TabBarPresenter.swift in Sources */,
 				4F2E30851ED0B6B300BC14B4 /* ActionsInterfaces.swift in Sources */,
 				4F2E302A1ED0603400BC14B4 /* RootWireframe.swift in Sources */,
