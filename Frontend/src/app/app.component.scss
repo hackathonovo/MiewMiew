@@ -1,0 +1,97 @@
+@import 'custom-theme';
+@import "common-style";
+
+.toolbar-item {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+.toolbar-item-title {
+  margin-left: 10px;
+  margin-right: 30px;
+  color: white;
+}
+
+.toolbar-item--right {
+  float: right;
+}
+
+.sidenav-toolbar {
+  padding: 0;
+}
+
+.sidenav-toolbar-rows--first {
+  background-color: map-get($primary-color, 500) !important;
+  color: white !important;
+  height: 200px;
+  width: 300px !important;
+  padding: 30px !important;
+
+  @extend .sidenav-toolbar-rows;
+}
+
+.sidenav-logo {
+  height: 100% !important;
+  width: 100% !important;
+  background: {
+    image: url("../img/hgss.png");
+    size: contain;
+    repeat: no-repeat;
+    position: center;
+  }
+}
+
+.sidenav-toolbar-rows {
+  color: gray;
+  padding: 0 20px;
+}
+
+.sidenav-border {
+  height: 1px;
+  width: 240px !important;
+  background-color: lightgray;
+  margin: 0 30px;
+}
+
+.sidenav-toolbar-rows:last-child {
+  border-bottom: none !important;
+}
+
+.tabs-toolbar {
+  border: none;
+}
+
+.mat-tab-labels {
+  @extend .left-shadow;
+  background-color: map-get($primary-color, 500) !important;
+
+  .mat-tab-label:first-child {
+    margin-left: auto;
+  }
+  .mat-tab-label:last-child {
+    margin-right: auto;
+  }
+}
+
+.mat-tab-label-active {
+  opacity: 1 !important;
+}
+
+.mat-ink-bar {
+  background-color: map-get($accent-color, A200) !important;
+}
+
+.mat-tab-label {
+  color: white !important;
+  font-size: 16px !important;
+}
+
+.mat-tab-header {
+  border: none;
+}

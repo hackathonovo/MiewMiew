@@ -1,0 +1,80 @@
+<div class="left-shadow fix-height">
+  <div class="page-content margin-left-right-50">
+    <div>
+      <button md-button color="primary">Flat button</button>
+      <button md-raised-button class="white-text" color="accent">Raised button</button>
+      <button md-fab color="primary">
+        <md-icon>account_circle</md-icon>
+      </button>
+      <button md-mini-fab color="primary">
+        <md-icon>camera</md-icon>
+      </button>
+    </div>
+
+    <div>
+      <button md-raised-button color="primary" (click)="openDialog()">Open dialog</button>
+      <button md-raised-button color="primary" (click)="openSnackBar()">Open snack bar</button>
+      <button md-raised-button color="primary" (click)="callApi()">Call API</button>
+    </div>
+    <div>
+      <br>
+      <br>
+
+      <form class="example-form" style="width: 100%;">
+        <md-input-container class="example-full-width" style="width: 100%;">
+          <input mdInput placeholder="Socket message" [(ngModel)]="socketMessage" name="socketMessage">
+        </md-input-container>
+        <br>
+        <md-input-container class="example-full-width" style="width: 100%;">
+          <input mdInput placeholder="Socket message received" [(ngModel)]="socketMessageReceived"
+                 name="socketMessageReceived">
+        </md-input-container>
+      </form>
+
+      <button md-raised-button color="primary" (click)="sendSocketMessage()">Send Socket Message</button>
+      <br>
+      <br>
+    </div>
+
+    <div>
+      <md-chip-list>
+        <md-chip> md-chip</md-chip>
+
+        <md-chip class="background-primary-color white-text">md-chip background-primary-color white-text</md-chip>
+
+        <md-chip color="primary" selected="true">md-chip color="primary" selected="true"</md-chip>
+
+        <md-chip color="accent" selected="true">md-chip color="accent" selected="true"</md-chip>
+
+        <md-chip color="warn" selected="true">md-chip color="warn" selected="true"</md-chip>
+      </md-chip-list>
+    </div>
+
+    <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+
+    <div>
+      <md-progress-spinner mode="determinate" value="{{bufferValue}}"></md-progress-spinner>
+    </div>
+
+    <h3 class="primary-color">Determinate</h3>
+    <div class="margin-top-20">
+      <md-progress-bar color="accent" mode="determinate" value="{{bufferValue}}"></md-progress-bar>
+    </div>
+    <h3 class="primary-color">Indeterminate</h3>
+
+    <div>
+      <md-progress-bar color="accent" mode="indeterminate"></md-progress-bar>
+    </div>
+    <h3 class="primary-color">Buffer</h3>
+
+    <div>
+      <md-progress-bar color="accent" mode="buffer" bufferValue="{{bufferValue}}"></md-progress-bar>
+    </div>
+    <h3 class="primary-color">Query</h3>
+
+    <div>
+      <md-progress-bar color="accent" mode="query"></md-progress-bar>
+    </div>
+  </div>
+
+</div>

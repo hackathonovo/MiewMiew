@@ -1,0 +1,42 @@
+<md-sidenav-container fullscreen>
+  <md-toolbar color="primary" class="left-shadow">
+    <button md-button (click)="sidenav.toggle();onSidenavToogle()">
+      <md-icon>menu</md-icon>
+    </button>
+  </md-toolbar>
+  <md-tab-group class="left-shadow tabs-toolbar" selected-index="tabSelectedIndex">
+    <md-tab label="Home" class="left-shadow">
+      <app-home></app-home>
+    </md-tab>
+    <md-tab label="Test">
+      <app-test></app-test>
+    </md-tab>
+    <md-tab label="Cards">
+      <app-cards></app-cards>
+    </md-tab>
+    <md-tab label="Maps">
+      <app-maps></app-maps>
+    </md-tab>
+  </md-tab-group>
+
+  <md-sidenav #sidenav mode="side" opened="false" class="right-shadow">
+    <md-toolbar class="white-background sidenav-toolbar">
+      <div id="sidenav-toolbar-rows--hidden"></div>
+      <md-toolbar-row class="sidenav-toolbar-rows--first">
+        <div class="sidenav-logo">
+
+        </div>
+      </md-toolbar-row>
+      <md-toolbar-row class="sidenav-toolbar-rows">
+        <md-icon>place</md-icon>&nbsp; MiewMiew
+      </md-toolbar-row>
+      <md-toolbar-row class="sidenav-border"></md-toolbar-row>
+      <md-toolbar-row class="sidenav-toolbar-rows">
+        <md-icon>folder</md-icon>
+        &nbsp;
+        Folder
+      </md-toolbar-row>
+    </md-toolbar>
+  </md-sidenav>
+
+</md-sidenav-container>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MiewMiew</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<app-root>
+  <div style="
+    display: table-cell;
+    width:100vw;
+    height:100vh;
+    color:#f44336;
+    text-align: center;
+    font-size:60px;
+    font-weight: 500;
+    font-family: Arial,serif;
+    vertical-align: middle;
+    ">
+    MiewMiew
+  </div>
+</app-root>
+<script>
+  var initializedGoogleMap = false;
+  var googleMapsInitSubscribers = [];
+  function subscribeToGoogleMapInit(callback) {
+    console.log('map init subscribe', callback);
+    googleMapsInitSubscribers.push(callback);
+    if(initializedGoogleMap){
+      callback();
+    }
+  }
+  function initMap() {
+    console.log('index map init');
+    initializedGoogleMap = true;
+    googleMapsInitSubscribers.forEach(function (callback) {
+      callback();
+    });
+  }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaNJfY49tznGZ9V_rofRFt0bIB8uNqFEY&callback=initMap">
+</script>
+</body>
+</html>
