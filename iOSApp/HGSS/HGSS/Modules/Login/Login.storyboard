@@ -5,9 +5,14 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -25,23 +30,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00y-3S-ryS">
-                                <rect key="frame" x="167.5" y="323.5" width="40.5" height="20"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="esJ-IX-ggi">
+                                <rect key="frame" x="48" y="271.5" width="279" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="N1S-UK-Zha"/>
+                                </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qBy-Qu-8AL">
+                                <rect key="frame" x="48" y="329.5" width="279" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="ozk-JI-rc3"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5P-Fd-ZIv">
+                                <rect key="frame" x="48" y="399.5" width="279" height="40"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.28235294119999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6Tc-V1-gKj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didSelectLoginAction:" destination="rxS-x5-3Jh" eventType="touchUpInside" id="WJB-u4-RNf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hgss_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Th1-1d-7c2">
+                                <rect key="frame" x="97.5" y="81" width="180" height="166.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="XOi-Yy-tZd"/>
+                                    <constraint firstAttribute="width" secondItem="Th1-1d-7c2" secondAttribute="height" multiplier="227:210" id="xz5-KE-46I"/>
+                                </constraints>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBg-J7-7yp">
+                                <rect key="frame" x="48" y="372" width="279" height="14.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                <color key="textColor" red="0.80784313730000001" green="0.035294117649999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hackathonovo@2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cju-Qq-FtL">
+                                <rect key="frame" x="24" y="636" width="327" height="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                <color key="textColor" red="0.19215686269999999" green="0.28235294119999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="00y-3S-ryS" firstAttribute="centerX" secondItem="yBM-Un-F6e" secondAttribute="centerX" id="5PF-mb-0C7"/>
-                            <constraint firstItem="00y-3S-ryS" firstAttribute="centerY" secondItem="yBM-Un-F6e" secondAttribute="centerY" id="jMM-vD-A3K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kBg-J7-7yp" secondAttribute="trailing" constant="32" id="11q-YY-V4E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cju-Qq-FtL" secondAttribute="trailing" constant="8" id="501-XM-acj"/>
+                            <constraint firstItem="qBy-Qu-8AL" firstAttribute="top" secondItem="esJ-IX-ggi" secondAttribute="bottom" constant="22" id="5xc-VS-Wu9"/>
+                            <constraint firstItem="e5P-Fd-ZIv" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="32" id="Jt2-Dm-tUX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="esJ-IX-ggi" secondAttribute="trailing" constant="32" id="LZX-yC-Vqa"/>
+                            <constraint firstItem="tEw-V4-ExK" firstAttribute="top" secondItem="Cju-Qq-FtL" secondAttribute="bottom" constant="16" id="NYs-Nr-IQE"/>
+                            <constraint firstItem="Th1-1d-7c2" firstAttribute="centerX" secondItem="yBM-Un-F6e" secondAttribute="centerX" id="Q0N-oe-VCH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e5P-Fd-ZIv" secondAttribute="trailing" constant="32" id="R5X-7O-ubV"/>
+                            <constraint firstItem="esJ-IX-ggi" firstAttribute="top" secondItem="Th1-1d-7c2" secondAttribute="bottom" constant="24" id="StJ-5b-XKh"/>
+                            <constraint firstItem="qBy-Qu-8AL" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="32" id="UH6-6p-lv3"/>
+                            <constraint firstItem="qBy-Qu-8AL" firstAttribute="centerX" secondItem="yBM-Un-F6e" secondAttribute="centerX" id="XpA-9k-E5P"/>
+                            <constraint firstItem="qBy-Qu-8AL" firstAttribute="centerY" secondItem="yBM-Un-F6e" secondAttribute="centerY" constant="14" id="g9f-iK-djv"/>
+                            <constraint firstItem="e5P-Fd-ZIv" firstAttribute="top" secondItem="qBy-Qu-8AL" secondAttribute="bottom" constant="34" id="grk-UM-1LE"/>
+                            <constraint firstItem="Cju-Qq-FtL" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="8" id="her-6s-b4Q"/>
+                            <constraint firstItem="kBg-J7-7yp" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="32" id="izW-8R-roD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qBy-Qu-8AL" secondAttribute="trailing" constant="32" id="rXi-IP-i5X"/>
+                            <constraint firstItem="esJ-IX-ggi" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="32" id="t3t-Vm-SKV"/>
+                            <constraint firstItem="kBg-J7-7yp" firstAttribute="top" secondItem="qBy-Qu-8AL" secondAttribute="bottom" constant="6.5" id="zlf-OD-yxk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="kBg-J7-7yp" id="D2g-Sl-vmY"/>
+                        <outlet property="passwordField" destination="qBy-Qu-8AL" id="Fqb-pB-GWK"/>
+                        <outlet property="usernameField" destination="esJ-IX-ggi" id="iE4-9j-0xT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCu-Qr-9eZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120.8" y="45.42728635682159"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hgss_logo" width="113" height="105"/>
+    </resources>
 </document>

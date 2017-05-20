@@ -29,4 +29,11 @@ final class LoginPresenter {
 // MARK: - Extensions -
 
 extension LoginPresenter: LoginPresenterInterface {
+    
+    func didSelectLoginAction(with username: String?, password: String?) {
+        guard let _username = username, let _password = password, !_username.isEmpty, !_password.isEmpty else {
+            _view?.showLoginError(with: "Username / password not provided.")
+            return
+        }
+    }
 }

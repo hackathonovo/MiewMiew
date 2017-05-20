@@ -16,9 +16,11 @@ protocol LoginWireframeInterface: WireframeInterface {
 }
 
 protocol LoginViewInterface: ViewInterface {
+    func showLoginError(with message: String)
 }
 
 protocol LoginPresenterInterface: PresenterInterface {
+    func didSelectLoginAction(with username: String?, password: String?)
 }
 
 protocol LoginInteractorInterface: InteractorInterface {
