@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hackathonovo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDi-1f-Kyi">
+                                <rect key="frame" x="8" y="348.5" width="359" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hgss_logo" translatesAutoresizingMaskIntoConstraints="NO" id="pWM-Ga-gR8">
+                                <rect key="frame" x="101" y="172.5" width="173" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pWM-Ga-gR8" secondAttribute="height" multiplier="227:210" id="Cuh-f4-WcA"/>
+                                    <constraint firstAttribute="height" constant="160" id="nKU-oC-0OX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HGSS Edition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a7-iY-ihs">
+                                <rect key="frame" x="8" y="380.5" width="359" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miew Miew" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-Fu-fRv">
+                                <rect key="frame" x="24" y="632.5" width="327" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19215686269999999" green="0.28235294119999998" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="gwJ-Fu-fRv" secondAttribute="bottom" constant="20" id="1Sn-sS-ygL"/>
+                            <constraint firstItem="gwJ-Fu-fRv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="8" id="6pS-uh-gne"/>
+                            <constraint firstItem="pWM-Ga-gR8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DaK-fc-h6n"/>
+                            <constraint firstItem="6a7-iY-ihs" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="8" id="J0x-lN-nU3"/>
+                            <constraint firstItem="tDi-1f-Kyi" firstAttribute="top" secondItem="pWM-Ga-gR8" secondAttribute="bottom" constant="16" id="KuN-ze-TKS"/>
+                            <constraint firstAttribute="trailing" secondItem="6a7-iY-ihs" secondAttribute="trailing" constant="8" id="Nfa-E5-oPP"/>
+                            <constraint firstAttribute="trailing" secondItem="tDi-1f-Kyi" secondAttribute="trailing" constant="8" id="PYP-rw-Job"/>
+                            <constraint firstItem="tDi-1f-Kyi" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="8" id="UOf-eG-6ZB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gwJ-Fu-fRv" secondAttribute="trailing" constant="8" id="nuz-Ew-KBP"/>
+                            <constraint firstItem="pWM-Ga-gR8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-81" id="nyQ-lj-vEe"/>
+                            <constraint firstItem="6a7-iY-ihs" firstAttribute="top" secondItem="tDi-1f-Kyi" secondAttribute="bottom" constant="8" id="vqA-ql-EIs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hgss_logo" width="113" height="105"/>
+    </resources>
+</document>
