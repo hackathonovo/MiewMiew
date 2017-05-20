@@ -13,7 +13,18 @@ import java.io.Serializable;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Persistent class for entity stored in table "Poruka"
@@ -23,142 +34,145 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="Poruka", schema="dbo", catalog="HackatonIn2" )
+@Table(name = "Poruka", schema = "dbo", catalog = "HackatonIn2")
 // Define named queries here
-@NamedQueries ( {
-  @NamedQuery ( name="PorukaEntity.countAll", query="SELECT COUNT(x) FROM PorukaEntity x" )
-} )
+@NamedQueries({ @NamedQuery(name = "PorukaEntity.countAll", query = "SELECT COUNT(x) FROM PorukaEntity x") })
 public class PorukaEntity implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="Id", nullable=false)
-    private Integer    id           ;
-
-
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Column(name="Poruka")
-    private String     poruka       ;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="Vrijeme")
-    private Date       vrijeme      ;
-
-    @Column(name="Procitano")
-    private Byte       procitano    ;
-
-	// "akcijaid" (column "AkcijaId") is not defined by itself because used as FK in a link 
-	// "saljekorisnikid" (column "SaljeKorisnikId") is not defined by itself because used as FK in a link 
-	// "primakorisnikid" (column "PrimaKorisnikId") is not defined by itself because used as FK in a link 
-
-
-    //----------------------------------------------------------------------
-    // ENTITY LINKS ( RELATIONSHIP )
-    //----------------------------------------------------------------------
-    @ManyToOne
-    @JoinColumn(name="AkcijaId", referencedColumnName="id")
-    private AkcijaspasavanjeEntity akcijaspasavanje;
-
-    @ManyToOne
-    @JoinColumn(name="SaljeKorisnikId", referencedColumnName="Id")
-    private AspnetusersEntity aspnetusers ;
-
-    @ManyToOne
-    @JoinColumn(name="PrimaKorisnikId", referencedColumnName="Id")
-    private AspnetusersEntity aspnetusers2;
-
-
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    public PorukaEntity() {
+	
+	private static final long serialVersionUID = 1L;
+	
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Id", nullable = false)
+	private Integer id;
+	
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Column(name = "Poruka")
+	private String poruka;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "Vrijeme")
+	private Date vrijeme;
+	
+	@Column(name = "Procitano")
+	private Byte procitano;
+	
+	// "akcijaid" (column "AkcijaId") is not defined by itself because used as
+	// FK in a link
+	// "saljekorisnikid" (column "SaljeKorisnikId") is not defined by itself
+	// because used as FK in a link
+	// "primakorisnikid" (column "PrimaKorisnikId") is not defined by itself
+	// because used as FK in a link
+	
+	// ----------------------------------------------------------------------
+	// ENTITY LINKS ( RELATIONSHIP )
+	// ----------------------------------------------------------------------
+	@ManyToOne
+	@JoinColumn(name = "AkcijaId", referencedColumnName = "id")
+	private AkcijaspasavanjeEntity akcijaspasavanje;
+	
+	@ManyToOne
+	@JoinColumn(name = "SaljeKorisnikId", referencedColumnName = "Id")
+	private AspnetusersEntity aspnetusers;
+	
+	@ManyToOne
+	@JoinColumn(name = "PrimaKorisnikId", referencedColumnName = "Id")
+	private AspnetusersEntity aspnetusers2;
+	
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	public PorukaEntity() {
 		super();
-    }
-    
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
-    public void setId( Integer id ) {
-        this.id = id ;
-    }
-    public Integer getId() {
-        return this.id;
-    }
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
-    //--- DATABASE MAPPING : Poruka ( nvarchar ) 
-    public void setPoruka( String poruka ) {
-        this.poruka = poruka;
-    }
-    public String getPoruka() {
-        return this.poruka;
-    }
-
-    //--- DATABASE MAPPING : Vrijeme ( datetime ) 
-    public void setVrijeme( Date vrijeme ) {
-        this.vrijeme = vrijeme;
-    }
-    public Date getVrijeme() {
-        return this.vrijeme;
-    }
-
-    //--- DATABASE MAPPING : Procitano ( tinyint ) 
-    public void setProcitano( Byte procitano ) {
-        this.procitano = procitano;
-    }
-    public Byte getProcitano() {
-        return this.procitano;
-    }
-
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR LINKS
-    //----------------------------------------------------------------------
-    public void setAkcijaspasavanje( AkcijaspasavanjeEntity akcijaspasavanje ) {
-        this.akcijaspasavanje = akcijaspasavanje;
-    }
-    public AkcijaspasavanjeEntity getAkcijaspasavanje() {
-        return this.akcijaspasavanje;
-    }
-
-    public void setAspnetusers( AspnetusersEntity aspnetusers ) {
-        this.aspnetusers = aspnetusers;
-    }
-    public AspnetusersEntity getAspnetusers() {
-        return this.aspnetusers;
-    }
-
-    public void setAspnetusers2( AspnetusersEntity aspnetusers2 ) {
-        this.aspnetusers2 = aspnetusers2;
-    }
-    public AspnetusersEntity getAspnetusers2() {
-        return this.aspnetusers2;
-    }
-
-
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(id);
-        sb.append("]:"); 
-        sb.append(poruka);
-        sb.append("|");
-        sb.append(vrijeme);
-        sb.append("|");
-        sb.append(procitano);
-        return sb.toString(); 
-    } 
-
+	}
+	
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	public Integer getId() {
+		return this.id;
+	}
+	
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
+	// --- DATABASE MAPPING : Poruka ( nvarchar )
+	public void setPoruka(String poruka) {
+		this.poruka = poruka;
+	}
+	
+	public String getPoruka() {
+		return this.poruka;
+	}
+	
+	// --- DATABASE MAPPING : Vrijeme ( datetime )
+	public void setVrijeme(Date vrijeme) {
+		this.vrijeme = vrijeme;
+	}
+	
+	public Date getVrijeme() {
+		return this.vrijeme;
+	}
+	
+	// --- DATABASE MAPPING : Procitano ( tinyint )
+	public void setProcitano(Byte procitano) {
+		this.procitano = procitano;
+	}
+	
+	public Byte getProcitano() {
+		return this.procitano;
+	}
+	
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR LINKS
+	// ----------------------------------------------------------------------
+	public void setAkcijaspasavanje(AkcijaspasavanjeEntity akcijaspasavanje) {
+		this.akcijaspasavanje = akcijaspasavanje;
+	}
+	
+	public AkcijaspasavanjeEntity getAkcijaspasavanje() {
+		return this.akcijaspasavanje;
+	}
+	
+	public void setAspnetusers(AspnetusersEntity aspnetusers) {
+		this.aspnetusers = aspnetusers;
+	}
+	
+	public AspnetusersEntity getAspnetusers() {
+		return this.aspnetusers;
+	}
+	
+	public void setAspnetusers2(AspnetusersEntity aspnetusers2) {
+		this.aspnetusers2 = aspnetusers2;
+	}
+	
+	public AspnetusersEntity getAspnetusers2() {
+		return this.aspnetusers2;
+	}
+	
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(id);
+		sb.append("]:");
+		sb.append(poruka);
+		sb.append("|");
+		sb.append(vrijeme);
+		sb.append("|");
+		sb.append(procitano);
+		return sb.toString();
+	}
+	
 }

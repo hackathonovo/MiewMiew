@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Telosys Database Repository --><root>
-<tableList databaseId="0" databaseName="SQL-SERVER" databaseProductName="Microsoft SQL Server" generation="2017-05-20 16:12:54">
+<tableList databaseId="0" databaseName="SQL-SERVER" databaseProductName="Microsoft SQL Server" generation="2017-05-20 17:19:02">
 <table catalog="HackatonIn2" databaseType="TABLE" javaBean="Akcijaspasavanje" name="AkcijaSpasavanje" schema="dbo">
 <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Naziv" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="naziv" javaType="java.lang.String" jdbcTypeCode="-9" label="Naziv" maxLength="50" notNull="false" selected="true"/>
@@ -12,6 +12,7 @@
 <column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="VrstaSpasavanjaId" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="int" inputType="number" javaName="vrstaspasavanjaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Vrstaspasavanjaid" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="9" dbSize="18" dbTypeName="decimal" inputType="number" javaName="longitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Longitude" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="10" dbSize="18" dbTypeName="decimal" inputType="number" javaName="latitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NazivLokacije" dbNotNull="false" dbPosition="11" dbSize="100" dbTypeName="nvarchar" inputType="" javaName="nazivlokacije" javaType="java.lang.String" jdbcTypeCode="-9" label="Nazivlokacije" maxLength="100" notNull="false" selected="true"/>
 <fk name="FK_AkcijaSpasavanje_AspNetUsers_Id">
 <fkcol colname="VoditeljId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="AkcijaSpasavanje" tableref="AspNetUsers" updaterule="1"/>
 </fk>
