@@ -7,11 +7,18 @@ namespace MiewMiew.Models
     {
         public AspNetUsers()
         {
+            AkcijaSpasavanje = new HashSet<AkcijaSpasavanje>();
             AspNetUserClaims = new HashSet<AspNetUserClaims>();
             AspNetUserLogins = new HashSet<AspNetUserLogins>();
             AspNetUserRoles = new HashSet<AspNetUserRoles>();
+            Dostupan = new HashSet<Dostupan>();
+            Nedostupan = new HashSet<Nedostupan>();
+            PorukaPrimaKorisnik = new HashSet<Poruka>();
+            PorukaSaljeKorisnik = new HashSet<Poruka>();
             Socket = new HashSet<Socket>();
             SocketConnection = new HashSet<SocketConnection>();
+            Sudionici = new HashSet<Sudionici>();
+            VjestineKorisnika = new HashSet<VjestineKorisnika>();
         }
 
         public string Id { get; set; }
@@ -31,11 +38,23 @@ namespace MiewMiew.Models
         public string UserName { get; set; }
         public string Salt { get; set; }
         public DateTime? Created { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public int? Razina { get; set; }
+        public decimal? Latitude { get; set; }
+        public decimal? Longitude { get; set; }
 
+        public virtual ICollection<AkcijaSpasavanje> AkcijaSpasavanje { get; set; }
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetUserRoles> AspNetUserRoles { get; set; }
+        public virtual ICollection<Dostupan> Dostupan { get; set; }
+        public virtual ICollection<Nedostupan> Nedostupan { get; set; }
+        public virtual ICollection<Poruka> PorukaPrimaKorisnik { get; set; }
+        public virtual ICollection<Poruka> PorukaSaljeKorisnik { get; set; }
         public virtual ICollection<Socket> Socket { get; set; }
         public virtual ICollection<SocketConnection> SocketConnection { get; set; }
+        public virtual ICollection<Sudionici> Sudionici { get; set; }
+        public virtual ICollection<VjestineKorisnika> VjestineKorisnika { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace SL.Core.Service
 
         public UserToken Login(string username, string password)
         {
-            var user = _userRepository.GetUserByName(username).Result;
+            var user = _userRepository.GetUserByName(username);
             if (user != null && IsUserValid(user, password))
             {
                 DateTime expires = DateTime.UtcNow.AddMinutes(4320);  //TODO Configuration expires
@@ -56,12 +56,8 @@ namespace SL.Core.Service
             if (errors.Count != 0)
                 return new MessageDto(false, errors[0].ErrorMessage);
 
-            if (_userRepository.GetUserByName(registerDto.Username).Result != null)
+            if (_userRepository.GetUserByName(registerDto.Username) != null)
                 return new MessageDto(false, "Username is in use");
-
-            if (_userRepository.GetUserByEmail(registerDto.Email).Result != null)
-                return new MessageDto(false, "Email is in use");
-
 
 
             var passwordSalt = _encryptionService.CreateSalt();
@@ -114,7 +110,7 @@ namespace SL.Core.Service
 
         public UserToken RefreshTokens(string userName)
         {
-            var user = _userRepository.GetUserByName(userName).Result;
+            var user = _userRepository.GetUserByName(userName);
             DateTime expires = DateTime.UtcNow.AddMinutes(4320); //TODO Config expires
             return new UserToken(true, GetToken(userName, expires), Helper.DatetimeToMiliseconds(expires), Mapper.Map<UserInfoDto>(user));
         }
@@ -126,7 +122,7 @@ namespace SL.Core.Service
 
             // Here, you should create or look up an identity for the userName which is being authenticated.
             // For now, just creating a simple generic identity.
-            var user = _userRepository.GetUserByName(userName).Result;
+            var user = _userRepository.GetUserByName(userName);
             ClaimsIdentity identity = new ClaimsIdentity(new GenericIdentity(user.UserName, "TokenAuth"), new[] { new Claim("UserId", user.UserName, ClaimValueTypes.String), new Claim("Id", user.Id, ClaimValueTypes.String) });
             var descriptor = new SecurityTokenDescriptor
             {

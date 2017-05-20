@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MiewMiew.Models;
 
@@ -14,19 +15,14 @@ namespace MiewMiew.Repository
             _context = context;
         }
 
-        public async Task<AspNetUsers> GetUserById(string id)
+        public AspNetUsers GetUserById(string id)
         {
-            return await _context.AspNetUsers.SingleOrDefaultAsync(u => u.Id == id);
+            return  _context.AspNetUsers.SingleOrDefault(u => u.Id == id);
         }
 
-        public async Task<AspNetUsers> GetUserByName(string username)
+        public AspNetUsers GetUserByName(string username)
         {
-            return await _context.AspNetUsers.SingleOrDefaultAsync(u => u.UserName == username);
-        }
-
-        public async Task<AspNetUsers> GetUserByEmail(string email)
-        {
-            return await _context.AspNetUsers.SingleOrDefaultAsync(u => u.Email == email);
+            return _context.AspNetUsers.SingleOrDefault(u => u.UserName == username);
         }
 
         public void AddUser(AspNetUsers user)

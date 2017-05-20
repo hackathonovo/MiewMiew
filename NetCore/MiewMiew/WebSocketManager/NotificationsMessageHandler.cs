@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.IO;
-using System.Linq;
-using System.Net.WebSockets;
+﻿using System.Net.WebSockets;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.IdentityModel.Tokens;
 using MiewMiew.Dto;
 using MiewMiew.Helpers;
 using MiewMiew.Services.Interfaces;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Shared.Dto;
 using Shared.Dto.RequestDto;
-using SL.Core.Authentication;
 
 namespace MiewMiew.WebSocketManager
 {

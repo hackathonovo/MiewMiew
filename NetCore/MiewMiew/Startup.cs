@@ -16,6 +16,8 @@ using Microsoft.IdentityModel.Tokens;
 using MiewMiew.Middleware;
 using MiewMiew.Models;
 using MiewMiew.Repository;
+using MiewMiew.RescueAction;
+using MiewMiew.RescueAction.Models;
 using MiewMiew.Services;
 using MiewMiew.Services.Interfaces;
 using MiewMiew.WebSocketManager;
@@ -28,192 +30,183 @@ using SL.Core.Service.Interfaces;
 
 namespace MiewMiew
 {
-    public class Startup
-    {
-        private RsaSecurityKey key;
-        private TokenAuthOptions tokenOptions;
-        public static TokenValidationParameters tokenValidationParametars;
+	public class Startup
+	{
+		private RsaSecurityKey key;
+		private TokenAuthOptions tokenOptions;
+		public static TokenValidationParameters tokenValidationParametars;
 
-        public Startup(IHostingEnvironment env)
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", false, true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
-        }
+		public Startup(IHostingEnvironment env)
+		{
+			var builder = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json", false, true)
+				.AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
+				.AddEnvironmentVariables();
+			Configuration = builder.Build();
+		}
 
-        public IConfigurationRoot Configuration { get; }
+		public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            #region Token Config
+		// This method gets called by the runtime. Use this method to add services to the container.
+		public void ConfigureServices(IServiceCollection services)
+		{
+			#region Token Config
 
-            // *** CHANGE THIS FOR PRODUCTION USE ***
-            // Here, we're generating a random key to sign tokens - obviously this means
-            // that each time the app is started the key will change, and multiple servers 
-            // all have different keys. This should be changed to load a key from a file 
-            // securely delivered to your application, controlled by configuration.
-            //
-            // See the RSAKeyUtils.GetKeyParameters method for an examle of loading from
-            // a JSON file.
-            var keyParams = RSAKeyUtils.GetRandomKey(); //TODO secure storage
+			// *** CHANGE THIS FOR PRODUCTION USE ***
+			// Here, we're generating a random key to sign tokens - obviously this means
+			// that each time the app is started the key will change, and multiple servers 
+			// all have different keys. This should be changed to load a key from a file 
+			// securely delivered to your application, controlled by configuration.
+			//
+			// See the RSAKeyUtils.GetKeyParameters method for an examle of loading from
+			// a JSON file.
+			var keyParams = RSAKeyUtils.GetRandomKey(); //TODO secure storage
 
-            // Create the key, and a set of token options to record signing credentials 
-            // using that key, along with the other parameters we will need in the 
-            // token controlller.
-            key = new RsaSecurityKey(keyParams);
-            tokenOptions = new TokenAuthOptions
-            {
-                Audience = Configuration["TokenAudience"],
-                Issuer = Configuration["TokenIssuser"],
-                SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256Signature)
-            };
+			// Create the key, and a set of token options to record signing credentials 
+			// using that key, along with the other parameters we will need in the 
+			// token controlller.
+			key = new RsaSecurityKey(keyParams);
+			tokenOptions = new TokenAuthOptions
+			{
+				Audience = Configuration["TokenAudience"],
+				Issuer = Configuration["TokenIssuser"],
+				SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256Signature)
+			};
 
-            // Save the token options into an instance so they're accessible to the 
-            // controller.
-            services.AddSingleton(tokenOptions);
+			// Save the token options into an instance so they're accessible to the 
+			// controller.
+			services.AddSingleton(tokenOptions);
 
-            // Enable the use of an [Authorize("Bearer")] attribute on methods and classes to protect.
-            services.AddAuthorization(auth =>
-            {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
-                    //     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
-                    .RequireAuthenticatedUser().Build());
-            });
+			// Enable the use of an [Authorize("Bearer")] attribute on methods and classes to protect.
+			services.AddAuthorization(auth =>
+			{
+				auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+					//     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+					.RequireAuthenticatedUser().Build());
+			});
 
-            //   services.Configure<Settings>(Configuration.GetSection("App"));
+			//   services.Configure<Settings>(Configuration.GetSection("App"));
 
-            #endregion
+			#endregion
 
-            #region Repositories
+			#region Repositories
 
-            services.AddScoped<IUserRepository, UserRepository>();
+			services.AddScoped<IUserRepository, UserRepository>();
 
-            #endregion
+			#endregion
 
-            services.AddScoped<IMembershipService, MembershipService>();
-            services.AddScoped<IEncryptionService, EncryptionService>();
-            services.AddScoped<IWebSocketDatabaseManager, WebSocketDatabaseManager>();
-
-
-            services.AddSwaggerGen();
-
-            #region corsBuilder
-
-            var corsBuilder = new CorsPolicyBuilder();
-            corsBuilder.AllowAnyHeader();
-            corsBuilder.AllowAnyMethod();
-            corsBuilder.AllowAnyOrigin();
-            corsBuilder.AllowCredentials();
-            services.AddCors(options => { options.AddPolicy("AllowAll", corsBuilder.Build()); });
-
-            #endregion
-
-            // Add framework services.
-            services.AddMvc()
-                .AddViewLocalization()
-                .AddDataAnnotationsLocalization()
-                .AddJsonOptions(opt =>
-                {
-                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                    opt.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
-                });
-
-               services.AddWebSocketManager();
-
-            services.AddDbContext<HackatonIn2Context>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
-        {
-            #region Tokens
-
-            tokenValidationParametars = new TokenValidationParameters
-            {
-                IssuerSigningKey = key,
-                ValidAudience = tokenOptions.Audience,
-                ValidIssuer = tokenOptions.Issuer,
-                ValidateLifetime = true,
-                ClockSkew = TimeSpan.FromMinutes(0)
-            };
+			services.AddScoped<IMembershipService, MembershipService>();
+			services.AddScoped<IEncryptionService, EncryptionService>();
+			services.AddScoped<IWebSocketDatabaseManager, WebSocketDatabaseManager>();
+			services.AddScoped<IRescuersService, RescuersService>();
 
 
-            var options = new JwtBearerOptions
-            {
-                TokenValidationParameters = tokenValidationParametars
-            };
+			services.AddSwaggerGen();
 
-            app.UseJwtBearerAuthentication(options);
+			#region corsBuilder
 
-            #endregion
+			var corsBuilder = new CorsPolicyBuilder();
+			corsBuilder.AllowAnyHeader();
+			corsBuilder.AllowAnyMethod();
+			corsBuilder.AllowAnyOrigin();
+			corsBuilder.AllowCredentials();
+			services.AddCors(options => { options.AddPolicy("AllowAll", corsBuilder.Build()); });
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+			#endregion
 
-            app.UseStaticFiles();
+			// Add framework services.
+			services.AddMvc()
+				.AddViewLocalization()
+				.AddDataAnnotationsLocalization()
+				.AddJsonOptions(opt =>
+				{
+					opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+					opt.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
+				});
 
-            app.UseDeveloperExceptionPage();
+			   services.AddWebSocketManager();
 
-            app.UseCors("AllowAll");
+			services.AddDbContext<HackatonIn2Context>(
+				options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+		}
+
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
+		{
+			#region Tokens
+
+			tokenValidationParametars = new TokenValidationParameters
+			{
+				IssuerSigningKey = key,
+				ValidAudience = tokenOptions.Audience,
+				ValidIssuer = tokenOptions.Issuer,
+				ValidateLifetime = true,
+				ClockSkew = TimeSpan.FromMinutes(0)
+			};
 
 
-            // Enable middleware to serve generated Swagger as a JSON endpoint
-            app.UseSwagger();
+			var options = new JwtBearerOptions
+			{
+				TokenValidationParameters = tokenValidationParametars
+			};
 
-            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
-            app.UseSwaggerUi();
+			app.UseJwtBearerAuthentication(options);
+
+			#endregion
+
+			loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+			loggerFactory.AddDebug();
+
+			app.UseStaticFiles();
+
+			app.UseDeveloperExceptionPage();
+
+			app.UseCors("AllowAll");
 
 
-            Mapper.Initialize(config => { config.CreateMap<UserInfoDto, AspNetUsers>().ReverseMap(); });
+			// Enable middleware to serve generated Swagger as a JSON endpoint
+			app.UseSwagger();
 
-            var webSocketOptions = new WebSocketOptions()
-            {
-                KeepAliveInterval = TimeSpan.FromSeconds(5),
-                ReceiveBufferSize = 4 * 1024
-            };
-            app.UseWebSockets(webSocketOptions);
+			// Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+			app.UseSwaggerUi();
 
 
-            /*
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Path == "/notificaons")
-                    if (context.WebSockets.IsWebSocketRequest)
-                    {
-                        var webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                        await Echo(context, webSocket);
-                    }
-                    else
-                    {
-                        context.Response.StatusCode = 400;
-                    }
-                else
-                    await next();
-            });
-            */
-            app.UseMiddleware<ErrorHandlingMiddleware>();
+			Mapper.Initialize(config =>
+			{
+				config.CreateMap<UserInfoDto, AspNetUsers>().ReverseMap();
+				config.CreateMap<AkcijaSpasavanje, RescueActionDto>()
+					.ForMember(a => a.RescueLiveCycle, a => a.MapFrom(am => ((RescueCycleTypeEnum) am.FazaZivotnogCiklusa).ToString()))
+					.ForMember(a => a.RescueType, a => a.MapFrom(am => am.VrstaSpasavanja.Vrsta));
 
-            app.UseMvc();
-           app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
-        }
+				config.CreateMap<RescueActionDto, AkcijaSpasavanje>();
+			});
 
-        private async Task Echo(HttpContext context, WebSocket webSocket)
-        {
-            var buffer = new byte[1024 * 4];
-            var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            while (!result.CloseStatus.HasValue)
-            {
-                await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType,
-                    result.EndOfMessage, CancellationToken.None);
+			var webSocketOptions = new WebSocketOptions()
+			{
+				KeepAliveInterval = TimeSpan.FromSeconds(5),
+				ReceiveBufferSize = 4 * 1024
+			};
+			app.UseWebSockets(webSocketOptions);
 
-                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
-        }
-    }
+			app.UseMiddleware<ErrorHandlingMiddleware>();
+
+			app.UseMvc();
+		   app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
+		}
+
+		private async Task Echo(HttpContext context, WebSocket webSocket)
+		{
+			var buffer = new byte[1024 * 4];
+			var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+			while (!result.CloseStatus.HasValue)
+			{
+				await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType,
+					result.EndOfMessage, CancellationToken.None);
+
+				result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+			}
+			await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+		}
+	}
 }
