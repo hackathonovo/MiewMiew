@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using MiewMiew.Dto;
+using MiewMiew.Models;
 
 namespace MiewMiew.RescueAction.Models
 {
@@ -13,6 +15,8 @@ namespace MiewMiew.RescueAction.Models
 		public DateTime? Vrijeme { get; set; }
 		[Required]
 		public byte? Potraga { get; set; }
+		public string VoditeljNaziv { get; set; }
+		public UserDto User { get; set; }
 		public int? FazaZivotnogCiklusa { get; set; }
 		public string VoditeljId { get; set; }
 		public int? VrstaSpasavanjaId { get; set; }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MiewMiew.Models;
 using MiewMiew.Repository;
 using MiewMiew.RescueAction.Models;
@@ -23,7 +24,7 @@ namespace MiewMiew.RescueAction
 
 		public IEnumerable<AkcijaSpasavanje> GetAllActions()
 		{
-			return _context.AkcijaSpasavanje;
+			return _context.AkcijaSpasavanje.Include(a => a.Voditelj);
 		}
 
 		public IEnumerable<AkcijaSpasavanje> GetAllActionsActive()

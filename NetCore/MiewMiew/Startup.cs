@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using MiewMiew.Dto;
 using MiewMiew.Middleware;
 using MiewMiew.Models;
 using MiewMiew.Repository;
@@ -175,9 +176,11 @@ namespace MiewMiew
 			Mapper.Initialize(config =>
 			{
 				config.CreateMap<UserInfoDto, AspNetUsers>().ReverseMap();
+				config.CreateMap<UserDto, AspNetUsers>().ReverseMap();
 				config.CreateMap<AkcijaSpasavanje, RescueActionDto>()
 					.ForMember(a => a.RescueLiveCycle, a => a.MapFrom(am => ((RescueCycleTypeEnum) am.FazaZivotnogCiklusa).ToString()))
-					.ForMember(a => a.RescueType, a => a.MapFrom(am => am.VrstaSpasavanja.Vrsta));
+					.ForMember(a => a.RescueType, a => a.MapFrom(am => am.VrstaSpasavanja.Vrsta))
+					.ForMember(a => a.User, a => a.MapFrom(am => am.Voditelj != null ? Mapper.Map<AspNetUsers, UserDto>(am.Voditelj) : null));
 
 				config.CreateMap<RescueActionDto, AkcijaSpasavanje>();
 			});
