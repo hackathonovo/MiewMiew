@@ -26,13 +26,11 @@ namespace MiewMiew.Models
 		public virtual DbSet<VjestineKorisnika> VjestineKorisnika { get; set; }
 		public virtual DbSet<VrstaSpasavanja> VrstaSpasavanja { get; set; }
 
-
 		public HackatonIn2Context(DbContextOptions<HackatonIn2Context> options)
 			: base(options)
 		{
-			
-		}
 
+		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
@@ -46,7 +44,11 @@ namespace MiewMiew.Models
 
 				entity.Property(e => e.Naziv).HasMaxLength(50);
 
+				entity.Property(e => e.NazivLokacije).HasMaxLength(100);
+
 				entity.Property(e => e.Opis).HasMaxLength(550);
+
+				entity.Property(e => e.Radius).HasColumnType("decimal");
 
 				entity.Property(e => e.VoditeljId).HasMaxLength(450);
 

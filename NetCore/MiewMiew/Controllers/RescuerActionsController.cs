@@ -52,7 +52,7 @@ namespace MiewMiew.Controllers
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.ValidationError,
-					"Naziv, opis, potraga su obavezni tipovi"));
+					"Naziv, opis, potraga are required fields"));
 			}
 			Enum.TryParse(dto.RescueType, out RescueTypeEnum type);
 			action.VrstaSpasavanjaId = (int) type;

@@ -8,5 +8,7 @@ namespace MiewMiew.Repository
 		AspNetUsers GetUserById(string id);
 		AspNetUsers GetUserByName(string username);
 		void AddUser(AspNetUsers user);
+		void AddAvailableTimeForUser(Dostupan available);
+		void AddUnavailableTimeForUser(Nedostupan unavailable);
 	}
 }

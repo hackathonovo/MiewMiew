@@ -7,9 +7,9 @@ namespace MiewMiew.RescueAction.Models
 {
 	public enum RescueTypeEnum
 	{
-		Speleolog = 1,
+		Speleologist = 1,
 		Alpinist = 2,
-		Voda = 3,
-		Helikopter = 4
+		Water = 3,
+		Helicopter = 4
 	}
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ using MiewMiew.Models;
 using MiewMiew.Repository;
 using MiewMiew.RescueAction;
 using MiewMiew.RescueAction.Models;
+using MiewMiew.Rescuer.Model;
 using MiewMiew.Services;
 using MiewMiew.Services.Interfaces;
 using MiewMiew.WebSocketManager;
@@ -176,7 +179,12 @@ namespace MiewMiew
 			Mapper.Initialize(config =>
 			{
 				config.CreateMap<UserInfoDto, AspNetUsers>().ReverseMap();
-				config.CreateMap<UserDto, AspNetUsers>().ReverseMap();
+				config.CreateMap<UserDto, AspNetUsers>().ReverseMap()
+					.ForMember(a => a.Dostupan, a => a.MapFrom(am => am.Dostupan != null ? Mapper.Map<IEnumerable<Dostupan>, IEnumerable<AvailableDto>>(am.Dostupan) : null))
+					.ForMember(a => a.Nedostupan, a => a.MapFrom(am => am.Nedostupan!= null ? Mapper.Map<IEnumerable<Nedostupan>, IEnumerable<UnavailableDto>>(am.Nedostupan) : null));
+				config.CreateMap<AvailableDto, Dostupan>().ReverseMap();
+			 	config.CreateMap<UnavailableDto, Nedostupan>().ReverseMap();
+
 				config.CreateMap<AkcijaSpasavanje, RescueActionDto>()
 					.ForMember(a => a.RescueLiveCycle, a => a.MapFrom(am => ((RescueCycleTypeEnum) am.FazaZivotnogCiklusa).ToString()))
 					.ForMember(a => a.RescueType, a => a.MapFrom(am => am.VrstaSpasavanja.Vrsta))
@@ -195,7 +203,7 @@ namespace MiewMiew
 			app.UseMiddleware<ErrorHandlingMiddleware>();
 
 			app.UseMvc();
-		   app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
+		    app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
 		}
 
 		private async Task Echo(HttpContext context, WebSocket webSocket)

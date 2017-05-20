@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using MiewMiew.Models;
+using MiewMiew.Rescuer.Model;
 
 namespace MiewMiew.Dto
 {
@@ -19,5 +22,7 @@ namespace MiewMiew.Dto
 		public int? Razina { get; set; }
 		public decimal? Latitude { get; set; }
 		public decimal? Longitude { get; set; }
+		public IEnumerable<AvailableDto> Dostupan { get; set; }
+		public Collection<UnavailableDto> Nedostupan{ get; set; }
 	}
 }
