@@ -26,8 +26,8 @@ class ActionsTableViewCell: UITableViewCell {
     func configureCell(with action: RescueAction) {
         titleLabel.text = action.name
         statusLabel.text = action.rescueLifecycle?.rawValue
-        dateLabel.text = action.dateTime.formattedDate()
-        timeLabel.text = action.dateTime.formattedTime()
+        dateLabel.text = action.dateTime?.formattedDate()
+        timeLabel.text = action.dateTime?.formattedTime()
         descriptionLabel.text = action.actionDescription
     }
 
