@@ -1,6 +1,5 @@
 package hr.miewmiew.MiewMiew.dtomodel;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,9 +21,11 @@ public class AkcijaspasavanjeEntityDto {
 	
 	private Integer fazazivotnogciklusa;
 	
-	private BigDecimal longitude;
+	private Double longitude;
 	
-	private BigDecimal latitude;
+	private Double latitude;
+	
+	private Double radius;
 	
 	private String nazivlokacije;
 	
@@ -58,6 +59,7 @@ public class AkcijaspasavanjeEntityDto {
 			listaPoruka.add(new PorukaEntityDto(p));
 		}
 		this.listOfPoruka = listaPoruka;
+		this.radius = a.getRadius();
 	}
 	
 	public Integer getId() {
@@ -108,19 +110,19 @@ public class AkcijaspasavanjeEntityDto {
 		this.fazazivotnogciklusa = fazazivotnogciklusa;
 	}
 	
-	public BigDecimal getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 	
-	public void setLongitude(BigDecimal longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 	
-	public BigDecimal getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 	
-	public void setLatitude(BigDecimal latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 	
@@ -162,6 +164,14 @@ public class AkcijaspasavanjeEntityDto {
 	
 	public void setListOfPoruka(List<PorukaEntityDto> listOfPoruka) {
 		this.listOfPoruka = listOfPoruka;
+	}
+	
+	public Double getRadius() {
+		return radius;
+	}
+	
+	public void setRadius(Double radius) {
+		this.radius = radius;
 	}
 	
 }

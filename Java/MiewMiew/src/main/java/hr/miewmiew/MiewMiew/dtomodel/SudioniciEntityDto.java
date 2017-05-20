@@ -1,22 +1,29 @@
 package hr.miewmiew.MiewMiew.dtomodel;
 
-import java.math.BigDecimal;
+import hr.miewmiew.MiewMiew.dbmodel.jpa.SudioniciEntity;
 
 public class SudioniciEntityDto {
 	
 	private SudioniciEntityKeyDto compositePrimaryKey;
 	
-	private BigDecimal latitude;
+	private Double latitude;
 	
-	private BigDecimal longitude;
+	private Double longitude;
 	
-	private AspnetusersEntityDto aspnetusers;
+	// private AspnetusersEntityDto aspnetusers;
 	
-	private AkcijaspasavanjeEntityDto akcijaspasavanje;
+	// private AkcijaspasavanjeEntityDto akcijaspasavanje;
 	
 	public SudioniciEntityDto() {
 		super();
 		this.compositePrimaryKey = new SudioniciEntityKeyDto();
+	}
+	
+	public SudioniciEntityDto(SudioniciEntity sudionikReturned) {
+		this.compositePrimaryKey = new SudioniciEntityKeyDto(sudionikReturned.getKorisnikid(),
+				sudionikReturned.getAkcijaspasavanjaid());
+		this.latitude = sudionikReturned.getLatitude();
+		this.longitude = sudionikReturned.getLongitude();
 	}
 	
 	public SudioniciEntityKeyDto getCompositePrimaryKey() {
@@ -27,36 +34,37 @@ public class SudioniciEntityDto {
 		this.compositePrimaryKey = compositePrimaryKey;
 	}
 	
-	public BigDecimal getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 	
-	public void setLatitude(BigDecimal latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 	
-	public BigDecimal getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 	
-	public void setLongitude(BigDecimal longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 	
-	public AspnetusersEntityDto getAspnetusers() {
-		return aspnetusers;
-	}
-	
-	public void setAspnetusers(AspnetusersEntityDto aspnetusers) {
-		this.aspnetusers = aspnetusers;
-	}
-	
-	public AkcijaspasavanjeEntityDto getAkcijaspasavanje() {
-		return akcijaspasavanje;
-	}
-	
-	public void setAkcijaspasavanje(AkcijaspasavanjeEntityDto akcijaspasavanje) {
-		this.akcijaspasavanje = akcijaspasavanje;
-	}
+	// public AspnetusersEntityDto getAspnetusers() {
+	// return aspnetusers;
+	// }
+	//
+	// public void setAspnetusers(AspnetusersEntityDto aspnetusers) {
+	// this.aspnetusers = aspnetusers;
+	// }
+	//
+	// public AkcijaspasavanjeEntityDto getAkcijaspasavanje() {
+	// return akcijaspasavanje;
+	// }
+	//
+	// public void setAkcijaspasavanje(AkcijaspasavanjeEntityDto
+	// akcijaspasavanje) {
+	// this.akcijaspasavanje = akcijaspasavanje;
+	// }
 	
 }

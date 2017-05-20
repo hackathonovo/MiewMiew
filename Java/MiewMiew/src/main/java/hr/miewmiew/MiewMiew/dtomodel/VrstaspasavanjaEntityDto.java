@@ -1,7 +1,5 @@
 package hr.miewmiew.MiewMiew.dtomodel;
 
-import java.util.List;
-
 import hr.miewmiew.MiewMiew.dbmodel.jpa.VrstaspasavanjaEntity;
 
 public class VrstaspasavanjaEntityDto {
@@ -9,9 +7,10 @@ public class VrstaspasavanjaEntityDto {
 	
 	private String vrsta;
 	
-	private List<SpecijalnostivrstaspasavanjaEntityDto> listOfSpecijalnostivrstaspasavanja;
+	// private List<SpecijalnostivrstaspasavanjaEntityDto>
+	// listOfSpecijalnostivrstaspasavanja;
 	
-	private List<AkcijaspasavanjeEntityDto> listOfAkcijaspasavanje;
+	// private List<AkcijaspasavanjeEntityDto> listOfAkcijaspasavanje;
 	
 	public VrstaspasavanjaEntityDto() {
 		super();
@@ -38,21 +37,25 @@ public class VrstaspasavanjaEntityDto {
 		this.vrsta = vrsta;
 	}
 	
-	public List<SpecijalnostivrstaspasavanjaEntityDto> getListOfSpecijalnostivrstaspasavanja() {
-		return listOfSpecijalnostivrstaspasavanja;
-	}
-	
-	public void setListOfSpecijalnostivrstaspasavanja(
-			List<SpecijalnostivrstaspasavanjaEntityDto> listOfSpecijalnostivrstaspasavanja) {
-		this.listOfSpecijalnostivrstaspasavanja = listOfSpecijalnostivrstaspasavanja;
-	}
-	
-	public List<AkcijaspasavanjeEntityDto> getListOfAkcijaspasavanje() {
-		return listOfAkcijaspasavanje;
-	}
-	
-	public void setListOfAkcijaspasavanje(List<AkcijaspasavanjeEntityDto> listOfAkcijaspasavanje) {
-		this.listOfAkcijaspasavanje = listOfAkcijaspasavanje;
-	}
+	// public List<SpecijalnostivrstaspasavanjaEntityDto>
+	// getListOfSpecijalnostivrstaspasavanja() {
+	// return listOfSpecijalnostivrstaspasavanja;
+	// }
+	//
+	// public void setListOfSpecijalnostivrstaspasavanja(
+	// List<SpecijalnostivrstaspasavanjaEntityDto>
+	// listOfSpecijalnostivrstaspasavanja) {
+	// this.listOfSpecijalnostivrstaspasavanja =
+	// listOfSpecijalnostivrstaspasavanja;
+	// }
+	//
+	// public List<AkcijaspasavanjeEntityDto> getListOfAkcijaspasavanje() {
+	// return listOfAkcijaspasavanje;
+	// }
+	//
+	// public void setListOfAkcijaspasavanje(List<AkcijaspasavanjeEntityDto>
+	// listOfAkcijaspasavanje) {
+	// this.listOfAkcijaspasavanje = listOfAkcijaspasavanje;
+	// }
 	
 }
