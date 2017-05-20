@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: MiewMiew
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Galafix
+Implementation-Vendor-Id: hr.miewmiew
+Build-Jdk: 1.8.0_131
+Implementation-URL: http://projects.spring.io/spring-boot/MiewMiew/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="SQL-SERVER" databaseProductName="Microsoft SQL Server" generation="2017-05-20 16:12:54">
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Akcijaspasavanje" name="AkcijaSpasavanje" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Naziv" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="naziv" javaType="java.lang.String" jdbcTypeCode="-9" label="Naziv" maxLength="50" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Opis" dbNotNull="false" dbPosition="3" dbSize="550" dbTypeName="nvarchar" inputType="" javaName="opis" javaType="java.lang.String" jdbcTypeCode="-9" label="Opis" maxLength="550" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Vrijeme" dbNotNull="false" dbPosition="4" dbSize="23" dbTypeName="datetime" inputType="" javaName="vrijeme" javaType="java.util.Date" jdbcTypeCode="93" label="Vrijeme" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Potraga" dbNotNull="false" dbPosition="5" dbSize="3" dbTypeName="tinyint" inputType="number" javaName="potraga" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Potraga" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="FazaZivotnogCiklusa" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="int" inputType="number" javaName="fazazivotnogciklusa" javaType="java.lang.Integer" jdbcTypeCode="4" label="Fazazivotnogciklusa" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="VoditeljId" dbNotNull="false" dbPosition="7" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="voditeljid" javaType="java.lang.String" jdbcTypeCode="-9" label="Voditeljid" maxLength="450" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="VrstaSpasavanjaId" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="int" inputType="number" javaName="vrstaspasavanjaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Vrstaspasavanjaid" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="9" dbSize="18" dbTypeName="decimal" inputType="number" javaName="longitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Longitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="10" dbSize="18" dbTypeName="decimal" inputType="number" javaName="latitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitude" notNull="false" selected="true"/>
+<fk name="FK_AkcijaSpasavanje_AspNetUsers_Id">
+<fkcol colname="VoditeljId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="AkcijaSpasavanje" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<fk name="FK_AkcijaSpasavanje_VrstaSpasavanja_id">
+<fkcol colname="VrstaSpasavanjaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="AkcijaSpasavanje" tableref="VrstaSpasavanja" updaterule="1"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Sudionici_AkcijaSpasavanje_id" id="LINK_FK_FK_Sudionici_AkcijaSpasavanje_id_I" inverseSideOf="LINK_FK_FK_Sudionici_AkcijaSpasavanje_id_O" javaName="listOfSudionici" javaType="java.util.List" joinTableName="" mappedBy="akcijaspasavanje" optional="UNDEFINED" owningSide="false" sourceTableName="AkcijaSpasavanje" targetEntity="Sudionici" targetTableName="Sudionici" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AkcijaSpasavanje_id" id="LINK_FK_FK_Poruka_AkcijaSpasavanje_id_I" inverseSideOf="LINK_FK_FK_Poruka_AkcijaSpasavanje_id_O" javaName="listOfPoruka" javaType="java.util.List" joinTableName="" mappedBy="akcijaspasavanje" optional="UNDEFINED" owningSide="false" sourceTableName="AkcijaSpasavanje" targetEntity="Poruka" targetTableName="Poruka" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_VrstaSpasavanja_id" id="LINK_FK_FK_AkcijaSpasavanje_VrstaSpasavanja_id_O" inverseSideOf="" javaName="vrstaspasavanja" javaType="Vrstaspasavanja" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AkcijaSpasavanje" targetEntity="Vrstaspasavanja" targetTableName="VrstaSpasavanja" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="VrstaSpasavanjaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_AspNetUsers_Id" id="LINK_FK_FK_AkcijaSpasavanje_AspNetUsers_Id_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AkcijaSpasavanje" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="VoditeljId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetroleclaims" name="AspNetRoleClaims" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ClaimType" dbNotNull="false" dbPosition="2" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="claimtype" javaType="java.lang.String" jdbcTypeCode="-9" label="Claimtype" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ClaimValue" dbNotNull="false" dbPosition="3" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="claimvalue" javaType="java.lang.String" jdbcTypeCode="-9" label="Claimvalue" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="RoleId" dbNotNull="true" dbPosition="4" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="roleid" javaType="java.lang.String" jdbcTypeCode="-9" label="Roleid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<fk name="FK_AspNetRoleClaims_AspNetRoles_RoleId">
+<fkcol colname="RoleId" colref="Id" deferrable="7" deleterule="0" sequence="1" tablename="AspNetRoleClaims" tableref="AspNetRoles" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_AspNetRoleClaims_AspNetRoles_RoleId" id="LINK_FK_FK_AspNetRoleClaims_AspNetRoles_RoleId_O" inverseSideOf="" javaName="aspnetroles" javaType="Aspnetroles" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AspNetRoleClaims" targetEntity="Aspnetroles" targetTableName="AspNetRoles" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="RoleId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetroles" name="AspNetRoles" schema="dbo">
+<column dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="id" javaType="java.lang.String" jdbcTypeCode="-9" label="Id" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ConcurrencyStamp" dbNotNull="false" dbPosition="2" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="concurrencystamp" javaType="java.lang.String" jdbcTypeCode="-9" label="Concurrencystamp" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Name" dbNotNull="false" dbPosition="3" dbSize="256" dbTypeName="nvarchar" inputType="" javaName="name" javaType="java.lang.String" jdbcTypeCode="-9" label="Name" maxLength="256" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NormalizedName" dbNotNull="false" dbPosition="4" dbSize="256" dbTypeName="nvarchar" inputType="" javaName="normalizedname" javaType="java.lang.String" jdbcTypeCode="-9" label="Normalizedname" maxLength="256" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AspNetRoleClaims_AspNetRoles_RoleId" id="LINK_FK_FK_AspNetRoleClaims_AspNetRoles_RoleId_I" inverseSideOf="LINK_FK_FK_AspNetRoleClaims_AspNetRoles_RoleId_O" javaName="listOfAspnetroleclaims" javaType="java.util.List" joinTableName="" mappedBy="aspnetroles" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetRoles" targetEntity="Aspnetroleclaims" targetTableName="AspNetRoleClaims" used="true"/>
+<link cardinality="ManyToMany" cascade="" fetch="DEFAULT" foreignKeyName="" id="LINK_JT_dbo.AspNetUserRoles_O" inverseSideOf="" javaName="listOfAspnetusers" javaType="java.util.List" joinTableName="AspNetUserRoles" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AspNetRoles" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinTable name="AspNetUserRoles">
+<joinColumns>
+<joinColumn insertable="false" name="RoleId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+<inverseJoinColumns>
+<joinColumn insertable="false" name="UserId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</inverseJoinColumns>
+</joinTable>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetuserclaims" name="AspNetUserClaims" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ClaimType" dbNotNull="false" dbPosition="2" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="claimtype" javaType="java.lang.String" jdbcTypeCode="-9" label="Claimtype" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ClaimValue" dbNotNull="false" dbPosition="3" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="claimvalue" javaType="java.lang.String" jdbcTypeCode="-9" label="Claimvalue" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="UserId" dbNotNull="true" dbPosition="4" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="userid" javaType="java.lang.String" jdbcTypeCode="-9" label="Userid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<fk name="FK_AspNetUserClaims_AspNetUsers_UserId">
+<fkcol colname="UserId" colref="Id" deferrable="7" deleterule="0" sequence="1" tablename="AspNetUserClaims" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_AspNetUserClaims_AspNetUsers_UserId" id="LINK_FK_FK_AspNetUserClaims_AspNetUsers_UserId_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AspNetUserClaims" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="UserId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetuserlogins" name="AspNetUserLogins" schema="dbo">
+<column dbComment="" dbDefaultValue="" dbName="LoginProvider" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="loginprovider" javaType="java.lang.String" jdbcTypeCode="-9" label="Loginprovider" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ProviderKey" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="providerkey" javaType="java.lang.String" jdbcTypeCode="-9" label="Providerkey" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ProviderDisplayName" dbNotNull="false" dbPosition="3" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="providerdisplayname" javaType="java.lang.String" jdbcTypeCode="-9" label="Providerdisplayname" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="UserId" dbNotNull="true" dbPosition="4" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="userid" javaType="java.lang.String" jdbcTypeCode="-9" label="Userid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<fk name="FK_AspNetUserLogins_AspNetUsers_UserId">
+<fkcol colname="UserId" colref="Id" deferrable="7" deleterule="0" sequence="1" tablename="AspNetUserLogins" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_AspNetUserLogins_AspNetUsers_UserId" id="LINK_FK_FK_AspNetUserLogins_AspNetUsers_UserId_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AspNetUserLogins" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="UserId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetuserroles" name="AspNetUserRoles" schema="dbo">
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="UserId" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="userid" javaType="java.lang.String" jdbcTypeCode="-9" label="Userid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="RoleId" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="roleid" javaType="java.lang.String" jdbcTypeCode="-9" label="Roleid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<fk name="FK_AspNetUserRoles_AspNetRoles_RoleId">
+<fkcol colname="RoleId" colref="Id" deferrable="7" deleterule="0" sequence="1" tablename="AspNetUserRoles" tableref="AspNetRoles" updaterule="1"/>
+</fk>
+<fk name="FK_AspNetUserRoles_AspNetUsers_UserId">
+<fkcol colname="UserId" colref="Id" deferrable="7" deleterule="0" sequence="1" tablename="AspNetUserRoles" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetusertokens" name="AspNetUserTokens" schema="dbo">
+<column dbComment="" dbDefaultValue="" dbName="UserId" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="userid" javaType="java.lang.String" jdbcTypeCode="-9" label="Userid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="LoginProvider" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="loginprovider" javaType="java.lang.String" jdbcTypeCode="-9" label="Loginprovider" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Name" dbNotNull="true" dbPosition="3" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="name" javaType="java.lang.String" jdbcTypeCode="-9" label="Name" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Value" dbNotNull="false" dbPosition="4" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="value" javaType="java.lang.String" jdbcTypeCode="-9" label="Value" maxLength="2147483647" notNull="false" selected="true"/>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Aspnetusers" name="AspNetUsers" schema="dbo">
+<column dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="id" javaType="java.lang.String" jdbcTypeCode="-9" label="Id" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="AccessFailedCount" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="int" inputType="number" javaName="accessfailedcount" javaType="java.lang.Integer" jdbcTypeCode="4" label="Accessfailedcount" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ConcurrencyStamp" dbNotNull="false" dbPosition="3" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="concurrencystamp" javaType="java.lang.String" jdbcTypeCode="-9" label="Concurrencystamp" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Email" dbNotNull="false" dbPosition="4" dbSize="256" dbTypeName="nvarchar" inputType="" javaName="email" javaType="java.lang.String" jdbcTypeCode="-9" label="Email" maxLength="256" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="EmailConfirmed" dbNotNull="true" dbPosition="5" dbSize="1" dbTypeName="bit" inputType="checkbox" javaName="emailconfirmed" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Emailconfirmed" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="LockoutEnabled" dbNotNull="true" dbPosition="6" dbSize="1" dbTypeName="bit" inputType="checkbox" javaName="lockoutenabled" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Lockoutenabled" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="LockoutEnd" dbNotNull="false" dbPosition="7" dbSize="34" dbTypeName="datetimeoffset" inputType="" javaName="lockoutend" javaType="java.lang.String" jdbcTypeCode="-155" label="Lockoutend" maxLength="34" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NormalizedEmail" dbNotNull="false" dbPosition="8" dbSize="256" dbTypeName="nvarchar" inputType="" javaName="normalizedemail" javaType="java.lang.String" jdbcTypeCode="-9" label="Normalizedemail" maxLength="256" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NormalizedUserName" dbNotNull="false" dbPosition="9" dbSize="256" dbTypeName="nvarchar" inputType="" javaName="normalizedusername" javaType="java.lang.String" jdbcTypeCode="-9" label="Normalizedusername" maxLength="256" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="PasswordHash" dbNotNull="false" dbPosition="10" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="passwordhash" javaType="java.lang.String" jdbcTypeCode="-9" label="Passwordhash" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="PhoneNumber" dbNotNull="false" dbPosition="11" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="phonenumber" javaType="java.lang.String" jdbcTypeCode="-9" label="Phonenumber" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="PhoneNumberConfirmed" dbNotNull="true" dbPosition="12" dbSize="1" dbTypeName="bit" inputType="checkbox" javaName="phonenumberconfirmed" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Phonenumberconfirmed" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="SecurityStamp" dbNotNull="false" dbPosition="13" dbSize="2147483647" dbTypeName="nvarchar" inputType="" javaName="securitystamp" javaType="java.lang.String" jdbcTypeCode="-9" label="Securitystamp" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="TwoFactorEnabled" dbNotNull="true" dbPosition="14" dbSize="1" dbTypeName="bit" inputType="checkbox" javaName="twofactorenabled" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Twofactorenabled" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="UserName" dbNotNull="false" dbPosition="15" dbSize="256" dbTypeName="nvarchar" inputType="" javaName="username" javaType="java.lang.String" jdbcTypeCode="-9" label="Username" maxLength="256" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Salt" dbNotNull="false" dbPosition="16" dbSize="500" dbTypeName="nvarchar" inputType="" javaName="salt" javaType="java.lang.String" jdbcTypeCode="-9" label="Salt" maxLength="500" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Created" dbNotNull="false" dbPosition="17" dbSize="23" dbTypeName="datetime" inputType="" javaName="created" javaType="java.util.Date" jdbcTypeCode="93" label="Created" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Ime" dbNotNull="false" dbPosition="18" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="ime" javaType="java.lang.String" jdbcTypeCode="-9" label="Ime" maxLength="50" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Prezime" dbNotNull="false" dbPosition="19" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="prezime" javaType="java.lang.String" jdbcTypeCode="-9" label="Prezime" maxLength="50" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Razina" dbNotNull="false" dbPosition="20" dbSize="10" dbTypeName="int" inputType="number" javaName="razina" javaType="java.lang.Integer" jdbcTypeCode="4" label="Razina" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="21" dbSize="18" dbTypeName="decimal" inputType="number" javaName="latitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="22" dbSize="18" dbTypeName="decimal" inputType="number" javaName="longitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Longitude" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_AspNetUsers_Id" id="LINK_FK_FK_AkcijaSpasavanje_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_AkcijaSpasavanje_AspNetUsers_Id_O" javaName="listOfAkcijaspasavanje" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Dostupan_AspNetUsers_Id" id="LINK_FK_FK_Dostupan_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_Dostupan_AspNetUsers_Id_O" javaName="listOfDostupan" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Dostupan" targetTableName="Dostupan" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Sudionici_AspNetUsers_Id" id="LINK_FK_FK_Sudionici_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_Sudionici_AspNetUsers_Id_O" javaName="listOfSudionici" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Sudionici" targetTableName="Sudionici" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Nedostupan_AspNetUsers_Id" id="LINK_FK_FK_Nedostupan_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_Nedostupan_AspNetUsers_Id_O" javaName="listOfNedostupan" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Nedostupan" targetTableName="Nedostupan" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AspNetUsers_Id" id="LINK_FK_FK_Poruka_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_Poruka_AspNetUsers_Id_O" javaName="listOfPoruka" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Poruka" targetTableName="Poruka" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AspNetUserClaims_AspNetUsers_UserId" id="LINK_FK_FK_AspNetUserClaims_AspNetUsers_UserId_I" inverseSideOf="LINK_FK_FK_AspNetUserClaims_AspNetUsers_UserId_O" javaName="listOfAspnetuserclaims" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Aspnetuserclaims" targetTableName="AspNetUserClaims" used="true"/>
+<link cardinality="ManyToMany" cascade="" fetch="DEFAULT" foreignKeyName="" id="LINK_JT_dbo.AspNetUserRoles_I" inverseSideOf="LINK_JT_dbo.AspNetUserRoles_O" javaName="listOfAspnetroles" javaType="java.util.List" joinTableName="AspNetUserRoles" mappedBy="listOfAspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Aspnetroles" targetTableName="AspNetRoles" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_VjestineKorisnika_AspNetUsers_Id" id="LINK_FK_FK_VjestineKorisnika_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_VjestineKorisnika_AspNetUsers_Id_O" javaName="listOfVjestinekorisnika" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Vjestinekorisnika" targetTableName="VjestineKorisnika" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AspNetUsers_Id2" id="LINK_FK_FK_Poruka_AspNetUsers_Id2_I" inverseSideOf="LINK_FK_FK_Poruka_AspNetUsers_Id2_O" javaName="listOfPoruka2" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers2" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Poruka" targetTableName="Poruka" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_SocketConnection_UserId" id="LINK_FK_FK_SocketConnection_UserId_I" inverseSideOf="LINK_FK_FK_SocketConnection_UserId_O" javaName="listOfSocketconnection" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Socketconnection" targetTableName="SocketConnection" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Socket_UserId" id="LINK_FK_FK_Socket_UserId_I" inverseSideOf="LINK_FK_FK_Socket_UserId_O" javaName="listOfSocket" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Socket" targetTableName="Socket" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AspNetUserLogins_AspNetUsers_UserId" id="LINK_FK_FK_AspNetUserLogins_AspNetUsers_UserId_I" inverseSideOf="LINK_FK_FK_AspNetUserLogins_AspNetUsers_UserId_O" javaName="listOfAspnetuserlogins" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Aspnetuserlogins" targetTableName="AspNetUserLogins" used="true"/>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Dostupan" name="Dostupan" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dateType="T" dbComment="" dbDefaultValue="" dbName="Od" dbNotNull="false" dbPosition="2" dbSize="16" dbTypeName="time" inputType="time" javaName="od" javaType="java.util.Date" jdbcTypeCode="92" label="Od" notNull="false" selected="true"/>
+<column dateType="T" dbComment="" dbDefaultValue="" dbName="Do" dbNotNull="false" dbPosition="3" dbSize="16" dbTypeName="time" inputType="time" javaName="do" javaType="java.util.Date" jdbcTypeCode="92" label="Do" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Danutjednu" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="int" inputType="number" javaName="danutjednu" javaType="java.lang.Integer" jdbcTypeCode="4" label="Danutjednu" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="KorisnikId" dbNotNull="false" dbPosition="5" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="korisnikid" javaType="java.lang.String" jdbcTypeCode="-9" label="Korisnikid" maxLength="450" notNull="false" selected="true"/>
+<fk name="FK_Dostupan_AspNetUsers_Id">
+<fkcol colname="KorisnikId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="Dostupan" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Dostupan_AspNetUsers_Id" id="LINK_FK_FK_Dostupan_AspNetUsers_Id_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Dostupan" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="KorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Kompetencijekorisnika" name="KompetencijeKorisnika" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="korisnik" dbNotNull="false" dbPosition="2" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="korisnik" javaType="java.lang.String" jdbcTypeCode="-9" label="Korisnik" maxLength="450" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="kompetencija" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="int" inputType="number" javaName="kompetencija" javaType="java.lang.Integer" jdbcTypeCode="4" label="Kompetencija" notNull="false" selected="true"/>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Nedostupan" name="Nedostupan" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Od" dbNotNull="false" dbPosition="2" dbSize="23" dbTypeName="datetime" inputType="" javaName="od" javaType="java.util.Date" jdbcTypeCode="93" label="Od" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Do" dbNotNull="false" dbPosition="3" dbSize="23" dbTypeName="datetime" inputType="" javaName="do" javaType="java.util.Date" jdbcTypeCode="93" label="Do" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="KorisnikId" dbNotNull="false" dbPosition="4" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="korisnikid" javaType="java.lang.String" jdbcTypeCode="-9" label="Korisnikid" maxLength="450" notNull="false" selected="true"/>
+<fk name="FK_Nedostupan_AspNetUsers_Id">
+<fkcol colname="KorisnikId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="Nedostupan" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Nedostupan_AspNetUsers_Id" id="LINK_FK_FK_Nedostupan_AspNetUsers_Id_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Nedostupan" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="KorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Poruka" name="Poruka" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Poruka" dbNotNull="false" dbPosition="2" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="poruka" javaType="java.lang.String" jdbcTypeCode="-9" label="Poruka" maxLength="450" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="AkcijaId" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="int" inputType="number" javaName="akcijaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Akcijaid" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="SaljeKorisnikId" dbNotNull="false" dbPosition="4" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="saljekorisnikid" javaType="java.lang.String" jdbcTypeCode="-9" label="Saljekorisnikid" maxLength="450" notNull="false" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="Vrijeme" dbNotNull="false" dbPosition="5" dbSize="23" dbTypeName="datetime" inputType="" javaName="vrijeme" javaType="java.util.Date" jdbcTypeCode="93" label="Vrijeme" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="PrimaKorisnikId" dbNotNull="false" dbPosition="6" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="primakorisnikid" javaType="java.lang.String" jdbcTypeCode="-9" label="Primakorisnikid" maxLength="450" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Procitano" dbNotNull="false" dbPosition="7" dbSize="3" dbTypeName="tinyint" inputType="number" javaName="procitano" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Procitano" notNull="false" selected="true"/>
+<fk name="FK_Poruka_AkcijaSpasavanje_id">
+<fkcol colname="AkcijaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="Poruka" tableref="AkcijaSpasavanje" updaterule="1"/>
+</fk>
+<fk name="FK_Poruka_AspNetUsers_Id">
+<fkcol colname="SaljeKorisnikId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="Poruka" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<fk name="FK_Poruka_AspNetUsers_Id2">
+<fkcol colname="PrimaKorisnikId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="Poruka" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AspNetUsers_Id" id="LINK_FK_FK_Poruka_AspNetUsers_Id_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Poruka" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="SaljeKorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AkcijaSpasavanje_id" id="LINK_FK_FK_Poruka_AkcijaSpasavanje_id_O" inverseSideOf="" javaName="akcijaspasavanje" javaType="Akcijaspasavanje" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Poruka" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="AkcijaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AspNetUsers_Id2" id="LINK_FK_FK_Poruka_AspNetUsers_Id2_O" inverseSideOf="" javaName="aspnetusers2" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Poruka" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="PrimaKorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Socket" name="Socket" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Message" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="varchar" inputType="text" javaName="message" javaType="java.lang.String" jdbcTypeCode="12" label="Message" maxLength="50" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="UserId" dbNotNull="false" dbPosition="3" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="userid" javaType="java.lang.String" jdbcTypeCode="-9" label="Userid" maxLength="450" notNull="false" selected="true"/>
+<fk name="FK_Socket_UserId">
+<fkcol colname="UserId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="Socket" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Socket_UserId" id="LINK_FK_FK_Socket_UserId_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Socket" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="UserId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Socketconnection" name="SocketConnection" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="SocketId" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="socketid" javaType="java.lang.String" jdbcTypeCode="-9" label="Socketid" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="UserId" dbNotNull="false" dbPosition="3" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="userid" javaType="java.lang.String" jdbcTypeCode="-9" label="Userid" maxLength="450" notNull="false" selected="true"/>
+<fk name="FK_SocketConnection_UserId">
+<fkcol colname="UserId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="SocketConnection" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_SocketConnection_UserId" id="LINK_FK_FK_SocketConnection_UserId_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="SocketConnection" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="UserId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Specijalnosti" name="Specijalnosti" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Naziv" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="naziv" javaType="java.lang.String" jdbcTypeCode="-9" label="Naziv" maxLength="50" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_SpecijalnostiVrstaSpasavanja_Specijalnosti_Id" id="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_Specijalnosti_Id_I" inverseSideOf="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_Specijalnosti_Id_O" javaName="listOfSpecijalnostivrstaspasavanja" javaType="java.util.List" joinTableName="" mappedBy="specijalnosti" optional="UNDEFINED" owningSide="false" sourceTableName="Specijalnosti" targetEntity="Specijalnostivrstaspasavanja" targetTableName="SpecijalnostiVrstaSpasavanja" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_VjestineKorisnika_Specijalnosti_Id" id="LINK_FK_FK_VjestineKorisnika_Specijalnosti_Id_I" inverseSideOf="LINK_FK_FK_VjestineKorisnika_Specijalnosti_Id_O" javaName="listOfVjestinekorisnika" javaType="java.util.List" joinTableName="" mappedBy="specijalnosti" optional="UNDEFINED" owningSide="false" sourceTableName="Specijalnosti" targetEntity="Vjestinekorisnika" targetTableName="VjestineKorisnika" used="true"/>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Specijalnostivrstaspasavanja" name="SpecijalnostiVrstaSpasavanja" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="SpecijalnostiId" dbNotNull="false" dbPosition="2" dbSize="10" dbTypeName="int" inputType="number" javaName="specijalnostiid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Specijalnostiid" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="VrstaSpasavanjaId" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="int" inputType="number" javaName="vrstaspasavanjaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Vrstaspasavanjaid" notNull="false" selected="true"/>
+<fk name="FK_SpecijalnostiVrstaSpasavanja_Specijalnosti_Id">
+<fkcol colname="SpecijalnostiId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="SpecijalnostiVrstaSpasavanja" tableref="Specijalnosti" updaterule="1"/>
+</fk>
+<fk name="FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id">
+<fkcol colname="VrstaSpasavanjaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="SpecijalnostiVrstaSpasavanja" tableref="VrstaSpasavanja" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id" id="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id_O" inverseSideOf="" javaName="vrstaspasavanja" javaType="Vrstaspasavanja" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="SpecijalnostiVrstaSpasavanja" targetEntity="Vrstaspasavanja" targetTableName="VrstaSpasavanja" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="VrstaSpasavanjaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_SpecijalnostiVrstaSpasavanja_Specijalnosti_Id" id="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_Specijalnosti_Id_O" inverseSideOf="" javaName="specijalnosti" javaType="Specijalnosti" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="SpecijalnostiVrstaSpasavanja" targetEntity="Specijalnosti" targetTableName="Specijalnosti" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="SpecijalnostiId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Sudionici" name="Sudionici" schema="dbo">
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="KorisnikId" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="korisnikid" javaType="java.lang.String" jdbcTypeCode="-9" label="Korisnikid" maxLength="450" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="AkcijaSpasavanjaId" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="10" dbTypeName="int" inputType="number" javaName="akcijaspasavanjaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Akcijaspasavanjaid" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="3" dbSize="18" dbTypeName="decimal" inputType="number" javaName="latitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="4" dbSize="18" dbTypeName="decimal" inputType="number" javaName="longitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Longitude" notNull="false" selected="true"/>
+<fk name="FK_Sudionici_AkcijaSpasavanje_id">
+<fkcol colname="AkcijaSpasavanjaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="Sudionici" tableref="AkcijaSpasavanje" updaterule="1"/>
+</fk>
+<fk name="FK_Sudionici_AspNetUsers_Id">
+<fkcol colname="KorisnikId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="Sudionici" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Sudionici_AspNetUsers_Id" id="LINK_FK_FK_Sudionici_AspNetUsers_Id_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Sudionici" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="KorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Sudionici_AkcijaSpasavanje_id" id="LINK_FK_FK_Sudionici_AkcijaSpasavanje_id_O" inverseSideOf="" javaName="akcijaspasavanje" javaType="Akcijaspasavanje" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Sudionici" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="AkcijaSpasavanjaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Vjestinekorisnika" name="VjestineKorisnika" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="KorisnikId" dbNotNull="false" dbPosition="2" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="korisnikid" javaType="java.lang.String" jdbcTypeCode="-9" label="Korisnikid" maxLength="450" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="SpecijalnostId" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="int" inputType="number" javaName="specijalnostid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Specijalnostid" notNull="false" selected="true"/>
+<fk name="FK_VjestineKorisnika_AspNetUsers_Id">
+<fkcol colname="KorisnikId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="VjestineKorisnika" tableref="AspNetUsers" updaterule="1"/>
+</fk>
+<fk name="FK_VjestineKorisnika_Specijalnosti_Id">
+<fkcol colname="SpecijalnostId" colref="Id" deferrable="7" deleterule="1" sequence="1" tablename="VjestineKorisnika" tableref="Specijalnosti" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_VjestineKorisnika_AspNetUsers_Id" id="LINK_FK_FK_VjestineKorisnika_AspNetUsers_Id_O" inverseSideOf="" javaName="aspnetusers" javaType="Aspnetusers" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="VjestineKorisnika" targetEntity="Aspnetusers" targetTableName="AspNetUsers" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="KorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_VjestineKorisnika_Specijalnosti_Id" id="LINK_FK_FK_VjestineKorisnika_Specijalnosti_Id_O" inverseSideOf="" javaName="specijalnosti" javaType="Specijalnosti" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="VjestineKorisnika" targetEntity="Specijalnosti" targetTableName="Specijalnosti" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="SpecijalnostId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Vrstaspasavanja" name="VrstaSpasavanja" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Vrsta" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="vrsta" javaType="java.lang.String" jdbcTypeCode="-9" label="Vrsta" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id" id="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id_I" inverseSideOf="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id_O" javaName="listOfSpecijalnostivrstaspasavanja" javaType="java.util.List" joinTableName="" mappedBy="vrstaspasavanja" optional="UNDEFINED" owningSide="false" sourceTableName="VrstaSpasavanja" targetEntity="Specijalnostivrstaspasavanja" targetTableName="SpecijalnostiVrstaSpasavanja" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_VrstaSpasavanja_id" id="LINK_FK_FK_AkcijaSpasavanje_VrstaSpasavanja_id_I" inverseSideOf="LINK_FK_FK_AkcijaSpasavanje_VrstaSpasavanja_id_O" javaName="listOfAkcijaspasavanje" javaType="java.util.List" joinTableName="" mappedBy="vrstaspasavanja" optional="UNDEFINED" owningSide="false" sourceTableName="VrstaSpasavanja" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true"/>
+</table>
+</tableList>
+</root>
