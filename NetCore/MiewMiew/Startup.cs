@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using MiewMiew.Middleware;
 using MiewMiew.Models;
 using MiewMiew.Repository;
 using MiewMiew.Services;
@@ -172,7 +173,7 @@ namespace MiewMiew
 
             var webSocketOptions = new WebSocketOptions()
             {
-                KeepAliveInterval = TimeSpan.FromSeconds(60),
+                KeepAliveInterval = TimeSpan.FromSeconds(5),
                 ReceiveBufferSize = 4 * 1024
             };
             app.UseWebSockets(webSocketOptions);
@@ -195,9 +196,10 @@ namespace MiewMiew
                     await next();
             });
             */
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseMvc();
-            app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
+           app.MapWebSocketManager("/notifications", serviceProvider.GetService<NotificationsMessageHandler>());
         }
 
         private async Task Echo(HttpContext context, WebSocket webSocket)

@@ -1,7 +1,7 @@
 ﻿using Shared.Dto.RequestDto;
 using Shared.Dto.ResponseDto;
 
-namespace SL.Core.Service.Interfaces
+namespace MiewMiew.Services.Interfaces
 {
     public interface IMembershipService
     {

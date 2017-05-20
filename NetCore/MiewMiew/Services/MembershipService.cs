@@ -14,6 +14,7 @@ using MiewMiew;
 using MiewMiew.Helpers;
 using MiewMiew.Models;
 using MiewMiew.Repository;
+using MiewMiew.Services.Interfaces;
 
 namespace SL.Core.Service
 {
@@ -34,9 +35,6 @@ namespace SL.Core.Service
 
         public UserToken Login(string username, string password)
         {
-            if (username == null || password == null)
-                return new UserToken("Wrong password");
-
             var user = _userRepository.GetUserByName(username).Result;
             if (user != null && IsUserValid(user, password))
             {
@@ -45,7 +43,6 @@ namespace SL.Core.Service
                 return new UserToken(true, GetToken(username, expires), Helper.DatetimeToMiliseconds(expires), userInfo);
             }
             return new UserToken("Bad data");
-
         }
 
         
@@ -53,8 +50,6 @@ namespace SL.Core.Service
 
         public MessageDto Register(RegisterDto registerDto)
         {
-            if (registerDto == null)
-                return new MessageDto(false, "Krivi format");
 
          //   var errors = CheckIfModelStateIsValid(registerDto);
             var errors = ModelStateValidator<RegisterDto>.CheckIfModelStateIsValid(registerDto);
@@ -62,10 +57,10 @@ namespace SL.Core.Service
                 return new MessageDto(false, errors[0].ErrorMessage);
 
             if (_userRepository.GetUserByName(registerDto.Username).Result != null)
-                return new MessageDto(false, "username se koristi");
+                return new MessageDto(false, "Username is in use");
 
             if (_userRepository.GetUserByEmail(registerDto.Email).Result != null)
-                return new MessageDto(false, "email se koristi");
+                return new MessageDto(false, "Email is in use");
 
 
 
@@ -73,7 +68,6 @@ namespace SL.Core.Service
             var user = CreateUser(registerDto.Username, registerDto.Password, passwordSalt, registerDto.Email);
             _userRepository.AddUser(user);
             return new MessageDto(true,  "Successful registration");
-
         }
 
         private AspNetUsers CreateUser(string username, string password, string salt, string email)
