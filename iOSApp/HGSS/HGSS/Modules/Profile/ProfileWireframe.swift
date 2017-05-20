@@ -40,8 +40,9 @@ extension ProfileWireframe: ProfileWireframeInterface {
     func navigate(to option: ProfileNavigationOption) {
         switch option {
         case .login:
+            let navigationController = UINavigationController()
             let wireframe = LoginWireframe(navigationController: navigationController)
-            wireframe.show(with: .root, animated: true)
+            wireframe.show(with: .present(fromViewController: self.navigationController), animated: true)
         }
     }
 }

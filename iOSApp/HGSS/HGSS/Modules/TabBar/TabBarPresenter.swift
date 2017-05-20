@@ -23,7 +23,6 @@ final class TabBarPresenter {
         _view = view
         _interactor = interactor
     }
-    
 }
 
 // MARK: - Extensions -

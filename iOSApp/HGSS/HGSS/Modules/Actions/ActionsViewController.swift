@@ -22,6 +22,7 @@ final class ActionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
         title = "Actions"
         actionsTableView.delegate = self
         actionsTableView.dataSource = self

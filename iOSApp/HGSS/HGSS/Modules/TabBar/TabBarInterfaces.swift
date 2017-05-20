@@ -9,6 +9,7 @@
 import UIKit
 
 enum TabBarNavigationOption {
+    case login
 }
 
 protocol TabBarWireframeInterface: WireframeInterface {

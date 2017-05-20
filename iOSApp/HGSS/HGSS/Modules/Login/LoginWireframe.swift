@@ -41,8 +41,7 @@ extension LoginWireframe: LoginWireframeInterface {
     func navigate(to option: LoginNavigationOption) {
         switch option {
         case .home:
-            let wireframe = TabBarWireframe(navigationController: navigationController)
-            wireframe.show(with: .root, animated: true)
+            dismiss(animated: true)
         }
     }
 }

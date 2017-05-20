@@ -13,6 +13,7 @@ import UIKit
 enum ActionsNavigationOption {
     case details(RescueAction)
     case addAction(delegate: RescueActionDelegate)
+    case login
 }
 
 protocol ActionsWireframeInterface: WireframeInterface {

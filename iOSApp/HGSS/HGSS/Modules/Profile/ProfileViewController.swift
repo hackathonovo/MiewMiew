@@ -58,6 +58,9 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            UIView.animate(withDuration: 1.0) {
+                self.tabBarController?.selectedIndex = 0
+            }
             presenter.didSelectLogoutAction()
         }
     }

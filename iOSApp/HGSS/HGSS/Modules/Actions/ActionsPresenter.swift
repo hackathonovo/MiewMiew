@@ -27,11 +27,21 @@ final class ActionsPresenter {
         _view = view
         _interactor = interactor
     }
+    
+    fileprivate func _checkUser() {
+        if UserDefaults.standard.value(forKey: Constants.UserDefaults.userToken) == nil {
+            _wireframe.navigate(to: .login)
+        }
+    }
 }
 
 // MARK: - Extensions -
 
 extension ActionsPresenter: ActionsPresenterInterface {
+    
+    func viewDidLoad() {
+        _checkUser()
+    }
     
     func viewWillAppear(animated: Bool) {
         _wireframe.showLoading()
