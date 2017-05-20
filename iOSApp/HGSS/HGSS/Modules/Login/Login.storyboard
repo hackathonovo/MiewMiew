@@ -75,13 +75,13 @@
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBg-J7-7yp">
-                                <rect key="frame" x="48" y="372" width="279" height="14.5"/>
+                                <rect key="frame" x="48" y="373.5" width="279" height="14"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                 <color key="textColor" red="0.80784313730000001" green="0.035294117649999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hackathonovo@2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cju-Qq-FtL">
-                                <rect key="frame" x="24" y="636" width="327" height="15"/>
+                                <rect key="frame" x="24" y="637" width="327" height="14"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
                                 <color key="textColor" red="0.19215686269999999" green="0.28235294119999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                             <constraint firstItem="kBg-J7-7yp" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="32" id="izW-8R-roD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qBy-Qu-8AL" secondAttribute="trailing" constant="32" id="rXi-IP-i5X"/>
                             <constraint firstItem="esJ-IX-ggi" firstAttribute="leading" secondItem="yBM-Un-F6e" secondAttribute="leadingMargin" constant="32" id="t3t-Vm-SKV"/>
-                            <constraint firstItem="kBg-J7-7yp" firstAttribute="top" secondItem="qBy-Qu-8AL" secondAttribute="bottom" constant="6.5" id="zlf-OD-yxk"/>
+                            <constraint firstItem="kBg-J7-7yp" firstAttribute="top" secondItem="qBy-Qu-8AL" secondAttribute="bottom" constant="8" id="zlf-OD-yxk"/>
                         </constraints>
                     </view>
                     <connections>

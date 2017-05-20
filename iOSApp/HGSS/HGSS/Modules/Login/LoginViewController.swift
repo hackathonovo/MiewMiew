@@ -31,6 +31,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func didSelectLoginAction(_ sender: UIButton) {
+        view.endEditing(true)
         presenter.didSelectLoginAction(with: usernameField.text, password: passwordField.text)
     }
     

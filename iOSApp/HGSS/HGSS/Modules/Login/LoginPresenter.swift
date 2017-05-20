@@ -35,5 +35,15 @@ extension LoginPresenter: LoginPresenterInterface {
             _view?.showLoginError(with: "Username / password not provided.")
             return
         }
+        
+        _interactor.login(with: _username, password: _password) { [weak self] result in
+            guard let _self = self else { return }
+            switch result {
+            case .success(_):
+                print("Open app")
+            case .failure(let error):
+                _self._view?.showLoginError(with: error.localizedDescription)
+            }
+        }
     }
 }

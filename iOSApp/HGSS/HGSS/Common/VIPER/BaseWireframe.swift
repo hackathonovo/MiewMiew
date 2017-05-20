@@ -17,6 +17,8 @@ enum Transition {
 protocol WireframeInterface: class {
     func popFromNavigationController(animated: Bool)
     func dismiss(animated: Bool)
+    func showLoading()
+    func hideLoading()
 }
 
 class BaseWireframe {
@@ -48,5 +50,13 @@ extension BaseWireframe: WireframeInterface {
 
     func dismiss(animated: Bool) {
         navigationController.dismiss(animated: animated)
+    }
+    
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
     }
 }

@@ -33,6 +33,16 @@
 		4F2E303C1ED073FA00BC14B4 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30321ED073FA00BC14B4 /* Lato-Light.ttf */; };
 		4F2E303D1ED073FA00BC14B4 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30331ED073FA00BC14B4 /* Lato-LightItalic.ttf */; };
 		4F2E303E1ED073FA00BC14B4 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30341ED073FA00BC14B4 /* Lato-Regular.ttf */; };
+		4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30401ED0828C00BC14B4 /* APIService.swift */; };
+		4F2E30441ED0844800BC14B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30431ED0844800BC14B4 /* User.swift */; };
+		4F2E30461ED085AC00BC14B4 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30451ED085AC00BC14B4 /* Credentials.swift */; };
+		4F2E304F1ED08BB500BC14B4 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304A1ED08BB500BC14B4 /* TabBarInteractor.swift */; };
+		4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304B1ED08BB500BC14B4 /* TabBarInterfaces.swift */; };
+		4F2E30511ED08BB500BC14B4 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304C1ED08BB500BC14B4 /* TabBarPresenter.swift */; };
+		4F2E30521ED08BB500BC14B4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304D1ED08BB500BC14B4 /* TabBarController.swift */; };
+		4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304E1ED08BB500BC14B4 /* TabBarWireframe.swift */; };
+		4F2E30551ED08DE400BC14B4 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30541ED08DE400BC14B4 /* TabBar.storyboard */; };
+		4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30561ED090F600BC14B4 /* APIError.swift */; };
 		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +77,16 @@
 		4F2E30321ED073FA00BC14B4 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		4F2E30331ED073FA00BC14B4 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		4F2E30341ED073FA00BC14B4 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		4F2E30401ED0828C00BC14B4 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		4F2E30431ED0844800BC14B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4F2E30451ED085AC00BC14B4 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		4F2E304A1ED08BB500BC14B4 /* TabBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
+		4F2E304B1ED08BB500BC14B4 /* TabBarInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInterfaces.swift; sourceTree = "<group>"; };
+		4F2E304C1ED08BB500BC14B4 /* TabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		4F2E304D1ED08BB500BC14B4 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4F2E304E1ED08BB500BC14B4 /* TabBarWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarWireframe.swift; sourceTree = "<group>"; };
+		4F2E30541ED08DE400BC14B4 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		4F2E30561ED090F600BC14B4 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +143,8 @@
 		4F2E2FFD1ED05F1000BC14B4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E30421ED0844200BC14B4 /* Models */,
+				4F2E303F1ED0825D00BC14B4 /* Networking */,
 				4F2E301A1ED05FA900BC14B4 /* Extensions */,
 				4F2E301C1ED05FA900BC14B4 /* Protocols */,
 				4F2E301E1ED05FA900BC14B4 /* VIPER */,
@@ -133,6 +155,7 @@
 		4F2E2FFE1ED05F1000BC14B4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E30491ED08BA500BC14B4 /* TabBar */,
 				4F2E300C1ED05F4B00BC14B4 /* Login */,
 			);
 			path = Modules;
@@ -204,6 +227,37 @@
 				4F2E30221ED05FA900BC14B4 /* ViewInterface.swift */,
 			);
 			path = VIPER;
+			sourceTree = "<group>";
+		};
+		4F2E303F1ED0825D00BC14B4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30401ED0828C00BC14B4 /* APIService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4F2E30421ED0844200BC14B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30561ED090F600BC14B4 /* APIError.swift */,
+				4F2E30451ED085AC00BC14B4 /* Credentials.swift */,
+				4F2E30431ED0844800BC14B4 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F2E30491ED08BA500BC14B4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E30541ED08DE400BC14B4 /* TabBar.storyboard */,
+				4F2E304A1ED08BB500BC14B4 /* TabBarInteractor.swift */,
+				4F2E304B1ED08BB500BC14B4 /* TabBarInterfaces.swift */,
+				4F2E304C1ED08BB500BC14B4 /* TabBarPresenter.swift */,
+				4F2E304D1ED08BB500BC14B4 /* TabBarController.swift */,
+				4F2E304E1ED08BB500BC14B4 /* TabBarWireframe.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		5B6FDD0BF2955E7691E34984 /* Pods */ = {
@@ -298,6 +352,7 @@
 				4F2E30381ED073FA00BC14B4 /* Lato-BoldItalic.ttf in Resources */,
 				4F2E303E1ED073FA00BC14B4 /* Lato-Regular.ttf in Resources */,
 				4F2E30391ED073FA00BC14B4 /* Lato-Hairline.ttf in Resources */,
+				4F2E30551ED08DE400BC14B4 /* TabBar.storyboard in Resources */,
 				4F2E30091ED05F1000BC14B4 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,16 +413,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F2E30251ED05FA900BC14B4 /* BaseWireframe.swift in Sources */,
+				4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */,
 				4F2E30161ED05F5F00BC14B4 /* LoginPresenter.swift in Sources */,
 				4F2E30271ED05FA900BC14B4 /* PresenterInterface.swift in Sources */,
 				4F2E30141ED05F5F00BC14B4 /* LoginInteractor.swift in Sources */,
 				4F2E30181ED05F5F00BC14B4 /* LoginWireframe.swift in Sources */,
 				4F2E30231ED05FA900BC14B4 /* UIFont.swift in Sources */,
 				4F2E30241ED05FA900BC14B4 /* TabBarItemSetupable.swift in Sources */,
+				4F2E30521ED08BB500BC14B4 /* TabBarController.swift in Sources */,
 				4F2E30261ED05FA900BC14B4 /* InteractorInterface.swift in Sources */,
+				4F2E30441ED0844800BC14B4 /* User.swift in Sources */,
+				4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */,
+				4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */,
+				4F2E30461ED085AC00BC14B4 /* Credentials.swift in Sources */,
+				4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */,
 				4F2E30071ED05F1000BC14B4 /* AppDelegate.swift in Sources */,
 				4F2E30171ED05F5F00BC14B4 /* LoginViewController.swift in Sources */,
+				4F2E304F1ED08BB500BC14B4 /* TabBarInteractor.swift in Sources */,
 				4F2E30281ED05FA900BC14B4 /* ViewInterface.swift in Sources */,
+				4F2E30511ED08BB500BC14B4 /* TabBarPresenter.swift in Sources */,
 				4F2E302A1ED0603400BC14B4 /* RootWireframe.swift in Sources */,
 				4F2E30151ED05F5F00BC14B4 /* LoginInterfaces.swift in Sources */,
 			);

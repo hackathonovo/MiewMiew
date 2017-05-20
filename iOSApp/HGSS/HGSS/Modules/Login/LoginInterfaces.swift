@@ -9,6 +9,7 @@
 import UIKit
 
 enum LoginNavigationOption {
+    case home
 }
 
 protocol LoginWireframeInterface: WireframeInterface {
@@ -24,4 +25,5 @@ protocol LoginPresenterInterface: PresenterInterface {
 }
 
 protocol LoginInteractorInterface: InteractorInterface {
+    func login(with username: String, password: String, completion: @escaping (Result<User>) -> Void)
 }
