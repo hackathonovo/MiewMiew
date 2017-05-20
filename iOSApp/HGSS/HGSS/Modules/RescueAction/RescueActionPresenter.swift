@@ -15,13 +15,15 @@ final class RescueActionPresenter {
     fileprivate weak var _view: RescueActionViewInterface?
     fileprivate var _interactor: RescueActionInteractorInterface
     fileprivate var _wireframe: RescueActionWireframeInterface
+    fileprivate weak var _delegate: RescueActionDelegate?
 
     // MARK: - Lifecycle -
 
-    init(wireframe: RescueActionWireframeInterface, view: RescueActionViewInterface, interactor: RescueActionInteractorInterface) {
+    init(wireframe: RescueActionWireframeInterface, view: RescueActionViewInterface, interactor: RescueActionInteractorInterface, delegate: RescueActionDelegate?) {
         _wireframe = wireframe
         _view = view
         _interactor = interactor
+        _delegate = delegate
     }
 
 }
@@ -29,4 +31,8 @@ final class RescueActionPresenter {
 // MARK: - Extensions -
 
 extension RescueActionPresenter: RescueActionPresenterInterface {
+    
+    func didSelectCloseAction() {
+        _wireframe.dismiss(animated: true)
+    }
 }

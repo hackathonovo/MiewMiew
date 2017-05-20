@@ -10,10 +10,10 @@ import Foundation
 import Unbox
 
 enum RescueType: String, UnboxableEnum {
-    case speleolog = "Speleolog"
+    case speleologist = "Speleologist"
     case alpinist = "Alpinist"
-    case voda = "Voda"
-    case helikopter = "Helikopter"
+    case water = "Water"
+    case helicopter = "Helicopter"
 }
 
 enum RescueCycleType: String, UnboxableEnum {
@@ -32,8 +32,8 @@ class RescueAction: Unboxable {
     let dateTime: Date
     let pursuit: Int
     
-    let latitude: Double?
-    let longitude: Double?
+    var latitude: Double?
+    var longitude: Double?
     
     var rescueType: RescueType?
     var rescueLifecycle: RescueCycleType?

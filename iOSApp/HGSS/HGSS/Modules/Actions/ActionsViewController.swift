@@ -11,17 +11,17 @@
 import UIKit
 
 final class ActionsViewController: UIViewController {
-
+    
     @IBOutlet weak var actionsTableView: UITableView!
     
-     // MARK: - Public properties -
-
-     var presenter: ActionsPresenterInterface!
-
-     // MARK: - Lifecycle -
-
-     override func viewDidLoad() {
-         super.viewDidLoad()
+    // MARK: - Public properties -
+    
+    var presenter: ActionsPresenterInterface!
+    
+    // MARK: - Lifecycle -
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         title = "Actions"
         actionsTableView.delegate = self
         actionsTableView.dataSource = self
@@ -29,13 +29,23 @@ final class ActionsViewController: UIViewController {
         
         actionsTableView.estimatedRowHeight = 101
         actionsTableView.rowHeight = UITableViewAutomaticDimension
-     }
+        
+        _setupNavigationBar()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.viewWillAppear(animated: animated)
     }
-
+    
+    fileprivate func _setupNavigationBar() {
+        let addImage = UIImage.fontAwesomeIcon(name: .plus, textColor: UIColor.white, size: CGSize(width: 32, height: 32))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(didSelectAddAction))
+    }
+    
+    func didSelectAddAction() {
+        presenter.didSelectAddAction()
+    }
 }
 
 // MARK: - Extensions -

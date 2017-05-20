@@ -59,4 +59,15 @@ extension ActionsPresenter: ActionsPresenterInterface {
     func didSelectRescueAction(at indexPath: IndexPath) {
         _wireframe.navigate(to: .details(_actions[indexPath.row]))
     }
+    
+    func didSelectAddAction() {
+        _wireframe.navigate(to: .addAction(delegate: self))
+    }
+}
+
+extension ActionsPresenter: RescueActionDelegate {
+    
+    func didCreateAction() {
+        
+    }
 }

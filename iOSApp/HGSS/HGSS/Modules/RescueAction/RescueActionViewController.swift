@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 final class RescueActionViewController: UIViewController {
 
@@ -19,9 +20,17 @@ final class RescueActionViewController: UIViewController {
      override func viewDidLoad() {
          super.viewDidLoad()
         title = "New rescue action"
+        _setupNavigationBar()
      }
 
+    fileprivate func _setupNavigationBar() {
+        let closeImage = UIImage.fontAwesomeIcon(name: .close, textColor: UIColor.flatWhite, size: CGSize(width: 32, height: 32))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: closeImage, style: .plain, target: self, action: #selector(didSelectCloseAction))
+    }
     
+    func didSelectCloseAction() {
+        presenter.didSelectCloseAction()
+    }
 }
 
 // MARK: - Extensions -

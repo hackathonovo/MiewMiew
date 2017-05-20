@@ -16,18 +16,18 @@ final class RescueActionWireframe: BaseWireframe {
 
     // MARK: - Module setup -
 
-    func configureModule(with viewController: RescueActionViewController) {
+    func configureModule(with viewController: RescueActionViewController, delegate: RescueActionDelegate?) {
         let interactor = RescueActionInteractor()
-        let presenter = RescueActionPresenter(wireframe: self, view: viewController, interactor: interactor)
+        let presenter = RescueActionPresenter(wireframe: self, view: viewController, interactor: interactor, delegate: delegate)
         viewController.presenter = presenter
         viewController.setupTabBarItem()
     }
 
     // MARK: - Transitions -
 
-    func show(with transition: Transition, animated: Bool = true) {
+    func show(with transition: Transition, animated: Bool = true, delegate: RescueActionDelegate?) {
         let moduleViewController = _storyboard.instantiateViewController(withIdentifier: "RescueActionViewController") as! RescueActionViewController
-        configureModule(with: moduleViewController)
+        configureModule(with: moduleViewController, delegate: delegate)
 
         show(moduleViewController, with: transition, animated: animated)
     }

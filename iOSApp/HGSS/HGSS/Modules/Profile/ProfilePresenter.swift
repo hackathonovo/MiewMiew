@@ -27,9 +27,9 @@ final class ProfilePresenter {
     // MARK: - Private methods
     
     fileprivate func _logoutUser() {
-        UserDefaults.standard.removeSuite(named: Constants.UserDefaults.userToken)
-        UserDefaults.standard.removeSuite(named: Constants.UserDefaults.userId)
-        UserDefaults.standard.removeSuite(named: Constants.UserDefaults.username)
+        UserDefaults.standard.removeObject(forKey: Constants.UserDefaults.userToken)
+        UserDefaults.standard.removeObject(forKey: Constants.UserDefaults.userId)
+        UserDefaults.standard.removeObject(forKey: Constants.UserDefaults.username)
 
     }
 }

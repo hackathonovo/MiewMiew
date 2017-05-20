@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RescueActionDelegate: class {
+    func didCreateAction()
+}
+
 enum RescueActionNavigationOption {
 }
 
@@ -19,6 +23,7 @@ protocol RescueActionViewInterface: ViewInterface {
 }
 
 protocol RescueActionPresenterInterface: PresenterInterface {
+    func didSelectCloseAction()
 }
 
 protocol RescueActionInteractorInterface: InteractorInterface {

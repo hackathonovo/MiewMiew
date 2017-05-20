@@ -12,6 +12,7 @@ import UIKit
 
 enum ActionsNavigationOption {
     case details(RescueAction)
+    case addAction(delegate: RescueActionDelegate)
 }
 
 protocol ActionsWireframeInterface: WireframeInterface {
@@ -26,6 +27,7 @@ protocol ActionsPresenterInterface: PresenterInterface {
     func numberOfActionItems() -> Int
     func action(for indexPath: IndexPath) -> RescueAction
     func didSelectRescueAction(at indexPath: IndexPath)
+    func didSelectAddAction()
 }
 
 protocol ActionsInteractorInterface: InteractorInterface {

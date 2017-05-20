@@ -22,15 +22,13 @@ final class TabBarWireframe: BaseWireframe {
     fileprivate lazy var tabBarWireframes: [BaseWireframe] =  {
         let actions = ActionsWireframe(navigationController: self.actionsNavigationContorller)
         let maps = MapWireframe(navigationController: self.mapsNavigationContorller)
-        let rescueAction = RescueActionWireframe(navigationController: self.rescueActionNavigationController)
         let profile = ProfileWireframe(navigationController: self.profileNavigationController)
         
         actions.show(with: .root, animated: false)
         maps.show(with: .root, animated: false)
-        rescueAction.show(with: .root, animated: false)
         profile.show(with: .root, animated: false)
         
-        return [actions, maps, rescueAction, profile]
+        return [actions, maps, profile]
     }()
     
     // MARK: - Module setup -
