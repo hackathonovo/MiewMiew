@@ -34,7 +34,7 @@
 		4F2E303D1ED073FA00BC14B4 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30331ED073FA00BC14B4 /* Lato-LightItalic.ttf */; };
 		4F2E303E1ED073FA00BC14B4 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F2E30341ED073FA00BC14B4 /* Lato-Regular.ttf */; };
 		4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30401ED0828C00BC14B4 /* APIService.swift */; };
-		4F2E30441ED0844800BC14B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30431ED0844800BC14B4 /* User.swift */; };
+		4F2E30441ED0844800BC14B4 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30431ED0844800BC14B4 /* UserCredentials.swift */; };
 		4F2E30461ED085AC00BC14B4 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30451ED085AC00BC14B4 /* Credentials.swift */; };
 		4F2E304F1ED08BB500BC14B4 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304A1ED08BB500BC14B4 /* TabBarInteractor.swift */; };
 		4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E304B1ED08BB500BC14B4 /* TabBarInterfaces.swift */; };
@@ -80,6 +80,7 @@
 		4F2E30A71ED0DB1800BC14B4 /* ActionDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A21ED0DB1800BC14B4 /* ActionDetailsPresenter.swift */; };
 		4F2E30A81ED0DB1800BC14B4 /* ActionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */; };
 		4F2E30A91ED0DB1800BC14B4 /* ActionDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */; };
+		4F2E30AB1ED0E3D600BC14B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30AA1ED0E3D600BC14B4 /* User.swift */; };
 		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,7 +116,7 @@
 		4F2E30331ED073FA00BC14B4 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		4F2E30341ED073FA00BC14B4 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4F2E30401ED0828C00BC14B4 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		4F2E30431ED0844800BC14B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4F2E30431ED0844800BC14B4 /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		4F2E30451ED085AC00BC14B4 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		4F2E304A1ED08BB500BC14B4 /* TabBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
 		4F2E304B1ED08BB500BC14B4 /* TabBarInterfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInterfaces.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		4F2E30A21ED0DB1800BC14B4 /* ActionDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsPresenter.swift; sourceTree = "<group>"; };
 		4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsViewController.swift; sourceTree = "<group>"; };
 		4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsWireframe.swift; sourceTree = "<group>"; };
+		4F2E30AA1ED0E3D600BC14B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -324,8 +326,9 @@
 			children = (
 				4F2E30561ED090F600BC14B4 /* APIError.swift */,
 				4F2E30451ED085AC00BC14B4 /* Credentials.swift */,
-				4F2E30431ED0844800BC14B4 /* User.swift */,
+				4F2E30431ED0844800BC14B4 /* UserCredentials.swift */,
 				4F2E30981ED0BBAA00BC14B4 /* RescueAction.swift */,
+				4F2E30AA1ED0E3D600BC14B4 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				4F2E30871ED0B6B300BC14B4 /* ActionsViewController.swift in Sources */,
 				4F2E30241ED05FA900BC14B4 /* TabBarItemSetupable.swift in Sources */,
 				4F2E306F1ED0B03A00BC14B4 /* IQKeyboardManagerInitializer.swift in Sources */,
+				4F2E30AB1ED0E3D600BC14B4 /* User.swift in Sources */,
 				4F2E30991ED0BBAA00BC14B4 /* RescueAction.swift in Sources */,
 				4F2E30521ED08BB500BC14B4 /* TabBarController.swift in Sources */,
 				4F2E307D1ED0B49000BC14B4 /* RescueActionWireframe.swift in Sources */,
@@ -619,7 +623,7 @@
 				4F2E30671ED0A1D400BC14B4 /* Constants.swift in Sources */,
 				4F2E30631ED0A04E00BC14B4 /* ProfileViewController.swift in Sources */,
 				4F2E30601ED0A04E00BC14B4 /* ProfileInteractor.swift in Sources */,
-				4F2E30441ED0844800BC14B4 /* User.swift in Sources */,
+				4F2E30441ED0844800BC14B4 /* UserCredentials.swift in Sources */,
 				4F2E30941ED0B7DA00BC14B4 /* MapInterfaces.swift in Sources */,
 				4F2E30411ED0828C00BC14B4 /* APIService.swift in Sources */,
 				4F2E309E1ED0D9A700BC14B4 /* Date+Formatter.swift in Sources */,

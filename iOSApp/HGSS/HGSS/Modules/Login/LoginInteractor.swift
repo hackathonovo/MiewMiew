@@ -18,7 +18,7 @@ final class LoginInteractor {
 extension LoginInteractor: LoginInteractorInterface {
     
     
-    func login(with username: String, password: String, completion: @escaping (Result<User>) -> Void) {
+    func login(with username: String, password: String, completion: @escaping (Result<UserCredentials>) -> Void) {
         _apiService.login(with: username, password: password, completion: completion)
     }
 }

@@ -18,13 +18,13 @@ class APIService {
     
     let baseUrl = URL(string: "http://miewmiew.azurewebsites.net/api")!
     
-    func login(with username: String, password: String, completion: @escaping (Result<User>) -> Void) {
+    func login(with username: String, password: String, completion: @escaping (Result<UserCredentials>) -> Void) {
         Alamofire
             .request(baseUrl.appendingPathComponent("/Users/login") , method: .post, parameters: ["username": username, "password": password], encoding: JSONEncoding.default)
             .responseJSON { (response) in
                 switch response.result {
                 case .success(let value):
-                    if let _value = value as? UnboxableDictionary, let userInfo: User = try? unbox(dictionary: _value) {
+                    if let _value = value as? UnboxableDictionary, let userInfo: UserCredentials = try? unbox(dictionary: _value) {
                         completion(.success(userInfo))
                     } else if let _value = value as? UnboxableDictionary, let error: APIError = try? unbox(dictionary: _value) {
                         completion(.failure(error))

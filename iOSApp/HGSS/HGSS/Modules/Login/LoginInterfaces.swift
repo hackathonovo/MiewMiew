@@ -25,5 +25,5 @@ protocol LoginPresenterInterface: PresenterInterface {
 }
 
 protocol LoginInteractorInterface: InteractorInterface {
-    func login(with username: String, password: String, completion: @escaping (Result<User>) -> Void)
+    func login(with username: String, password: String, completion: @escaping (Result<UserCredentials>) -> Void)
 }

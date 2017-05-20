@@ -32,11 +32,13 @@ class RescueAction: Unboxable {
     let dateTime: Date
     let pursuit: Int
     
-//    let latitude: Double
-//    let longitude: Double
+    let latitude: Double?
+    let longitude: Double?
     
     var rescueType: RescueType?
     var rescueLifecycle: RescueCycleType?
+    
+    var user: User?
     
     required init(unboxer: Unboxer) throws {
         id = try unboxer.unbox(key: "id")
@@ -46,10 +48,11 @@ class RescueAction: Unboxable {
         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS"
         dateTime = try unboxer.unbox(key: "vrijeme", formatter: dateFormatter)
         pursuit = try unboxer.unbox(key: "potraga")
-//        latitude = try unboxer.unbox(key: "latitude")
-//        longitude = try unboxer.unbox(key: "longiture")
+        latitude = unboxer.unbox(key: "latitude")
+        longitude = unboxer.unbox(key: "longiture")
         rescueType = unboxer.unbox(key: "rescueType")
         rescueLifecycle = unboxer.unbox(key: "rescueLiveCycle")
+        user = unboxer.unbox(key: "user")
     }
 
 }

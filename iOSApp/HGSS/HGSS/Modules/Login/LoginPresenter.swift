@@ -26,7 +26,7 @@ final class LoginPresenter {
     
     // MARK: - Private methods
     
-    fileprivate func _saveUserData(userInfo: User) {
+    fileprivate func _saveUserData(userInfo: UserCredentials) {
         UserDefaults.standard.set(userInfo.id, forKey: Constants.UserDefaults.userId)
         UserDefaults.standard.set(userInfo.token, forKey: Constants.UserDefaults.userToken)
         UserDefaults.standard.set(userInfo.username, forKey: Constants.UserDefaults.username)

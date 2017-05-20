@@ -57,5 +57,10 @@ extension ActionDetailsViewController: ActionDetailsViewInterface {
         descriptionLabel.text = action.actionDescription
         dateLabel.text = action.dateTime.formattedDate()
         timeLabel.text = action.dateTime.formattedTime()
+        if let _firstName = action.user?.firstName, let _lastName = action.user?.lastName {
+            userNameLabel.text = "\(_firstName) \(_lastName)"
+        } else {
+            userNameLabel.text = "Ivo Ivić"
+        }
     }
 }
