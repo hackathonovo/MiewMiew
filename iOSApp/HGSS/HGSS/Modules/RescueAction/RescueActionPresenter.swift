@@ -16,6 +16,7 @@ final class RescueActionPresenter {
     fileprivate var _interactor: RescueActionInteractorInterface
     fileprivate var _wireframe: RescueActionWireframeInterface
     fileprivate weak var _delegate: RescueActionDelegate?
+    fileprivate var _action: RescueAction
 
     // MARK: - Lifecycle -
 
@@ -24,6 +25,7 @@ final class RescueActionPresenter {
         _view = view
         _interactor = interactor
         _delegate = delegate
+        _action = RescueAction()
     }
 
 }
@@ -34,5 +36,33 @@ extension RescueActionPresenter: RescueActionPresenterInterface {
     
     func didSelectCloseAction() {
         _wireframe.dismiss(animated: true)
+    }
+    
+    func didSelectCreateAction() {
+        // TODO: POZIV ZA SPREMANJE!!! + dismiss
+        _delegate?.didCreateAction()
+    }
+    
+    func updateAction(name: String?) {
+        _action.name = name
+    }
+    
+    func updateAction(descriptionText: String?) {
+        _action.actionDescription = descriptionText
+    }
+    
+    func updateAction(pursuit: Bool) {
+        _action.pursuit = pursuit == true ? 1 : 0
+    }
+    
+    func updateAction(rescueType: Int) {
+    }
+    
+    func numberOfPickerItems() -> Int {
+        return 3
+    }
+    
+    func pickerTitleFor(_ row: Int) -> String {
+        return "Proba"
     }
 }

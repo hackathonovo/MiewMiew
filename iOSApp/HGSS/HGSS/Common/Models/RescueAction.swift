@@ -26,11 +26,11 @@ enum RescueCycleType: String, UnboxableEnum {
 
 class RescueAction: Unboxable {
     
-    let id: Int
-    let name: String
-    let actionDescription: String
-    let dateTime: Date?
-    let pursuit: Int
+    var id: Int?
+    var name: String?
+    var actionDescription: String?
+    var dateTime: Date?
+    var pursuit: Int?
     
     var latitude: Double?
     var longitude: Double?
@@ -40,18 +40,35 @@ class RescueAction: Unboxable {
     
     var user: User?
     
-    required init(unboxer: Unboxer) throws {
-        id = try unboxer.unbox(key: "id")
-        name = try unboxer.unbox(key: "naziv")
-        actionDescription = try unboxer.unbox(key: "opis")
+    init() { }
+    
+    required convenience init(unboxer: Unboxer) throws {
+        let id: Int = try unboxer.unbox(key: "id")
+        let name: String = try unboxer.unbox(key: "naziv")
+        let actionDescription: String = try unboxer.unbox(key: "opis")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS"
-        dateTime = unboxer.unbox(key: "vrijeme", formatter: dateFormatter)
-        pursuit = try unboxer.unbox(key: "potraga")
-        latitude = unboxer.unbox(key: "latitude")
-        longitude = unboxer.unbox(key: "longiture")
-        rescueType = unboxer.unbox(key: "rescueType")
-        rescueLifecycle = unboxer.unbox(key: "rescueLiveCycle")
-        user = unboxer.unbox(key: "user")
+        let dateTime: Date? = unboxer.unbox(key: "vrijeme", formatter: dateFormatter)
+        let pursuit: Int = try unboxer.unbox(key: "potraga")
+        let latitude: Double? = unboxer.unbox(key: "latitude")
+        let longitude: Double? = unboxer.unbox(key: "longiture")
+        let rescueType: String? = unboxer.unbox(key: "rescueType")
+        let rescueLifecycle: RescueCycleType? = unboxer.unbox(key: "rescueLiveCycle")
+        let user: User? = unboxer.unbox(key: "user")
+        self.init(id: id, name: name, actionDescription: actionDescription, dateTime: dateTime, pursuit: pursuit, latitude: latitude, longitude: longitude, rescueType: rescueType, rescueLifecycle: rescueLifecycle, user: user)
+    }
+    
+    convenience init(id: Int, name: String, actionDescription: String, dateTime: Date?, pursuit: Int, latitude: Double?, longitude: Double?, rescueType: String?, rescueLifecycle: RescueCycleType?, user: User?) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.actionDescription = actionDescription
+        self.dateTime = dateTime
+        self.latitude = latitude
+        self.longitude = longitude
+        self.rescueType = rescueType
+        self.rescueLifecycle = rescueLifecycle
+        self.user = user
+        self.pursuit = pursuit
     }
 }

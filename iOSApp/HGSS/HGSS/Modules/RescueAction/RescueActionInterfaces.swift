@@ -24,6 +24,12 @@ protocol RescueActionViewInterface: ViewInterface {
 
 protocol RescueActionPresenterInterface: PresenterInterface {
     func didSelectCloseAction()
+    func updateAction(name: String?)
+    func updateAction(descriptionText: String?)
+    func updateAction(pursuit: Bool)
+    func updateAction(rescueType: Int)
+    func numberOfPickerItems() -> Int
+    func pickerTitleFor(_ row: Int) -> String
 }
 
 protocol RescueActionInteractorInterface: InteractorInterface {
