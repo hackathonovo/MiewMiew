@@ -1,0 +1,35 @@
+.rescuer-dialog{
+  width: 300px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.rescuer-dialog-form {
+  margin-top: 10px;
+}
+
+.left-button {
+  margin-left: auto;
+}
+
+.rescuer-image {
+  width: 348px;
+  height: 150px;
+  margin-right: -24px;
+  margin-left: -24px;
+  background: {
+    size: cover;
+    position: 50%;
+  }
+
+  &-1{
+    background-image: url("../../img/rescuer1.png");
+  }
+
+  &-2{
+    background-image: url("../../img/rescuer2.png");
+  }
+}
+

@@ -1,0 +1,77 @@
+<md-sidenav-container fullscreen>
+  <md-toolbar color="primary" class="left-shadow">
+    <button md-button (click)="sidenav.toggle();onSidenavToogle()" class="menu-margin">
+      <md-icon>menu</md-icon>
+    </button>
+  </md-toolbar>
+  <md-tab-group #tabGroup class="left-shadow tabs-toolbar" (selectChange)="selectedIndexChange($event)">
+    <ng-template [ngIf]="!userService.isLoggedIn()">
+      <md-tab label="HGSS Rescue" class="left-shadow">
+        <app-home></app-home>
+      </md-tab>
+    </ng-template>
+
+    <ng-template [ngIf]="userService.isLoggedIn()">
+      <md-tab label="Rescue actions">
+        <app-rescue-action></app-rescue-action>
+      </md-tab>
+
+      <md-tab label="Rescuers">
+        <app-rescuers></app-rescuers>
+      </md-tab>
+
+      <md-tab label="Maps">
+        <app-maps></app-maps>
+      </md-tab>
+
+      <md-tab label="Code Books">
+        <app-code-books></app-code-books>
+      </md-tab>
+
+      <md-tab label="Chat">
+        <app-chat></app-chat>
+      </md-tab>
+    </ng-template>
+  </md-tab-group>
+
+  <md-sidenav #sidenav mode="side" opened="false" class="right-shadow">
+    <md-toolbar class="white-background sidenav-toolbar">
+      <div id="sidenav-toolbar-rows--hidden"></div>
+      <md-toolbar-row class="sidenav-toolbar-rows--first">
+        <div class="sidenav-logo">
+
+        </div>
+      </md-toolbar-row>
+
+
+      <md-toolbar-row class="sidenav-toolbar-rows" (click)="goToHGSS()">
+        <md-icon>help</md-icon>
+        &nbsp;
+        HGSS page
+      </md-toolbar-row>
+
+      <md-toolbar-row class="sidenav-border" [ngClass]="{'sidenav-hidden': userService.isLoggedIn()}"></md-toolbar-row>
+
+
+      <md-toolbar-row class="sidenav-toolbar-rows" (click)="openLoginDialog()" [ngClass]="{'sidenav-hidden': userService.isLoggedIn()}">
+        <md-icon *ngIf="!userService.isLoggedIn()">people</md-icon>&nbsp; {{loginLabel()}}
+      </md-toolbar-row>
+
+      <md-toolbar-row class="sidenav-border" [ngClass]="{'sidenav-hidden': !userService.isLoggedIn()}"></md-toolbar-row>
+
+      <md-toolbar-row class="sidenav-toolbar-rows" (click)="userService.logout()" [ngClass]="{'sidenav-hidden': !userService.isLoggedIn()}">
+        <md-icon *ngIf="userService.isLoggedIn()">input</md-icon>&nbsp; {{logoutLabel()}}
+      </md-toolbar-row>
+    </md-toolbar>
+  </md-sidenav>
+
+</md-sidenav-container>
+
+<div style="position: absolute; width: 100vw; height: 60px; bottom: 0">
+  <div style="position: relative; width: 548px; height: 60px; margin-left: auto; margin-right: auto;">
+    <button id="add-rescue-action" md-fab class="add-rescue-action" *ngIf="tabSelectedIndex < 2 && userService.isLoggedIn() && !rescueActionService.getIsRescueActionOpened()" (click)="onFabClick()">
+      <md-icon>add</md-icon>
+    </button>
+  </div>
+</div>
+

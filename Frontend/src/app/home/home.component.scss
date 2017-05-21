@@ -1,0 +1,75 @@
+.home-background {
+  background: {
+    image: url("../../img/mountain-climbing-background-darker.jpg");
+    size: cover;
+  }
+  height: 100vh;
+}
+
+.home-center {
+  vertical-align: middle;
+  font: {
+    size: 60px;
+    weight: 700;
+  }
+  color: white;
+  text-align: center;
+  padding-top: 20%;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-rows: repeat(20, 1fr);
+  grid-template-columns: repeat(100, 1fr);
+}
+
+.home-center-logo {
+  /* autoprefixer: off */
+  grid-row: 5 / 10;
+
+  background: {
+    image: url("../../img/hgss.png");
+    size: contain;
+    repeat: no-repeat;
+    position: center;
+  }
+  @extend .home-all-columns;
+}
+
+.home-center-first {
+  grid-row: 11;
+  @extend .home-big-text;
+  @extend .home-all-columns;
+}
+
+.home-center-second {
+  grid-row: 12;
+  @extend .home-big-text;
+  @extend .home-all-columns;
+}
+
+.home-button-below {
+  grid-row: 14;
+  /* autoprefixer: off */
+  @extend .home-all-columns;
+  margin: 0 auto;
+}
+
+.home-all-columns {
+  grid-column-start: 1;
+  grid-column-end: 100;
+}
+
+.home-big-text {
+  font: {
+    size: 50px;
+    weight: 700;
+  }
+  color: white;
+  text-align: center;
+}
+
+.home-big-button {
+  height : 46px;
+  font-size: 18px
+}

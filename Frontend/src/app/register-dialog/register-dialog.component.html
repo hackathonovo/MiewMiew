@@ -1,0 +1,18 @@
+<h1 md-dialog-title class="accent-color">Join HGSS rescue</h1>
+<md-dialog-content class="primary-color" style="width: 300px; height: 200px">
+  <form style="width: 100%;">
+    <md-input-container style="width: 100%;">
+      <input mdInput placeholder="email" [(ngModel)]="user.email" name="email">
+    </md-input-container>
+    <md-input-container style="width: 100%;">
+      <input mdInput placeholder="username" [(ngModel)]="user.username" name="username">
+    </md-input-container>
+    <br>
+    <md-input-container style="width: 100%;">
+      <input type="password" mdInput placeholder="password" [(ngModel)]="user.password" name="password">
+    </md-input-container>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-raised-button color="accent" (click)="register()">Register</button>
+</md-dialog-actions>

@@ -1,0 +1,36 @@
+@import url('~https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('~https://fonts.googleapis.com/icon?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import 'app/custom-theme.scss';
+@import 'app/common-style.scss';
+
+@import 'app/app.component';
+
+body {
+  font-family: 'PT Sans';
+  margin: 0;
+}
+
+.primary-color {
+  color: map-get($primary-color, 500) !important;
+}
+
+.accent-color {
+  color: map-get($accent-color, A200) !important;
+}
+
+.background-primary-color {
+  background-color: map-get($primary-color, 100) !important;
+}
+
+.background-accent-color {
+  background-color: map-get($accent-color, A100) !important;
+}
+
+.white-text {
+  color: #FFF !important;
+}
+
+.white-background {
+  background-color: #FFF !important;
+}

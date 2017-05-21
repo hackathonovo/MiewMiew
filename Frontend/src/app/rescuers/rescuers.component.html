@@ -1,0 +1,20 @@
+<div class="left-shadow fix-height">
+  <div class="page-content margin-left-right-50">
+    <template ngFor let-rescuer [ngForOf]="rescuers" let-i="index">
+      <md-card class="rescuer-card">
+        <md-card-header>
+          <div md-card-avatar class="hgss-header-image"></div>
+          <md-card-title>{{rescuer.ime}} {{rescuer.prezime}}</md-card-title>
+          <md-card-subtitle>Zagreb</md-card-subtitle>
+        </md-card-header>
+        <div class="rescuer-image rescuer-image-{{(i%2)+1}}"></div>
+
+        <md-card-actions class="accent-color">
+          <button md-button style="font-weight: bold" (click)="editRescuer(rescuer, i)">OPEN</button>
+          <button md-button style="font-weight: bold" (click)="editRescuer(rescuer, i)">EDIT</button>
+        </md-card-actions>
+      </md-card>
+    </template>
+
+  </div>
+</div>

@@ -1,0 +1,29 @@
+.rescuer-card {
+  width: 500px;
+  margin: 30px auto 0;
+  height: 470px;
+  max-height: 470px;
+}
+
+.hgss-header-image {
+  background-image: url('../../img/hgss.png');
+  background-size: cover;
+}
+
+.rescuer-image {
+  width: 548px;
+  height: 400px;
+  margin-right: -24px;
+  margin-left: -24px;
+  background: {
+    size: cover;
+  }
+
+  &-1{
+    background-image: url("../../img/rescuer1.png");
+  }
+
+  &-2{
+    background-image: url("../../img/rescuer2.png");
+  }
+}
