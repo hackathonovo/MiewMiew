@@ -21,6 +21,7 @@ final class RescueActionViewController: UIViewController {
     @IBOutlet weak var rescueTypeButton: UIButton!
     @IBOutlet weak var rescueTypeField: UITextField!
     @IBOutlet weak var createEditButton: UIButton!
+    @IBOutlet weak var addLocationButtonView: UIView!
     
     fileprivate var _picker = UIPickerView()
     
@@ -38,6 +39,14 @@ final class RescueActionViewController: UIViewController {
         
         actionNameField.delegate = self
         descriptionField.delegate = self
+        
+        mapView.delegate = self
+        mapView.isUserInteractionEnabled = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear(animated: animated)
     }
     
     fileprivate func _setupPicker() {
@@ -64,6 +73,7 @@ final class RescueActionViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func didSelectAddLocation(_ sender: Any) {
+        mapView.isUserInteractionEnabled = !mapView.isUserInteractionEnabled
     }
     
     @IBAction func pursuitSwitchAction(_ sender: UISwitch) {
@@ -77,7 +87,10 @@ final class RescueActionViewController: UIViewController {
         presenter.didSelectCreateAction()
     }
     
-    fileprivate func _showPicker() {
+    fileprivate func _setupMap(with coordinates: CLLocationCoordinate2D) {
+        let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 14)
+        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        self.mapView = mapView
     }
 }
 
@@ -95,10 +108,19 @@ extension RescueActionViewController: RescueActionViewInterface {
     }
     
     func setupView(with action: RescueAction) {
+        addLocationButtonView.isHidden = true
         actionNameField.text = action.name
         descriptionField.text = action.actionDescription
         pursuitSwitch.isOn = action.pursuit == 1
         rescueTypeField.text = action.rescueType
+        
+        if let _latitude = action.latitude, let _longitude = action.longitude {
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: _latitude, longitude: _longitude)
+            marker.title = action.name ?? "Action position"
+            marker.map = self.mapView
+            _setupMap(with: marker.position)
+        }
     }
 }
 
@@ -139,5 +161,17 @@ extension RescueActionViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         rescueTypeField.text = presenter.pickerTitleFor(row)
         presenter.updateAction(rescueType: row)
+    }
+}
+
+extension RescueActionViewController: GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        mapView.clear()
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        marker.title = "Action position"
+        marker.map = self.mapView
+        
     }
 }

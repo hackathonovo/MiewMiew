@@ -113,7 +113,7 @@
                                                 <rect key="frame" x="0.0" y="468" width="375" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pursuit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyv-Uq-yhk">
-                                                        <rect key="frame" x="10" y="20.5" width="51.5" height="20"/>
+                                                        <rect key="frame" x="10" y="21" width="51.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -224,6 +224,7 @@
                     <connections>
                         <outlet property="actionNameField" destination="SLD-td-NvZ" id="O56-cV-Juz"/>
                         <outlet property="addLocationButton" destination="W7R-6X-TQo" id="utI-9F-YDa"/>
+                        <outlet property="addLocationButtonView" destination="1gt-pg-ByR" id="mh6-s6-O1k"/>
                         <outlet property="createEditButton" destination="pKO-kQ-Prr" id="5py-dx-8rs"/>
                         <outlet property="descriptionField" destination="9O2-eQ-ovd" id="00B-fa-oxP"/>
                         <outlet property="mapView" destination="1pZ-wD-QsV" id="14S-Dh-q59"/>

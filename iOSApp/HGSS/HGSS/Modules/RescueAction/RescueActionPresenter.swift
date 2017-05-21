@@ -62,6 +62,9 @@ final class RescueActionPresenter {
 extension RescueActionPresenter: RescueActionPresenterInterface {
     
     func viewDidLoad() {
+    }
+    
+    func viewWillAppear(animated: Bool) {
         _setupView()
     }
     

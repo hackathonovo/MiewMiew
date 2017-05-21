@@ -26,6 +26,7 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
     var dateTime: Date?
     var pursuit: Int?
     
+    var locationName: String?
     var latitude: Double?
     var longitude: Double?
     
@@ -44,6 +45,7 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS"
         let dateTime: Date? = unboxer.unbox(key: "vrijeme", formatter: dateFormatter)
+        let locationName: String? = unboxer.unbox(key: "nazivLokacije")
         let pursuit: Int = try unboxer.unbox(key: "potraga")
         let latitude: Double? = unboxer.unbox(key: "latitude")
         let longitude: Double? = unboxer.unbox(key: "longitude")
@@ -51,10 +53,10 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
         let rescueTypeId: Int? = unboxer.unbox(key: "vrstaSpasavanjaId")
         let rescueLifecycle: RescueCycleType? = unboxer.unbox(key: "rescueLiveCycle")
         let user: User? = unboxer.unbox(key: "user")
-        self.init(id: id, name: name, actionDescription: actionDescription, dateTime: dateTime, pursuit: pursuit, latitude: latitude, longitude: longitude, rescueType: rescueType, rescueTypeId: rescueTypeId, rescueLifecycle: rescueLifecycle, user: user)
+        self.init(id: id, name: name, actionDescription: actionDescription, dateTime: dateTime, pursuit: pursuit, latitude: latitude, longitude: longitude, rescueType: rescueType, rescueTypeId: rescueTypeId, rescueLifecycle: rescueLifecycle, user: user, locationName: locationName)
     }
     
-    convenience init(id: Int, name: String, actionDescription: String, dateTime: Date?, pursuit: Int, latitude: Double?, longitude: Double?, rescueType: String?, rescueTypeId: Int?, rescueLifecycle: RescueCycleType?, user: User?) {
+    convenience init(id: Int, name: String, actionDescription: String, dateTime: Date?, pursuit: Int, latitude: Double?, longitude: Double?, rescueType: String?, rescueTypeId: Int?, rescueLifecycle: RescueCycleType?, user: User?, locationName: String?) {
         self.init()
         self.id = id
         self.name = name
@@ -67,6 +69,7 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
         self.rescueLifecycle = rescueLifecycle
         self.user = user
         self.pursuit = pursuit
+        self.locationName = locationName
     }
     
     func keyForWrapping(propertyNamed propertyName: String) -> String? {
@@ -80,6 +83,8 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
             return "potraga"
         } else if propertyName == "dateTime" {
             return "vrijeme"
+        } else if propertyName == "locationName" {
+            return "nazivLokacije"
         }
         return propertyName
     }
