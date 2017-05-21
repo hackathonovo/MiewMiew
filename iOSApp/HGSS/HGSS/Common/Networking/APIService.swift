@@ -133,6 +133,26 @@ class APIService {
         }
     }
     
+    func getUsersLocations(completion: @escaping (Result<[User]>) -> Void) {
+        Alamofire
+            .request(JBaseUrl.appendingPathComponent("/user/getAll"), method: .get, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                    if let _value = value as? [UnboxableDictionary], let actions: [User] = try? unbox(dictionaries: _value) {
+                        completion(.success(actions))
+                    } else if let _value = value as? UnboxableDictionary, let error: APIError = try? unbox(dictionary: _value) {
+                        completion(.failure(error))
+                    } else {
+                        completion(.failure(APIError(message: "Error did occured")))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+    
     func _headers() -> [String: String]{
         if let token = UserDefaults.standard.value(forKey: Constants.UserDefaults.userToken) {
             return ["Authorization": "Bearer \(token)"]

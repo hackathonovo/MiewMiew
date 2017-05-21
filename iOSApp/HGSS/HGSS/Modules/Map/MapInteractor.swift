@@ -11,9 +11,15 @@
 import Foundation
 
 final class MapInteractor {
+    
+    let _apiService = APIService()
 }
 
 // MARK: - Extensions -
 
 extension MapInteractor: MapInteractorInterface {
+    
+    func getUsersLocations(completion: @escaping (Result<[User]>) -> Void) {
+        _apiService.getUsersLocations(completion: completion)
+    }
 }

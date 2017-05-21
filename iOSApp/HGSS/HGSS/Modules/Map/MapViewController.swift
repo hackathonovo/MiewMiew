@@ -30,6 +30,7 @@ final class MapViewController: UIViewController {
         _setupMap()
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
+        presenter.viewDidLoad()
     }
     
     fileprivate func _setupNavigationBar() {
@@ -50,6 +51,20 @@ final class MapViewController: UIViewController {
 // MARK: - Extensions -
 
 extension MapViewController: MapViewInterface {
+    
+    func reloadView(with users: [User]) {
+        mapView?.clear()
+        users.forEach({ user in
+            if let _latitude = user.latitude, let _longitude = user.longitude {
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: _latitude, longitude: _longitude)
+                if let _first = user.firstName, let _last = user.lastName {
+                    marker.title = "\(_first) \(_last)"
+                }
+                marker.map = self.mapView
+            }
+        })
+    }
 }
 
 extension MapViewController: TabBarItemSetupable {

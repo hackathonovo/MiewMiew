@@ -20,7 +20,7 @@ class User: Unboxable {
     var distance: Int?
     
     required init(unboxer: Unboxer) throws {
-        id = try unboxer.unbox(key: "id")
+        id = unboxer.unbox(key: "id")
         username = try unboxer.unbox(key: "userName")
         firstName = unboxer.unbox(key: "ime")
         lastName = unboxer.unbox(key: "prezime")

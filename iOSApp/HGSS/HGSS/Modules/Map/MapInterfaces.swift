@@ -18,10 +18,13 @@ protocol MapWireframeInterface: WireframeInterface {
 }
 
 protocol MapViewInterface: ViewInterface {
+    func reloadView(with users: [User]) 
 }
 
 protocol MapPresenterInterface: PresenterInterface {
 }
 
 protocol MapInteractorInterface: InteractorInterface {
+    
+    func getUsersLocations(completion: @escaping (Result<[User]>) -> Void)
 }
