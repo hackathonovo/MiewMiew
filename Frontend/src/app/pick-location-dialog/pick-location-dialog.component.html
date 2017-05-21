@@ -1,0 +1,16 @@
+<h1 md-dialog-title class="accent-color">Pick location</h1>
+<md-dialog-content class="primary-color pick-location-dialog">
+  <div class="maps-image"></div>
+  <form class="full-width rescuer-dialog-form">
+    <md-input-container style="width: 100px;">
+      <input mdInput placeholder="Latitude" [(ngModel)]="rescueAction.latitude" name="latitude">
+    </md-input-container>
+    <md-input-container style="width: 100px;">
+      <input mdInput placeholder="Longitude" [(ngModel)]="rescueAction.longitude" name="longitude">
+    </md-input-container>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-raised-button color="accent" (click)="save()" md-dialog-close>Save</button>
+  <button md-button color="primary" (click)="close()" md-dialog-close class="left-button">Cancel</button>
+</md-dialog-actions>

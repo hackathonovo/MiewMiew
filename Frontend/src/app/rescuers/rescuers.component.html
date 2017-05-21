@@ -5,13 +5,13 @@
         <md-card-header>
           <div md-card-avatar class="hgss-header-image"></div>
           <md-card-title>{{rescuer.ime}} {{rescuer.prezime}}</md-card-title>
-          <md-card-subtitle>{{rescuer.adresa}}</md-card-subtitle>
+          <md-card-subtitle>Zagreb</md-card-subtitle>
         </md-card-header>
         <div class="rescuer-image rescuer-image-{{(i%2)+1}}"></div>
 
         <md-card-actions class="accent-color">
-          <button md-button>OPEN</button>
-          <button md-button>EDIT</button>
+          <button md-button style="font-weight: bold" (click)="editRescuer(rescuer, i)">OPEN</button>
+          <button md-button style="font-weight: bold" (click)="editRescuer(rescuer, i)">EDIT</button>
         </md-card-actions>
       </md-card>
     </template>

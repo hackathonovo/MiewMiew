@@ -1,16 +1,30 @@
 <h1 md-dialog-title class="accent-color">Edit rescuer</h1>
-<md-dialog-content class="primary-color" style="width: 300px; height: 150px">
-  <form style="width: 100%;">
-    <md-input-container style="width: 100%;">
-      <input mdInput placeholder="username" [(ngModel)]="user.username" name="username">
+<md-dialog-content class="primary-color rescuer-dialog">
+  <div class="rescuer-image rescuer-image-{{index+1}}"></div>
+  <form class="full-width rescuer-dialog-form">
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Name" [(ngModel)]="user.ime" name="name">
     </md-input-container>
     <br>
-    <md-input-container style="width: 100%;">
-      <input type="password" mdInput placeholder="password" [(ngModel)]="user.password" name="password">
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Surname" [(ngModel)]="user.prezime" name="surname">
     </md-input-container>
+    <br>
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Username" [(ngModel)]="user.username" name="username">
+    </md-input-container>
+    <br>
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Email" [(ngModel)]="user.email" name="email">
+    </md-input-container>
+    <br>
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Location" [(ngModel)]="user.adresa" name="location">
+    </md-input-container>
+    <br>
   </form>
 </md-dialog-content>
 <md-dialog-actions>
-  <button md-raised-button color="accent" (click)="login()">Login</button>
-  <button md-button color="primary" (click)="openRegisterDialog()" md-dialog-close style="margin-left: auto">Join HGSS</button>
+  <button md-raised-button color="accent" (click)="edit()">Edit</button>
+  <button md-button color="primary" (click)="close()" md-dialog-close class="left-button">Cancel</button>
 </md-dialog-actions>

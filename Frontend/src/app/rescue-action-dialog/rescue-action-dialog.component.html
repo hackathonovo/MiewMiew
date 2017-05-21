@@ -1,0 +1,37 @@
+<h1 md-dialog-title class="accent-color">{{editing? 'Edit': 'Add'}} rescue action</h1>
+<md-dialog-content class="primary-color rescuer-dialog">
+  <form class="full-width rescuer-dialog-form">
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Name" [(ngModel)]="rescueAction.naziv" name="name">
+    </md-input-container>
+    <br>
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Description" [(ngModel)]="rescueAction.opis" name="description">
+    </md-input-container>
+    <br>
+    <div style="margin-bottom: 5px">Type:</div>
+    <md-radio-group [(ngModel)]="rescueAction.potraga" [ngModelOptions]="{standalone: true}" style="margin-bottom: 15px">
+      <md-radio-button class="example-margin" value="0">Rescue</md-radio-button>
+      <md-radio-button class="example-margin" value="1">Search rescue</md-radio-button>
+    </md-radio-group>
+    <div style="margin-top: 10px">
+      Coordinates: ({{rescueAction.latitude}}, {{rescueAction.longitude}})
+      <button md-raised-button color="accent" (click)="pickLocation()">Pick location</button>
+    </div>
+    <br>
+    <md-input-container class="full-width">
+      <input mdInput placeholder="Location" [(ngModel)]="rescueAction.nazivLokacije" name="location">
+    </md-input-container>
+    <br>
+    <div>Rescue type:</div>
+    <md-select class="full-width" [(ngModel)]="rescueAction.vrstaSpasavanjaId" [ngModelOptions]="{standalone: true}">
+      <md-option *ngFor="let rescueType of rescueTypeService.getRescueTypes()" [value]="rescueType.id">{{rescueType.vrsta}}</md-option>
+    </md-select>
+    <br>
+  </form>
+</md-dialog-content>
+<md-dialog-actions>
+  <button *ngIf="!editing" md-raised-button color="accent" (click)="save()">Save</button>
+  <button *ngIf="editing" md-raised-button color="accent" (click)="edit()">Edit</button>
+  <button md-button color="primary" (click)="close()" md-dialog-close class="left-button">Cancel</button>
+</md-dialog-actions>

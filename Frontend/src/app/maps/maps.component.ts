@@ -1,4 +1,6 @@
-import {AfterContentInit, AfterViewInit, Component} from "@angular/core";
+import {AfterViewInit, Component} from "@angular/core";
+import {RescueActionService} from "../services/rescue-action.service";
+import {DistanceService} from "../services/distance.service";
 
 declare const google: any;
 declare const subscribeToGoogleMapInit: any;
@@ -9,27 +11,50 @@ declare const subscribeToGoogleMapInit: any;
   styleUrls: ['./maps.component.scss']
 })
 export class MapsComponent implements AfterViewInit {
-  lat = 46.269888;
-  lng = 16.3482354;
+  lat = 45.1062882;
+  lng = 15.584347;
   initializedMap = false;
 
+  constructor(private rescueActionService: RescueActionService, private distanceService: DistanceService) {
+
+  }
 
   initMap() {
-    const crnec = {lat: this.lat, lng: this.lng};
+    const centerLocation = {lat: this.lat, lng: this.lng};
     const mapElement = document.getElementById('map');
     if (!mapElement || this.initializedMap) {
       return;
     }
     this.initializedMap = true;
     const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      center: crnec
-    });
-    const marker = new google.maps.Marker({
-      position: crnec,
-      map: map
+      zoom: 7,
+      center: centerLocation
     });
     this.adjustBackground();
+    const rescueActions = this.rescueActionService.getRescueActions();
+    rescueActions.forEach((rescueAction) => {
+      const locationRescue = {lat: rescueAction.latitude, lng: rescueAction.longitude};
+      const marker = new google.maps.Marker({
+        position: locationRescue,
+        map: map
+      });
+    });
+    console.log(rescueActions);
+    const groupList = this.distanceService.groupRescues(rescueActions);
+    console.log(groupList);
+    groupList.forEach((groupInList) => {
+      const location = {lat: groupInList[0].latitude, lng: groupInList[0].longitude};
+      const circle = new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        map: map,
+        center: location,
+        radius: groupInList.length * 10000
+      });
+    });
   }
 
   initMapTimeout() {

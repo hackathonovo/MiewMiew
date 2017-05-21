@@ -2,6 +2,9 @@ import {AfterViewInit, Component} from "@angular/core";
 import {UserService} from "./services/user.service";
 import {LoginDialogComponent} from "./login-dialog/login-dialog.component";
 import {MdDialog} from "@angular/material";
+import {FabService} from "./services/fab.service";
+import {RescueActionService} from "app/services/rescue-action.service";
+import {RescueTypeService} from "./services/rescue-type.service";
 
 @Component({
   selector: 'app-root',
@@ -10,11 +13,21 @@ import {MdDialog} from "@angular/material";
 })
 export class AppComponent implements AfterViewInit {
   title: String = 'Team: MiewMiew';
-  tabSelectedIndex: Number = 0;
+  public tabSelectedIndex: Number = 0;
 
-  constructor(public userService: UserService, public dialog: MdDialog) {
+  constructor(public userService: UserService, public dialog: MdDialog, public fabService: FabService,
+              public rescueActionService: RescueActionService, private rescueTypeService: RescueTypeService) {
     this.userService.loadUser();
+    this.rescueTypeService.fetchRescueTypes({
+      onSuccess: (data) => {
+      }, onError: () => {
+      }
+    });
+  }
 
+  public selectedIndexChange(event) {
+    this.tabSelectedIndex = event.index;
+    console.log(this.tabSelectedIndex);
   }
 
   ngAfterViewInit(): void {
@@ -52,5 +65,9 @@ export class AppComponent implements AfterViewInit {
       return 'Login';
     }
     return '';
+  }
+
+  onFabClick() {
+    this.fabService.call(this.tabSelectedIndex);
   }
 }

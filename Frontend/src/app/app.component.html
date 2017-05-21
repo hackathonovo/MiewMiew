@@ -4,7 +4,7 @@
       <md-icon>menu</md-icon>
     </button>
   </md-toolbar>
-  <md-tab-group class="left-shadow tabs-toolbar" selected-index="tabSelectedIndex">
+  <md-tab-group #tabGroup class="left-shadow tabs-toolbar" (selectChange)="selectedIndexChange($event)">
     <ng-template [ngIf]="!userService.isLoggedIn()">
       <md-tab label="HGSS Rescue" class="left-shadow">
         <app-home></app-home>
@@ -58,3 +58,12 @@
   </md-sidenav>
 
 </md-sidenav-container>
+
+<div style="position: absolute; width: 100vw; height: 60px; bottom: 0">
+  <div style="position: relative; width: 548px; height: 60px; margin-left: auto; margin-right: auto;">
+    <button id="add-rescue-action" md-fab class="add-rescue-action" *ngIf="tabSelectedIndex < 2 && userService.isLoggedIn() && !rescueActionService.getIsRescueActionOpened()" (click)="onFabClick()">
+      <md-icon>add</md-icon>
+    </button>
+  </div>
+</div>
+

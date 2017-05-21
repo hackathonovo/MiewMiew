@@ -1,28 +1,32 @@
 import {Component, OnInit} from "@angular/core";
-import {LoginService} from "../services/login.service";
 import {MdDialog, MdDialogRef} from "@angular/material";
 import {RegisterDialogComponent} from "../register-dialog/register-dialog.component";
-import {UserService} from "../services/user.service";
+import {RescuerService} from "app/services/rescuer.service";
+import {User} from "../classes/user";
 
 @Component({
   selector: 'app-rescuer-dialog',
   templateUrl: 'rescuer-dialog.component.html',
-  styles: ['./rescuer-dialog.component.scss']
+  styleUrls: ['./rescuer-dialog.component.scss']
 })
 export class RescuerDialogComponent implements OnInit {
 
+  user: User = this.rescuerService.getActiveUser();
+  index: number = this.rescuerService.getIndex();
 
-  constructor(public loginService: LoginService, public dialog: MdDialog, public userService: UserService, public dialogRef: MdDialogRef<RescuerDialogComponent>) {
-
+  constructor(public rescuerService: RescuerService, public dialog: MdDialog, public dialogRef: MdDialogRef<RescuerDialogComponent>) {
   }
 
   ngOnInit() {
 
   }
 
-  // that.dialogRef.close();
 
-  openRegisterDialog() {
-    this.dialog.open(RegisterDialogComponent);
+  edit() {
+    this.dialogRef.close();
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 }

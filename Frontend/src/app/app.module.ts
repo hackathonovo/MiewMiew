@@ -20,7 +20,7 @@ import {
   MdSnackBarModule,
   MdInputModule,
   MdTabsModule,
-  MdCardModule
+  MdCardModule, MdRadioModule, MdSelectModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Router, RouterModule, Routes} from '@angular/router';
@@ -40,9 +40,18 @@ import {RegisterService} from './services/register.service';
 import {SessionService} from './services/session.service';
 import {CookieService} from 'angular2-cookie/core';
 import {MapsComponent} from './maps/maps.component';
-import {LoginDialogComponent} from "./login-dialog/login-dialog.component";
-import {RegisterDialogComponent} from "./register-dialog/register-dialog.component";
-import {RescuersComponent} from "./rescuers/rescuers.component";
+import {LoginDialogComponent} from './login-dialog/login-dialog.component';
+import {RegisterDialogComponent} from './register-dialog/register-dialog.component';
+import {RescuersComponent} from './rescuers/rescuers.component';
+import {RescuerService} from './services/rescuer.service';
+import {RescuerDialogComponent} from './rescuer-dialog/rescuer-dialog.component';
+import {FabService} from './services/fab.service';
+import {RescueActionDialogComponent} from './rescue-action-dialog/rescue-action-dialog.component';
+import {RescueActionService} from "app/services/rescue-action.service";
+import {PickLocationDialogComponent} from "./pick-location-dialog/pick-location-dialog.component";
+import {OpenedRescueActionComponent} from "./opened-rescue-action/opened-rescue-action.component";
+import {RescueTypeService} from "./services/rescue-type.service";
+import {DistanceService} from "./services/distance.service";
 
 const apiKey = 'AIzaSyCaNJfY49tznGZ9V_rofRFt0bIB8uNqFEY';
 
@@ -63,10 +72,14 @@ const appRoutes: Routes = [
     MapsComponent,
     LoginDialogComponent,
     RegisterDialogComponent,
-    RescuersComponent
+    RescuersComponent,
+    RescuerDialogComponent,
+    RescueActionDialogComponent,
+    PickLocationDialogComponent,
+    OpenedRescueActionComponent,
   ],
   entryComponents: [
-    DialogComponent, LoginDialogComponent, RegisterDialogComponent
+    DialogComponent, LoginDialogComponent, RegisterDialogComponent, RescuerDialogComponent, RescueActionDialogComponent, PickLocationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -91,10 +104,12 @@ const appRoutes: Routes = [
     MdInputModule,
     MdTabsModule,
     MdCardModule,
+    MdRadioModule,
+    MdSelectModule,
     BrowserAnimationsModule,
     // RouterModule.forRoot(appRoutes),
   ],
-  providers: [GenericService, UserService, LoginService, RegisterService, SessionService, CookieService],
+  providers: [GenericService, UserService, LoginService, RegisterService, SessionService, CookieService, RescuerService, FabService, RescueActionService, RescueTypeService, DistanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,5 +1,9 @@
-import {AfterViewInit, Component} from "@angular/core";
-import {RescueAction} from "../classes/rescue-action";
+import {AfterViewInit, Component} from '@angular/core';
+import {RescueAction} from '../classes/rescue-action';
+import {FabService} from '../services/fab.service';
+import {RescueActionService} from '../services/rescue-action.service';
+import {MdDialog} from '@angular/material';
+import {RescueActionDialogComponent} from '../rescue-action-dialog/rescue-action-dialog.component';
 
 declare var google: any;
 
@@ -9,28 +13,24 @@ declare var google: any;
   styleUrls: ['./rescue-action.component.scss']
 })
 export class RescueActionComponent implements AfterViewInit {
-  public rescueActions: Array<RescueAction> = [{
-    id: 1,
-    naziv: 'Save from cave',
-    nazivLokacije: 'Velebit',
-    opis: 'People with children are trapped in the cave. Immediate help needed',
-    latitude: 44.5281298,
-    longitude: 15.2061534
-  }, {
-    id: 2,
-    naziv: 'Drowning people',
-    nazivLokacije: 'Bundek',
-    opis: 'Two young boys tried swimming in lake',
-    latitude: 45.7878414,
-    longitude: 15.9691779
-  }];
+  public rescueActions: Array<RescueAction> = [];
 
-  constructor() {
+  addButton = null;
+
+  constructor(public fabService: FabService, public rescueActionService: RescueActionService, public dialog: MdDialog) {
   }
 
   ngAfterViewInit(): void {
     const that = this;
-    setTimeout(() => that.initMapsForAction(), 500);
+    that.fabService.subscribeToFab(() => that.addRescueAction(), 0);
+    this.rescueActionService.getAllRescueActions({
+      onSuccess: (data) => {
+        that.rescueActions = data;
+        setTimeout(() => that.initMapsForAction(), 500);
+      }, onError: () => {
+
+      }
+    });
   }
 
   initMapsForAction() {
@@ -44,7 +44,10 @@ export class RescueActionComponent implements AfterViewInit {
 
   initMap(rescueAction) {
     const location = {lat: rescueAction.latitude, lng: rescueAction.longitude};
-    const mapElement = document.getElementById('map-actions-' + rescueAction.id);
+    const mapElement = document.getElementById('smap-actions-' + rescueAction.id);
+    if (!mapElement) {
+      return;
+    }
     const map = new google.maps.Map(mapElement, {
       zoom: 9,
       center: location
@@ -53,5 +56,32 @@ export class RescueActionComponent implements AfterViewInit {
       position: location,
       map: map
     });
+
+    const circle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: location,
+      radius: 5000
+    });
+  }
+
+  addRescueAction() {
+    this.rescueActionService.setActiveRescueAction(null);
+    this.dialog.open(RescueActionDialogComponent);
+    console.log('fab click rescue action');
+  }
+
+  openRescueAction(rescueAction) {
+    this.rescueActionService.setActiveRescueAction(rescueAction);
+    this.rescueActionService.setIsRescueActionOpened(true);
+  }
+
+  editRescueAction(rescueAction) {
+    this.rescueActionService.setActiveRescueAction(rescueAction);
+    this.dialog.open(RescueActionDialogComponent);
   }
 }
