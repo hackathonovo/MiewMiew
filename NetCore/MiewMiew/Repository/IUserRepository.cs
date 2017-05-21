@@ -1,13 +1,20 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using MiewMiew.Models;
 
 namespace MiewMiew.Repository
 {
-    public interface IUserRepository
-    {
-        Task<AspNetUsers> GetUserById(string id);
-        Task<AspNetUsers> GetUserByName(string username);
-        Task<AspNetUsers> GetUserByEmail(string email);
-        void AddUser(AspNetUsers user);
-    }
+	public interface IUserRepository
+	{
+		AspNetUsers GetUserById(string id);
+		AspNetUsers GetUserByName(string username);
+		void AddUser(AspNetUsers user);
+		void AddAvailableTimeForUser(Dostupan available);
+		void AddUnavailableTimeForUser(Nedostupan unavailable);
+		void AddSpecijalnostToUser(int specijalnostId, string userId);
+		IEnumerable<AspNetUsers> GetAll();
+		bool IsUserUnavailable(string userId, DateTime dateTime);
+		bool IsUserAvailable(string userId, DateTime dateTime);
+	}
 }

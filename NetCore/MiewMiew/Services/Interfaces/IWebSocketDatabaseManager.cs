@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MiewMiew.Helpers;
+﻿using MiewMiew.Helpers;
 using MiewMiew.Models;
 
 namespace MiewMiew.Services.Interfaces

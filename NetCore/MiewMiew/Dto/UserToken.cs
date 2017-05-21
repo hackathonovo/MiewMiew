@@ -7,6 +7,7 @@
         public double TokenExpires { get; set; }
         public UserInfoDto UserInfo { get; set; }
         public string Message { get; set; }
+        public string Status { get; set; }
 
         public UserToken()
         {
@@ -25,6 +26,7 @@
             Token = token;
             TokenExpires = tokenExpires;
             UserInfo = userInfoDto;
+            Status = "Success";
         }
     }
 }
