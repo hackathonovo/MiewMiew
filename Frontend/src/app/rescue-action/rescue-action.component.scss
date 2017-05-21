@@ -32,4 +32,14 @@
   height: 100vh;
 }
 
-
+.maps-image {
+  width: 548px;
+  height: 300px;
+  margin-right: -24px;
+  margin-left: -24px;
+  background: {
+    size: cover;
+    position: 50%;
+    image: url("../../img/maps.png");
+  }
+}

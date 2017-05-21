@@ -24,4 +24,16 @@ export class ChatComponent implements AfterViewInit {
       that.messages.push(message);
     });
   }
+
+  sentMessage() {
+    const message = {
+      Message: this.text
+    };
+    const that = this;
+    this.wsService.sendMessage(message);
+    this.messages.push({Message: this.text});
+    setTimeout(() => {
+      that.text = "";
+    }, 0);
+  }
 }

@@ -10,7 +10,7 @@
           <md-list>
             <h3 md-subheader> </h3>
             <md-list-item *ngFor="let message of messages">
-              <h4 md-line>{{message.message}}</h4>
+              <h4 md-line>{{message.Message}}</h4>
             </md-list-item>
           </md-list>
         </div>
@@ -20,7 +20,7 @@
             <md-input-container style="width: 70%">
               <input mdInput placeholder="message" [(ngModel)]="text" name="message">
             </md-input-container>
-            <button md-button style="font-weight: bold" (click)="wsService.sendMessage({message:text});messages.push({message:text})">Send</button>
+            <button md-button style="font-weight: bold" (click)="sentMessage()">Send</button>
           </form>
         </md-card-actions>
       </md-card>
