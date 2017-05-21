@@ -51,7 +51,7 @@ final class ActionDetailsViewController: UIViewController {
     }
     
     @IBAction func didSelectShowMembersAction(_ sender: Any) {
-        
+        presenter.showMembers()
     }
     
     func didSelectEditAction() {

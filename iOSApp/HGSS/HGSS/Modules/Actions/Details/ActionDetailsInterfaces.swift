@@ -12,6 +12,7 @@ import UIKit
 
 enum ActionDetailsNavigationOption {
     case editAction(action: RescueAction, delegate: RescueActionDelegate)
+    case members(Int?)
 }
 
 protocol ActionDetailsWireframeInterface: WireframeInterface {
@@ -24,6 +25,7 @@ protocol ActionDetailsViewInterface: ViewInterface {
 
 protocol ActionDetailsPresenterInterface: PresenterInterface {
     func didSelectEditAction()
+    func showMembers()
 }
 
 protocol ActionDetailsInteractorInterface: InteractorInterface {

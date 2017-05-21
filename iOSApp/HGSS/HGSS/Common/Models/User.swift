@@ -11,12 +11,13 @@ import Unbox
 
 class User: Unboxable {
     
-    let id: String
+    var id: String?
     let username: String
     var firstName: String?
     var lastName: String?
     var latitude: Double?
     var longitude: Double?
+    var distance: Int?
     
     required init(unboxer: Unboxer) throws {
         id = try unboxer.unbox(key: "id")
@@ -25,5 +26,6 @@ class User: Unboxable {
         lastName = unboxer.unbox(key: "prezime")
         latitude = unboxer.unbox(key: "latitude")
         longitude = unboxer.unbox(key: "longitude")
+        distance = unboxer.unbox(key: "udaljenost")
     }
 }

@@ -44,6 +44,9 @@ extension ActionDetailsWireframe: ActionDetailsWireframeInterface {
         case .editAction(let action, let delegate):
             let wireframe = RescueActionWireframe(navigationController: navigationController)
             wireframe.show(with: .push, action: action, delegate: delegate)
+        case .members(let id):
+            let wireframe = ParticipantsWireframe(navigationController: navigationController)
+            wireframe.show(with: .push, actionId: id)
         }
     }
 

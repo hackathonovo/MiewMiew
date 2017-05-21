@@ -100,6 +100,39 @@ class APIService {
         }
     }
     
+    func getRescuers(by actionId: Int, completion: @escaping (Result<[User]>) -> Void) {
+        Alamofire
+            .request(CBaseUrl.appendingPathComponent("/RescuerActions/getAvailableUsers/\(actionId)"), method: .get, encoding: JSONEncoding.default, headers: _headers())
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                    if let _value = value as? [UnboxableDictionary], let actions: [User] = try? unbox(dictionaries: _value) {
+                        completion(.success(actions))
+                    } else if let _value = value as? UnboxableDictionary, let error: APIError = try? unbox(dictionary: _value) {
+                        completion(.failure(error))
+                    } else {
+                        completion(.failure(APIError(message: "Error did occured")))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+    
+    func addParticipant(by userId: String, actionId: Int, completion: @escaping (Result<Bool>) -> Void) {
+        Alamofire
+            .request(JBaseUrl.appendingPathComponent("/sudionici/Add/\(actionId)/\(userId)"), method: .get, encoding: JSONEncoding.default)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(_):
+                    completion(.success(true))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+    
     func _headers() -> [String: String]{
         if let token = UserDefaults.standard.value(forKey: Constants.UserDefaults.userToken) {
             return ["Authorization": "Bearer \(token)"]

@@ -40,6 +40,10 @@ extension ActionDetailsPresenter: ActionDetailsPresenterInterface {
     func didSelectEditAction() {
         _wireframe.navigate(to: .editAction(action: _action, delegate: self))
     }
+    
+    func showMembers() {
+        _wireframe.navigate(to: .members(_action.id))
+    }
 }
 
 extension ActionDetailsPresenter: RescueActionDelegate {

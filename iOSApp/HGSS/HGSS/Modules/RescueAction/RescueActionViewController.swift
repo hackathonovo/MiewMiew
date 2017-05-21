@@ -172,6 +172,6 @@ extension RescueActionViewController: GMSMapViewDelegate {
         marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
         marker.title = "Action position"
         marker.map = self.mapView
-        
+        presenter.updateAction(location: coordinate)
     }
 }
