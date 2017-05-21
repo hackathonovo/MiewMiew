@@ -30,4 +30,5 @@ protocol ParticipantsPresenterInterface: PresenterInterface {
 protocol ParticipantsInteractorInterface: InteractorInterface {
     func getRescuers(by actionId: Int, completion: @escaping (Result<[User]>) -> Void)
     func addParticipant(by userId: String?, actionId: Int?, completion: @escaping (Result<Bool>) -> Void)
+    func addSMSParticipant(by userId: String?, actionId: Int?, completion: @escaping (Result<Bool>) -> Void)
 }

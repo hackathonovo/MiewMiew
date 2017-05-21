@@ -27,4 +27,9 @@ extension ParticipantsInteractor: ParticipantsInteractorInterface {
         guard let _userId = userId, let _actionId = actionId else { return }
         _apiService.addParticipant(by: _userId, actionId: _actionId, completion: completion)
     }
+    
+    func addSMSParticipant(by userId: String?, actionId: Int?, completion: @escaping (Result<Bool>) -> Void) {
+        guard let _userId = userId, let _actionId = actionId else { return }
+        _apiService.addSMSParticipant(by: _userId, actionId: _actionId, completion: completion)
+    }
 }

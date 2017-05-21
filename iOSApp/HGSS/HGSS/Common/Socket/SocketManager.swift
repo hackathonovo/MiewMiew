@@ -99,13 +99,8 @@ extension SocketManager: WebSocketDelegate {
     func websocketDidReceiveMessage(socket: WebSocket, text: String) {
         print("Received:")
         print(text)
-        guard let data = text.data(using: .utf8) else { return }
-        
-        if let _message: SocketMessage = try? unbox(data: data) {
-            _subscribers
-                .flatMap({ $0 as? SocketMessageClient })
-                .forEach({ $0.didReceive(message: _message.Message) })
-        }    }
+        _subscribers.forEach({ ($0 as? SocketMessageClient)?.didReceive(message: text) })
+}
     
     func websocketDidReceiveData(socket: WebSocket, data: Data) {
         // Nothing to do...

@@ -133,6 +133,20 @@ class APIService {
         }
     }
     
+    func addSMSParticipant(by userId: String, actionId: Int, completion: @escaping (Result<Bool>) -> Void) {
+        Alamofire
+            .request(CBaseUrl.appendingPathComponent("/RescuerActions/sendSMS/\(userId)/\(actionId)"), method: .post, encoding: JSONEncoding.default, headers: _headers())
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(_):
+                    completion(.success(true))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+
+    
     func getUsersLocations(completion: @escaping (Result<[User]>) -> Void) {
         Alamofire
             .request(JBaseUrl.appendingPathComponent("/user/getAll"), method: .get, encoding: JSONEncoding.default)

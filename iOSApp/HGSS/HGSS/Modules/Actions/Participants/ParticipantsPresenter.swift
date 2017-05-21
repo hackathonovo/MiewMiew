@@ -62,14 +62,26 @@ extension ParticipantsPresenter: ParticipantsPresenterInterface {
     
     func didSelect(at index: IndexPath) {
         let _userId = _users[index.row].id
-        _wireframe.showLoading()
-        _interactor.addParticipant(by: _userId, actionId: _actionId!) { [weak self] (result) in
-            self?._wireframe.hideLoading()
-            switch result {
-            case .success(_):
-                self?._wireframe.showAlert(with: "Request has been sent.", with: nil)
-            case .failure(let error):
-                print(error.localizedDescription)
+        if _userId == "165502c8-0bdf-4ed0-88c0-604135462d39" {
+            _interactor.addSMSParticipant(by: _userId, actionId: _actionId, completion: { [weak self] (result) in
+                self?._wireframe.hideLoading()
+                switch result {
+                case .success(_):
+                    self?._wireframe.showAlert(with: "Request has been sent.", with: nil)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+        } else {
+            _wireframe.showLoading()
+            _interactor.addParticipant(by: _userId, actionId: _actionId!) { [weak self] (result) in
+                self?._wireframe.hideLoading()
+                switch result {
+                case .success(_):
+                    self?._wireframe.showAlert(with: "Request has been sent.", with: nil)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
