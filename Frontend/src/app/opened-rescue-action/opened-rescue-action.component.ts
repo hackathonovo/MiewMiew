@@ -1,9 +1,7 @@
-import {AfterViewInit, Component} from '@angular/core';
-import {RescueAction} from '../classes/rescue-action';
-import {FabService} from '../services/fab.service';
+import {AfterViewInit, Component} from "@angular/core";
+import {FabService} from "../services/fab.service";
 import {RescueActionService} from "../services/rescue-action.service";
 import {MdDialog} from "@angular/material";
-import {RescueActionDialogComponent} from "../rescue-action-dialog/rescue-action-dialog.component";
 
 declare var google: any;
 
@@ -14,10 +12,22 @@ declare var google: any;
 })
 export class OpenedRescueActionComponent implements AfterViewInit {
 
+  rescueAction = this.rescueActionService.getActiveRescueAction();
+  rescuers = [];
+
+  public Math = Math;
+
   constructor(public fabService: FabService, public rescueActionService: RescueActionService, public dialog: MdDialog) {
   }
 
   ngAfterViewInit(): void {
     const that = this;
+
+    that.rescueActionService.getActiveUsersRescue(that.rescueAction.id, {
+      onSuccess: (data) => {
+        that.rescuers = data;
+      }, onError: () => {
+      }
+    });
   }
 }

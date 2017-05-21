@@ -53,6 +53,8 @@ import {OpenedRescueActionComponent} from "./opened-rescue-action/opened-rescue-
 import {RescueTypeService} from "./services/rescue-type.service";
 import {DistanceService} from "./services/distance.service";
 import {CodeBooksComponent} from "./code-books/code-books.component";
+import {ChatComponent} from "./chat/chat.component";
+import {WSService} from "./services/ws.service";
 
 const apiKey = 'AIzaSyCaNJfY49tznGZ9V_rofRFt0bIB8uNqFEY';
 
@@ -78,10 +80,11 @@ const appRoutes: Routes = [
     RescueActionDialogComponent,
     PickLocationDialogComponent,
     OpenedRescueActionComponent,
-    CodeBooksComponent
+    CodeBooksComponent,
+    ChatComponent
   ],
   entryComponents: [
-    DialogComponent, LoginDialogComponent, RegisterDialogComponent, RescuerDialogComponent, RescueActionDialogComponent, PickLocationDialogComponent
+    DialogComponent, LoginDialogComponent, RegisterDialogComponent, RescuerDialogComponent, RescueActionDialogComponent, PickLocationDialogComponent, OpenedRescueActionComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +114,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     // RouterModule.forRoot(appRoutes),
   ],
-  providers: [GenericService, UserService, LoginService, RegisterService, SessionService, CookieService, RescuerService, FabService, RescueActionService, RescueTypeService, DistanceService],
+  providers: [GenericService, UserService, LoginService, RegisterService, SessionService, CookieService, RescuerService, FabService, RescueActionService, RescueTypeService, DistanceService, WSService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

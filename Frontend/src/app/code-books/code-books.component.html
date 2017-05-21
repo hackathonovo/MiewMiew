@@ -20,13 +20,13 @@
       </div>
       <div class="code-book-right">
         <h1 class="accent-color" style="display: inline-block">Rescuer Abilities</h1>
-        <button *ngIf="newAbility == null" md-button color="primary" (click)="newAbility = ''">Add type</button>
+        <button *ngIf="newAbility == null" md-button color="accent" (click)="newAbility = ''">Add type</button>
         <form *ngIf="newAbility != null" style="width: 100%;">
           <md-input-container style="width: 200px;">
             <input mdInput placeholder="New ability" [(ngModel)]="newAbility" name="newAbility">
           </md-input-container>
-          <button md-raised-button color="primary" (click)="addAbility()">Add type</button>
-          <button md-button color="accent" (click)="newAbility = null">Close</button>
+          <button md-raised-button color="accent" (click)="addAbility()">Add type</button>
+          <button md-button color="primary" (click)="newAbility = null">Close</button>
         </form>
         <button md-button color="primary"></button><br>
         <md-chip-list>

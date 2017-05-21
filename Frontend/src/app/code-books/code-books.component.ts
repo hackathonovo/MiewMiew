@@ -57,7 +57,7 @@ export class CodeBooksComponent implements AfterViewInit {
     this.rescueTypeService.addType(this.newType, {
       onSuccess: (data) => {
         console.log(data);
-        that.newType.id = data.id;
+        that.newType = {id: data.id, vrsta: that.newType};
         that.rescueTypeService.getRescueTypes().push(that.newType);
         that.newType = null;
       }, onError: () => {
@@ -70,7 +70,7 @@ export class CodeBooksComponent implements AfterViewInit {
     this.rescueTypeService.addAbility(this.newAbility, {
       onSuccess: (data) => {
         console.log(data);
-        that.newAbility.id = data.id;
+        that.newAbility = {id: data.id, naziv: that.newAbility};
         that.rescueTypeService.getRescuerAbilities().push(that.newAbility);
         that.newAbility = null;
       }, onError: () => {

@@ -1,2 +1,14 @@
+<div style=" width: 100%;margin-top:20px">
+  <button md-raised-button color="accent" (click)="rescueActionService.setIsRescueActionOpened(false)" style="margin-right: auto;margin-left: auto;">
+    Close rescue action
+  </button>
+</div>
+<h1 class="primary-color">{{rescueAction.naziv}}</h1>
 
-<button md-raised-button color="accent" (click)="rescueActionService.setIsRescueActionOpened(false)">Close rescue action</button>
+<md-progress-spinner *ngIf="rescuers.length === 0" mode="indeterminate"></md-progress-spinner>
+
+<h3 class="primary-color">Available users</h3>
+<div *ngFor="let rescuer of rescuers" style="margin-bottom: 5px;border-bottom: 1px solid lightgray">
+  <div class="accent-color" style="display: inline; font-size: 18px; font-weight: bold">{{rescuer.ime}} {{rescuer.prezime}}</div>
+  <div class="primary-color" style="margin-bottom: 7px"> {{Math.round(rescuer.udaljenost || 0)}} m</div>
+</div>

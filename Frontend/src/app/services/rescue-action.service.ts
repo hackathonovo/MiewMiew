@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {RescueAction} from "../classes/rescue-action";
 import {GenericService} from "./generic.service";
 import {GenericResponse} from "../interfaces/generic.response";
+import {User} from "app/classes/user";
 
 @Injectable()
 export class RescueActionService {
@@ -36,7 +37,7 @@ export class RescueActionService {
     this.isRescueActionOpened = isRescueActionOpened;
   }
 
-  getRescueActions(){
+  getRescueActions() {
     return this.rescueActions;
   }
 
@@ -57,6 +58,16 @@ export class RescueActionService {
 
   editRescueAction(rescueAction, successError) {
     this.genericService.getObservablePost<GenericResponse>('/api/RescuerActions/save', rescueAction)
+      .subscribe(successError.onSuccess, successError.onError);
+  }
+
+  getActiveUsersRescue(actionId, successError) {
+    this.genericService.getObservableGet<User>('/api/RescuerActions/getAvailableUsers/' + actionId)
+      .subscribe(successError.onSuccess, successError.onError);
+  }
+
+  respondToRequest(userId, actionId, successError) {
+    this.genericService.getObservableGet<User>('/api/RescuerActions/acceptMyRequest/' + userId + '/' + actionId)
       .subscribe(successError.onSuccess, successError.onError);
   }
 }

@@ -1,0 +1,29 @@
+<div class="left-shadow fix-height">
+  <div class="page-content margin-left-right-50">
+      <md-card class="rescuer-card">
+        <md-card-header>
+          <div md-card-avatar class="hgss-header-image"></div>
+          <md-card-title>Chat</md-card-title>
+          <md-card-subtitle>Chat with others</md-card-subtitle>
+        </md-card-header>
+        <div class="chat-body">
+          <md-list>
+            <h3 md-subheader> </h3>
+            <md-list-item *ngFor="let message of messages">
+              <h4 md-line>{{message.message}}</h4>
+            </md-list-item>
+          </md-list>
+        </div>
+
+        <md-card-actions class="accent-color">
+          <form style="width: 100%;">
+            <md-input-container style="width: 70%">
+              <input mdInput placeholder="message" [(ngModel)]="text" name="message">
+            </md-input-container>
+            <button md-button style="font-weight: bold" (click)="wsService.sendMessage({message:text});messages.push({message:text})">Send</button>
+          </form>
+        </md-card-actions>
+      </md-card>
+
+  </div>
+</div>
