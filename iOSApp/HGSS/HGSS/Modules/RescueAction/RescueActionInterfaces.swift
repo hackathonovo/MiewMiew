@@ -23,6 +23,7 @@ protocol RescueActionViewInterface: ViewInterface {
 }
 
 protocol RescueActionPresenterInterface: PresenterInterface {
+    func didSelectCreateAction()
     func didSelectCloseAction()
     func updateAction(name: String?)
     func updateAction(descriptionText: String?)
@@ -33,4 +34,6 @@ protocol RescueActionPresenterInterface: PresenterInterface {
 }
 
 protocol RescueActionInteractorInterface: InteractorInterface {
+    func getRescueTypes(completion: @escaping (Result<[RescueType]>) -> Void)
+    func createAction(with action: RescueAction, completion: @escaping (Result<RescueAction>) -> Void)
 }

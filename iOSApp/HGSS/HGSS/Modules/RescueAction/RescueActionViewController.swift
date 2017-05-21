@@ -34,6 +34,9 @@ final class RescueActionViewController: UIViewController {
         title = "New rescue action"
         _setupNavigationBar()
         _setupPicker()
+        
+        actionNameField.delegate = self
+        descriptionField.delegate = self
     }
     
     fileprivate func _setupNavigationBar() {
@@ -75,6 +78,7 @@ final class RescueActionViewController: UIViewController {
     }
     
     @IBAction func didSelectCreateAction(_ sender: Any) {
+        presenter.didSelectCreateAction()
     }
     
     fileprivate func _showPicker() {
@@ -100,11 +104,9 @@ extension RescueActionViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == actionNameField {
-            if let _text = actionNameField.text, _text.isEmpty {
-                actionNameField.backgroundColor = UIColor.flatRed
-            } else {
-                presenter.updateAction(name: actionNameField.text)
-            }
+            presenter.updateAction(name: actionNameField.text)
+        } else if textField == descriptionField {
+            presenter.updateAction(descriptionText: descriptionField.text)
         }
     }
     

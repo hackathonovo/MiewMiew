@@ -17,6 +17,7 @@ final class RescueActionPresenter {
     fileprivate var _wireframe: RescueActionWireframeInterface
     fileprivate weak var _delegate: RescueActionDelegate?
     fileprivate var _action: RescueAction
+    fileprivate var _rescueTypes: [RescueType]
 
     // MARK: - Lifecycle -
 
@@ -26,6 +27,17 @@ final class RescueActionPresenter {
         _interactor = interactor
         _delegate = delegate
         _action = RescueAction()
+        _rescueTypes = []
+        
+        _interactor.getRescueTypes { [weak self] (result) in
+            guard let _self = self else { return }
+            switch result {
+            case .success(let rescueTypes):
+                _self._rescueTypes = rescueTypes
+            case .failure(let error):
+                _self._wireframe.showAlert(with: error.localizedDescription, with: nil)
+            }
+        }
     }
 
 }
@@ -39,8 +51,18 @@ extension RescueActionPresenter: RescueActionPresenterInterface {
     }
     
     func didSelectCreateAction() {
-        // TODO: POZIV ZA SPREMANJE!!! + dismiss
-        _delegate?.didCreateAction()
+        _wireframe.showLoading()
+        _interactor.createAction(with: _action) { [weak self] (result) in
+            guard let _self = self else { return }
+            _self._wireframe.hideLoading()
+            switch result {
+            case .success(_):
+                _self._delegate?.didCreateAction()
+                _self._wireframe.dismiss(animated: true)
+            case .failure(let error):
+                _self._wireframe.showAlert(with: error.localizedDescription, with: nil)
+            }
+        }
     }
     
     func updateAction(name: String?) {
@@ -56,13 +78,14 @@ extension RescueActionPresenter: RescueActionPresenterInterface {
     }
     
     func updateAction(rescueType: Int) {
+        _action.rescueTypeId = rescueType + 1
     }
     
     func numberOfPickerItems() -> Int {
-        return 3
+        return _rescueTypes.count
     }
     
     func pickerTitleFor(_ row: Int) -> String {
-        return "Proba"
+        return _rescueTypes[row].type
     }
 }

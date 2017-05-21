@@ -8,13 +8,7 @@
 
 import Foundation
 import Unbox
-
-enum RescueType: String, UnboxableEnum {
-    case speleologist = "Speleologist"
-    case alpinist = "Alpinist"
-    case water = "Water"
-    case helicopter = "Helicopter"
-}
+import Wrap
 
 enum RescueCycleType: String, UnboxableEnum {
     case created = "Created"
@@ -24,7 +18,7 @@ enum RescueCycleType: String, UnboxableEnum {
     case finishedFailed = "FinishedFailed"
 }
 
-class RescueAction: Unboxable {
+class RescueAction: Unboxable, APIModel, WrapCustomizable {
     
     var id: Int?
     var name: String?
@@ -36,6 +30,7 @@ class RescueAction: Unboxable {
     var longitude: Double?
     
     var rescueType: String?
+    var rescueTypeId: Int?
     var rescueLifecycle: RescueCycleType?
     
     var user: User?
@@ -53,12 +48,13 @@ class RescueAction: Unboxable {
         let latitude: Double? = unboxer.unbox(key: "latitude")
         let longitude: Double? = unboxer.unbox(key: "longiture")
         let rescueType: String? = unboxer.unbox(key: "rescueType")
+        let rescueTypeId: Int? = unboxer.unbox(key: "vrstaSpasavanjaId")
         let rescueLifecycle: RescueCycleType? = unboxer.unbox(key: "rescueLiveCycle")
         let user: User? = unboxer.unbox(key: "user")
-        self.init(id: id, name: name, actionDescription: actionDescription, dateTime: dateTime, pursuit: pursuit, latitude: latitude, longitude: longitude, rescueType: rescueType, rescueLifecycle: rescueLifecycle, user: user)
+        self.init(id: id, name: name, actionDescription: actionDescription, dateTime: dateTime, pursuit: pursuit, latitude: latitude, longitude: longitude, rescueType: rescueType, rescueTypeId: rescueTypeId, rescueLifecycle: rescueLifecycle, user: user)
     }
     
-    convenience init(id: Int, name: String, actionDescription: String, dateTime: Date?, pursuit: Int, latitude: Double?, longitude: Double?, rescueType: String?, rescueLifecycle: RescueCycleType?, user: User?) {
+    convenience init(id: Int, name: String, actionDescription: String, dateTime: Date?, pursuit: Int, latitude: Double?, longitude: Double?, rescueType: String?, rescueTypeId: Int?, rescueLifecycle: RescueCycleType?, user: User?) {
         self.init()
         self.id = id
         self.name = name
@@ -67,8 +63,22 @@ class RescueAction: Unboxable {
         self.latitude = latitude
         self.longitude = longitude
         self.rescueType = rescueType
+        self.rescueTypeId = rescueTypeId
         self.rescueLifecycle = rescueLifecycle
         self.user = user
         self.pursuit = pursuit
+    }
+    
+    func keyForWrapping(propertyNamed propertyName: String) -> String? {
+        if propertyName == "name" {
+            return "naziv"
+        } else if propertyName == "actionDescription" {
+            return "opis"
+        } else if propertyName == "rescueTypeId" {
+            return "vrstaSpasavanjaId"
+        } else if propertyName == "pursuit" {
+            return "potraga"
+        }
+        return propertyName
     }
 }

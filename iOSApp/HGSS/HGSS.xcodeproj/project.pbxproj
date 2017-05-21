@@ -81,6 +81,8 @@
 		4F2E30A81ED0DB1800BC14B4 /* ActionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */; };
 		4F2E30A91ED0DB1800BC14B4 /* ActionDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */; };
 		4F2E30AB1ED0E3D600BC14B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E30AA1ED0E3D600BC14B4 /* User.swift */; };
+		4FC250781ED11AB8002E9E6C /* RescueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC250771ED11AB8002E9E6C /* RescueType.swift */; };
+		4FC2507A1ED1208E002E9E6C /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC250791ED1208E002E9E6C /* APIModel.swift */; };
 		6284A15683A6245EC81B7E45 /* Pods_HGSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CE570BF52D7D946D037BF /* Pods_HGSS.framework */; };
 /* End PBXBuildFile section */
 
@@ -163,6 +165,8 @@
 		4F2E30A31ED0DB1800BC14B4 /* ActionDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsViewController.swift; sourceTree = "<group>"; };
 		4F2E30A41ED0DB1800BC14B4 /* ActionDetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailsWireframe.swift; sourceTree = "<group>"; };
 		4F2E30AA1ED0E3D600BC14B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4FC250771ED11AB8002E9E6C /* RescueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueType.swift; sourceTree = "<group>"; };
+		4FC250791ED1208E002E9E6C /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		B4CF59EFE1E54F74DB708D7D /* Pods-HGSS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HGSS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HGSS/Pods-HGSS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,6 +333,8 @@
 				4F2E30431ED0844800BC14B4 /* UserCredentials.swift */,
 				4F2E30981ED0BBAA00BC14B4 /* RescueAction.swift */,
 				4F2E30AA1ED0E3D600BC14B4 /* User.swift */,
+				4FC250771ED11AB8002E9E6C /* RescueType.swift */,
+				4FC250791ED1208E002E9E6C /* APIModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -630,9 +636,11 @@
 				4F2E30931ED0B7DA00BC14B4 /* MapInteractor.swift in Sources */,
 				4F2E30971ED0B7DA00BC14B4 /* MapWireframe.swift in Sources */,
 				4F2E30531ED08BB500BC14B4 /* TabBarWireframe.swift in Sources */,
+				4FC2507A1ED1208E002E9E6C /* APIModel.swift in Sources */,
 				4F2E30A71ED0DB1800BC14B4 /* ActionDetailsPresenter.swift in Sources */,
 				4F2E30881ED0B6B300BC14B4 /* ActionsWireframe.swift in Sources */,
 				4F2E30461ED085AC00BC14B4 /* Credentials.swift in Sources */,
+				4FC250781ED11AB8002E9E6C /* RescueType.swift in Sources */,
 				4F2E30861ED0B6B300BC14B4 /* ActionsPresenter.swift in Sources */,
 				4F2E30571ED090F600BC14B4 /* APIError.swift in Sources */,
 				4F2E30071ED05F1000BC14B4 /* AppDelegate.swift in Sources */,
