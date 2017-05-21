@@ -50,7 +50,7 @@ namespace MiewMiew.RescueAction
 			return _context.AkcijaSpasavanje.Include(a => a.Voditelj)
 				.Include(a => a.VrstaSpasavanja)
 				.Include(a => a.Sudionici)
-				.Where(a => a.VoditeljId == userId || a.Sudionici.Any(s => s.KorisnikId == userId));
+				.Where(a => a.VoditeljId == userId || a.Sudionici.Any(s => s.KorisnikId == userId && s.Prihvatio == true ));
 		}
 
 
