@@ -62,10 +62,12 @@ extension ParticipantsPresenter: ParticipantsPresenterInterface {
     
     func didSelect(at index: IndexPath) {
         let _userId = _users[index.row].id
-        _interactor.addParticipant(by: _userId, actionId: _actionId!) { (result) in
+        _wireframe.showLoading()
+        _interactor.addParticipant(by: _userId, actionId: _actionId!) { [weak self] (result) in
+            self?._wireframe.hideLoading()
             switch result {
             case .success(_):
-                print("success")
+                self?._wireframe.showAlert(with: "Request has been sent.", with: nil)
             case .failure(let error):
                 print(error.localizedDescription)
             }
