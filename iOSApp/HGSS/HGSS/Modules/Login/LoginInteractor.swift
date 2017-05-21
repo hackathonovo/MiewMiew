@@ -9,9 +9,16 @@
 import Foundation
 
 final class LoginInteractor {
+    
+    fileprivate let _apiService = APIService()
 }
 
 // MARK: - Extensions -
 
 extension LoginInteractor: LoginInteractorInterface {
+    
+    
+    func login(with username: String, password: String, completion: @escaping (Result<UserCredentials>) -> Void) {
+        _apiService.login(with: username, password: password, completion: completion)
+    }
 }

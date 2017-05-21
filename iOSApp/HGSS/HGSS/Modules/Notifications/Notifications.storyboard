@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notifications View Controller-->
+        <scene sceneID="x1J-MU-87v">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsViewController" automaticallyAdjustsScrollViewInsets="NO" id="PkA-LV-Kye" customClass="NotificationsViewController" customModule="HGSS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cuZ-Oe-Hu7"/>
+                        <viewControllerLayoutGuide type="bottom" id="ruC-nu-UZE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PaU-pw-zjy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AmB-pk-VeT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationsTableViewCell" textLabel="Kyn-ZO-L8l" style="IBUITableViewCellStyleDefault" id="yk9-MU-HKY">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yk9-MU-HKY" id="ssp-4n-mPH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kyn-ZO-L8l">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AmB-pk-VeT" firstAttribute="top" secondItem="cuZ-Oe-Hu7" secondAttribute="bottom" id="239-J7-pGC"/>
+                            <constraint firstItem="ruC-nu-UZE" firstAttribute="top" secondItem="AmB-pk-VeT" secondAttribute="bottom" id="9I1-i4-UYl"/>
+                            <constraint firstItem="AmB-pk-VeT" firstAttribute="leading" secondItem="PaU-pw-zjy" secondAttribute="leading" id="OGQ-zX-tm3"/>
+                            <constraint firstAttribute="trailing" secondItem="AmB-pk-VeT" secondAttribute="trailing" id="VuC-CV-rdm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="notificationsTableView" destination="AmB-pk-VeT" id="fUI-Bm-2ic"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0l4-Xz-dqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="128"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="10i-8z-ZZT">
+            <objects>
+                <viewController storyboardIdentifier="MessagesViewController" id="f0R-vE-8Xu" customClass="MessagesViewController" customModule="HGSS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fYG-yL-709"/>
+                        <viewControllerLayoutGuide type="bottom" id="mI5-k4-gOE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hca-Av-7Vy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3sB-Vf-IEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="127"/>
+        </scene>
+    </scenes>
+</document>

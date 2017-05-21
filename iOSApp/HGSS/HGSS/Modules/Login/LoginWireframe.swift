@@ -20,6 +20,7 @@ final class LoginWireframe: BaseWireframe {
         let interactor = LoginInteractor()
         let presenter = LoginPresenter(wireframe: self, view: viewController, interactor: interactor)
         viewController.presenter = presenter
+        navigationController.setNavigationBarHidden(true, animated: false)
     }
 
     // MARK: - Transitions -
@@ -38,6 +39,9 @@ final class LoginWireframe: BaseWireframe {
 extension LoginWireframe: LoginWireframeInterface {
 
     func navigate(to option: LoginNavigationOption) {
+        switch option {
+        case .home:
+            dismiss(animated: true)
+        }
     }
-
 }
