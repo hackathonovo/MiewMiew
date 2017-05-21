@@ -19,12 +19,24 @@
                     <view key="view" contentMode="scaleToFill" id="H2B-va-QtC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M66-8y-Zml">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M66-8y-Zml" firstAttribute="top" secondItem="iMk-V0-cDv" secondAttribute="bottom" id="0KJ-ae-5xd"/>
+                            <constraint firstAttribute="trailing" secondItem="M66-8y-Zml" secondAttribute="trailing" id="3C4-eF-r1g"/>
+                            <constraint firstItem="Ypv-GX-z9q" firstAttribute="top" secondItem="M66-8y-Zml" secondAttribute="bottom" id="3lY-rc-2Y8"/>
+                            <constraint firstItem="M66-8y-Zml" firstAttribute="leading" secondItem="H2B-va-QtC" secondAttribute="leading" id="9gK-Lz-Xvf"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uy-fe-FKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="90"/>
+            <point key="canvasLocation" x="141.59999999999999" y="89.505247376311857"/>
         </scene>
     </scenes>
 </document>

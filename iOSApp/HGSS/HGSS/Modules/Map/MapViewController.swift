@@ -9,20 +9,42 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
 
 final class MapViewController: UIViewController {
-
-     // MARK: - Public properties -
-
-     var presenter: MapPresenterInterface!
-
-     // MARK: - Lifecycle -
-
-     override func viewDidLoad() {
-         super.viewDidLoad()
+    
+    // MARK: - Public properties -
+    
+    let locationManager = CLLocationManager()
+    var mapView: GMSMapView?
+    
+    var presenter: MapPresenterInterface!
+    
+    // MARK: - Lifecycle -
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         title = "Map"
-     }
-
+        _setupNavigationBar()
+        _setupMap()
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+    }
+    
+    fileprivate func _setupNavigationBar() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.title = "Map"
+    }
+    
+    fileprivate func _setupMap() {
+        let camera = GMSCameraPosition.camera(withLatitude: -33.8680, longitude: 151.2086, zoom: 14)
+        mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        mapView?.settings.compassButton = true
+        mapView?.settings.myLocationButton = true
+        mapView?.isMyLocationEnabled = true
+        view = mapView
+    }
 }
 
 // MARK: - Extensions -
@@ -36,5 +58,15 @@ extension MapViewController: TabBarItemSetupable {
         tabBarItem.image = UIImage.fontAwesomeIcon(name: .map, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
         tabBarItem.selectedImage = UIImage.fontAwesomeIcon(name: .map, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
         tabBarItem.title = "Map"
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let camera = GMSCameraPosition.camera(withLatitude: locations.last!.coordinate.latitude,
+                                            longitude: locations.last!.coordinate.longitude,
+                                            zoom: 10)
+        mapView?.animate(to: camera)
     }
 }
