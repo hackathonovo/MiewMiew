@@ -1,0 +1,75 @@
+<div class="left-shadow fix-height">
+  <div class="page-content margin-left-right-50">
+    <div class="code-book-grid">
+
+      <div class="code-book-left">
+        <h1 class="primary-color" style="display: inline-block">Rescue Types</h1>
+        <button *ngIf="newType == null" md-button color="primary" (click)="newType = ''">Add type</button>
+        <form *ngIf="newType != null" style="width: 100%;">
+          <md-input-container style="width: 200px;">
+            <input mdInput placeholder="New type" [(ngModel)]="newType" name="newType">
+          </md-input-container>
+          <button md-raised-button color="primary" (click)="addType()">Add type</button>
+          <button md-button color="accent" (click)="newType = null">Close</button>
+        </form>
+        <md-chip-list>
+          <md-chip class="code-book-chip" *ngFor="let rescueType of rescueTypeService.getRescueTypes()" color="primary" selected="true"
+                   (click)="selectRescueType(rescueType)">{{rescueType.vrsta}}
+          </md-chip>
+        </md-chip-list>
+      </div>
+      <div class="code-book-right">
+        <h1 class="accent-color" style="display: inline-block">Rescuer Abilities</h1>
+        <button *ngIf="newAbility == null" md-button color="primary" (click)="newAbility = ''">Add type</button>
+        <form *ngIf="newAbility != null" style="width: 100%;">
+          <md-input-container style="width: 200px;">
+            <input mdInput placeholder="New ability" [(ngModel)]="newAbility" name="newAbility">
+          </md-input-container>
+          <button md-raised-button color="primary" (click)="addAbility()">Add type</button>
+          <button md-button color="accent" (click)="newAbility = null">Close</button>
+        </form>
+        <button md-button color="primary"></button><br>
+        <md-chip-list>
+          <md-chip class="code-book-chip" *ngFor="let rescuerAbility of rescueTypeService.getRescuerAbilities()" color="accent" selected="true"
+                   (click)="selectRescuerAbility(rescuerAbility)">{{rescuerAbility.naziv}}
+          </md-chip>
+        </md-chip-list>
+      </div>
+
+      <div class="grid-border"></div>
+
+    </div>
+    <div class="code-book-grid">
+      <div class="grid-bottom-left">
+        <h1 class="primary-color">Add new mapping</h1>
+        <div *ngIf="selectedRescuerAbility || selectedRescueType">
+          <md-chip-list style="display: inline-block">
+            <md-chip class="code-book-chip" color="primary" selected="true" *ngIf="selectedRescueType">{{selectedRescueType.vrsta}}</md-chip>
+            <md-chip class="code-book-chip" color="accent" selected="true" *ngIf="selectedRescuerAbility">{{selectedRescuerAbility.naziv}}
+            </md-chip>
+          </md-chip-list>
+          <button md-raised-button color="accent" (click)="addMapping()" [disabled]="!selectedRescuerAbility || !selectedRescueType">Connect
+          </button>
+        </div>
+      </div>
+
+      <div class="grid-bottom-right">
+        <h1 class="primary-color">Existing mappings</h1>
+        <div *ngFor="let typeAbilityMap of rescueTypeService.getTypeAbilityMapping()">
+          <md-chip-list style="display: inline-block;">
+            <md-chip class="code-book-chip" color="primary" selected="true">{{rescueTypeService.getRescueTypesNamed()[typeAbilityMap.vrstaId +
+              '']}}
+            </md-chip>
+            <md-chip class="code-book-chip" color="accent" selected="true">
+              {{rescueTypeService.getRescuerAbilitiesNamed()[typeAbilityMap.specijalnostId+ '']}}
+            </md-chip>
+          </md-chip-list>
+          <button md-button color="primary" (click)="deleteMapping(typeAbilityMap.vrstaId,typeAbilityMap.specijalnostId)">Delete</button>
+        </div>
+      </div>
+      <div>
+
+      </div>
+
+    </div>
+  </div>

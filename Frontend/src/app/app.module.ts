@@ -52,6 +52,7 @@ import {PickLocationDialogComponent} from "./pick-location-dialog/pick-location-
 import {OpenedRescueActionComponent} from "./opened-rescue-action/opened-rescue-action.component";
 import {RescueTypeService} from "./services/rescue-type.service";
 import {DistanceService} from "./services/distance.service";
+import {CodeBooksComponent} from "./code-books/code-books.component";
 
 const apiKey = 'AIzaSyCaNJfY49tznGZ9V_rofRFt0bIB8uNqFEY';
 
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
     RescueActionDialogComponent,
     PickLocationDialogComponent,
     OpenedRescueActionComponent,
+    CodeBooksComponent
   ],
   entryComponents: [
     DialogComponent, LoginDialogComponent, RegisterDialogComponent, RescuerDialogComponent, RescueActionDialogComponent, PickLocationDialogComponent

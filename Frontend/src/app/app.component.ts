@@ -18,11 +18,14 @@ export class AppComponent implements AfterViewInit {
   constructor(public userService: UserService, public dialog: MdDialog, public fabService: FabService,
               public rescueActionService: RescueActionService, private rescueTypeService: RescueTypeService) {
     this.userService.loadUser();
-    this.rescueTypeService.fetchRescueTypes({
+    const successError = {
       onSuccess: (data) => {
       }, onError: () => {
       }
-    });
+    };
+    this.rescueTypeService.fetchRescueTypes(successError);
+    this.rescueTypeService.fetchRescuerAbilities(successError);
+    this.rescueTypeService.fetchMapping(successError);
   }
 
   public selectedIndexChange(event) {
