@@ -68,6 +68,7 @@ namespace MiewMiew.RescueAction
 		{
 			var action = GetActionById(id);
 			Mapper.Map<RescueActionDto, AkcijaSpasavanje>(dto, action);
+			action.Vrijeme = DateTime.Now;
 			Commit();
 			return action;
 		}

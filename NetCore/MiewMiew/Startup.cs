@@ -198,6 +198,7 @@ namespace MiewMiew
 							? Mapper.Map<IEnumerable<VjestineKorisnika>, IEnumerable<VjestinaDto>>(am.VjestineKorisnika): null));
 				config.CreateMap<AvailableDto, Dostupan>().ReverseMap();
 			 	config.CreateMap<UnavailableDto, Nedostupan>().ReverseMap();
+				config.CreateMap<AspNetUsers, UserPickerDto>().ReverseMap();
 
 				config.CreateMap<AkcijaSpasavanje, RescueActionDto>()
 					.ForMember(a => a.RescueLiveCycle, a => a.MapFrom(am => am.FazaZivotnogCiklusa != null ? ((RescueCycleTypeEnum)am.FazaZivotnogCiklusa).ToString() : null))

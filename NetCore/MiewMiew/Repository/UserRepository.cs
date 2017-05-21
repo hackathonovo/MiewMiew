@@ -35,6 +35,13 @@ namespace MiewMiew.Repository
 			return user.Nedostupan.Any(u => u.Od >= dateTime && u.Do <= dateTime);
 		}
 
+		public bool IsUserAvailable(string userId, DateTime dateTime)
+		{
+			var user = GetUserById(userId);
+			var result = user.Dostupan.Any(d => d.Od >= dateTime.Hour &&  dateTime.Hour <= d.Do);
+			return result;
+		}
+
 		public IEnumerable<AspNetUsers> GetAll()
 		{
 			return _context.AspNetUsers.Include(u => u.Dostupan).Include(u => u.Nedostupan).Include(u => u.VjestineKorisnika);

@@ -24,5 +24,6 @@ namespace MiewMiew.RescueAction.Models
 		public double? Latitude { get; set; }
 		public string RescueLiveCycle { get; set; }
 		public string RescueType { get; set; }
+		public string NazivLokacije { get; set; }
 	}
 }

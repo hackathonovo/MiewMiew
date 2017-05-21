@@ -15,5 +15,6 @@ namespace MiewMiew.Repository
 		void AddSpecijalnostToUser(int specijalnostId, string userId);
 		IEnumerable<AspNetUsers> GetAll();
 		bool IsUserUnavailable(string userId, DateTime dateTime);
+		bool IsUserAvailable(string userId, DateTime dateTime);
 	}
 }

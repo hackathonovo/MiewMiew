@@ -79,13 +79,13 @@ namespace MiewMiew.Controllers
 		}
 
 		[HttpGet("getAvailableUsers/{actionId}")]
-	//	[Produces(typeof(IEnumerable<RescueActionDto>))]
+		[Produces(typeof(IEnumerable<UserPickerDto>))]
 		public IActionResult GenerateUsersForAction(int actionId)
 		{
-			var result = _rescuePickerAlgorithm.FindBestUsers(0, 0, actionId);
-
+			var result = _rescuePickerAlgorithm.FindBestUsers(actionId);
 			
-			return Ok(Mapper.Map<IEnumerable<AspNetUsers>, IEnumerable<UserDto>>(result));
+			
+			return Ok(result);
 		}
 	}
 }
