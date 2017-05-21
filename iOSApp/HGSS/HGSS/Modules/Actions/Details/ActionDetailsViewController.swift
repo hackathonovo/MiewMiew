@@ -32,7 +32,6 @@ final class ActionDetailsViewController: UIViewController {
     override func viewDidLoad() {        
         title = "Action details"
         _setupNavigationBar()
-        _setupMap()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +44,8 @@ final class ActionDetailsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(didSelectEditAction))
     }
     
-    fileprivate func _setupMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.8680, longitude: 151.2086, zoom: 14)
+    fileprivate func _setupMap(with coordinates: CLLocationCoordinate2D) {
+        let camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 14)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
         self.mapView = mapView
     }
@@ -74,6 +73,14 @@ extension ActionDetailsViewController: ActionDetailsViewInterface {
             userNameLabel.text = "\(_firstName) \(_lastName)"
         } else {
             userNameLabel.text = "Ivo Ivić"
+        }
+        
+        if let _latitude = action.latitude, let _longitude = action.longitude {
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: _latitude, longitude: _longitude)
+            marker.title = action.name ?? "Action position"
+            marker.map = self.mapView
+            _setupMap(with: marker.position)
         }
     }
 }

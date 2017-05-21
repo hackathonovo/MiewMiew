@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol RescueActionDelegate: class {
     func didCreateAction()
@@ -33,6 +34,7 @@ protocol RescueActionPresenterInterface: PresenterInterface {
     func updateAction(descriptionText: String?)
     func updateAction(pursuit: Bool)
     func updateAction(rescueType: Int)
+    func updateAction(location: CLLocationCoordinate2D)
     func numberOfPickerItems() -> Int
     func pickerTitleFor(_ row: Int) -> String
 }

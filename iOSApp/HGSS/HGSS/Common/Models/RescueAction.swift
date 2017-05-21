@@ -46,7 +46,7 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
         let dateTime: Date? = unboxer.unbox(key: "vrijeme", formatter: dateFormatter)
         let pursuit: Int = try unboxer.unbox(key: "potraga")
         let latitude: Double? = unboxer.unbox(key: "latitude")
-        let longitude: Double? = unboxer.unbox(key: "longiture")
+        let longitude: Double? = unboxer.unbox(key: "longitude")
         let rescueType: String? = unboxer.unbox(key: "rescueType")
         let rescueTypeId: Int? = unboxer.unbox(key: "vrstaSpasavanjaId")
         let rescueLifecycle: RescueCycleType? = unboxer.unbox(key: "rescueLiveCycle")
@@ -78,6 +78,8 @@ class RescueAction: Unboxable, APIModel, WrapCustomizable {
             return "vrstaSpasavanjaId"
         } else if propertyName == "pursuit" {
             return "potraga"
+        } else if propertyName == "dateTime" {
+            return "vrijeme"
         }
         return propertyName
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class RescueActionPresenter {
 
@@ -102,6 +103,12 @@ extension RescueActionPresenter: RescueActionPresenterInterface {
     func updateAction(rescueType: Int) {
         _action.rescueTypeId = rescueType + 1
     }
+    
+    func updateAction(location: CLLocationCoordinate2D) {
+        _action.latitude = location.latitude
+        _action.longitude = location.longitude
+    }
+
     
     func numberOfPickerItems() -> Int {
         return _rescueTypes.count
