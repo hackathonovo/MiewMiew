@@ -18,6 +18,8 @@ final class NotificationsPresenter {
     fileprivate var _interactor: NotificationsInteractorInterface
     fileprivate var _wireframe: NotificationsWireframeInterface
     
+    fileprivate var _requests: [RescueRequest] = []
+    
     // MARK: - Lifecycle -
 
     init(wireframe: NotificationsWireframeInterface, view: NotificationsViewInterface, interactor: NotificationsInteractorInterface) {
@@ -32,12 +34,30 @@ final class NotificationsPresenter {
 
 extension NotificationsPresenter: NotificationsPresenterInterface {
     
-    func numberOfItems() -> Int {
-        return 0
+    func viewWillAppear(animated: Bool) {
+        _interactor.fetchRequests(with: UserDefaults.standard.value(forKey: Constants.UserDefaults.userId) as! String) { [weak self] (result) in
+            switch result {
+            case .success(let requests):
+                if requests.isEmpty {
+                    self?._view?.showPlaceholder()
+                } else {
+                    self?._view?.hidePlaceholder()
+                }
+                self?._requests = requests
+                self?._view?.reloadView()
+            case .failure(let error):
+                self?._view?.showPlaceholder()
+                self?._wireframe.showAlert(with: error.localizedDescription, with: nil)
+            }
+        }
     }
     
-    func item(at indexPath: IndexPath) -> Int {
-        return 0
+    func numberOfItems() -> Int {
+        return _requests.count
+    }
+    
+    func item(at indexPath: IndexPath) -> RescueRequest {
+        return _requests[indexPath.row]
     }
     
     func didSelectItem(at indexPath: IndexPath) {

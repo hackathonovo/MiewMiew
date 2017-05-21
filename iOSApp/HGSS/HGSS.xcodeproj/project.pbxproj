@@ -95,6 +95,8 @@
 		4F956E8A1ED16A4F0027F7C1 /* MessagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F956E851ED16A4F0027F7C1 /* MessagesPresenter.swift */; };
 		4F956E8B1ED16A4F0027F7C1 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F956E861ED16A4F0027F7C1 /* MessagesViewController.swift */; };
 		4F956E8C1ED16A4F0027F7C1 /* MessagesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F956E871ED16A4F0027F7C1 /* MessagesWireframe.swift */; };
+		4F956E8E1ED171520027F7C1 /* RescueRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F956E8D1ED171520027F7C1 /* RescueRequest.swift */; };
+		4F956E901ED177470027F7C1 /* NoNotifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F956E8F1ED177470027F7C1 /* NoNotifView.xib */; };
 		4FC250781ED11AB8002E9E6C /* RescueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC250771ED11AB8002E9E6C /* RescueType.swift */; };
 		4FC2507A1ED1208E002E9E6C /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC250791ED1208E002E9E6C /* APIModel.swift */; };
 		4FC250811ED149CF002E9E6C /* ParticipantsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC2507C1ED149CF002E9E6C /* ParticipantsInteractor.swift */; };
@@ -198,6 +200,8 @@
 		4F956E851ED16A4F0027F7C1 /* MessagesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesPresenter.swift; sourceTree = "<group>"; };
 		4F956E861ED16A4F0027F7C1 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		4F956E871ED16A4F0027F7C1 /* MessagesWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesWireframe.swift; sourceTree = "<group>"; };
+		4F956E8D1ED171520027F7C1 /* RescueRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueRequest.swift; sourceTree = "<group>"; };
+		4F956E8F1ED177470027F7C1 /* NoNotifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNotifView.xib; sourceTree = "<group>"; };
 		4FC250771ED11AB8002E9E6C /* RescueType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescueType.swift; sourceTree = "<group>"; };
 		4FC250791ED1208E002E9E6C /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		4FC2507C1ED149CF002E9E6C /* ParticipantsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsInteractor.swift; sourceTree = "<group>"; };
@@ -375,6 +379,7 @@
 				4F2E30AA1ED0E3D600BC14B4 /* User.swift */,
 				4FC250771ED11AB8002E9E6C /* RescueType.swift */,
 				4FC250791ED1208E002E9E6C /* APIModel.swift */,
+				4F956E8D1ED171520027F7C1 /* RescueRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 				4F956E741ED160890027F7C1 /* NotificationsViewController.swift */,
 				4F956E751ED160890027F7C1 /* NotificationsWireframe.swift */,
 				4F956E7B1ED160940027F7C1 /* Notifications.storyboard */,
+				4F956E8F1ED177470027F7C1 /* NoNotifView.xib */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -625,6 +631,7 @@
 				4F2E30081ED05F1000BC14B4 /* Assets.xcassets in Resources */,
 				4F2E303D1ED073FA00BC14B4 /* Lato-LightItalic.ttf in Resources */,
 				4F2E303A1ED073FA00BC14B4 /* Lato-HairlineItalic.ttf in Resources */,
+				4F956E901ED177470027F7C1 /* NoNotifView.xib in Resources */,
 				4F2E308D1ED0B7C700BC14B4 /* Map.storyboard in Resources */,
 				4F2E30381ED073FA00BC14B4 /* Lato-BoldItalic.ttf in Resources */,
 				4F2E303E1ED073FA00BC14B4 /* Lato-Regular.ttf in Resources */,
@@ -694,6 +701,7 @@
 				4F2E306D1ED0B01200BC14B4 /* Initializable.swift in Sources */,
 				4F2E30951ED0B7DA00BC14B4 /* MapPresenter.swift in Sources */,
 				4F2E30841ED0B6B300BC14B4 /* ActionsInteractor.swift in Sources */,
+				4F956E8E1ED171520027F7C1 /* RescueRequest.swift in Sources */,
 				4F2E30501ED08BB500BC14B4 /* TabBarInterfaces.swift in Sources */,
 				4F2E30161ED05F5F00BC14B4 /* LoginPresenter.swift in Sources */,
 				4F2E309C1ED0D71200BC14B4 /* ActionsTableViewCell.swift in Sources */,

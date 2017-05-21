@@ -16,6 +16,8 @@ final class TabBarPresenter {
     fileprivate var _interactor: TabBarInteractorInterface
     fileprivate var _wireframe: TabBarWireframeInterface
     
+    var timer: Timer!
+    
     // MARK: - Lifecycle -
     
     init(wireframe: TabBarWireframeInterface, view: TabBarViewInterface, interactor: TabBarInteractorInterface) {
@@ -23,9 +25,35 @@ final class TabBarPresenter {
         _view = view
         _interactor = interactor
     }
+    
+    deinit {
+        timer.invalidate()
+    }
+    
+    @objc func _fetchData() {
+        _fetchRequests()
+    }
+    
+    func _fetchRequests() {
+        guard let _userId = UserDefaults.standard.value(forKey: Constants.UserDefaults.userId) as? String else { return }
+        _interactor.fetchRequests(with: _userId) { [weak self] (result) in
+            switch result {
+            case .success(let requests):
+                if requests.isEmpty == false {
+                    self?._view?.setNotificitionsCount(to: requests.count)
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
 }
 
 // MARK: - Extensions -
 
 extension TabBarPresenter: TabBarPresenterInterface {
+    
+    func viewDidLoad() {
+        timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(_fetchData), userInfo: nil, repeats: true)
+    }
 }

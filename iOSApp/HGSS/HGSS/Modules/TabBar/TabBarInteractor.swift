@@ -9,9 +9,15 @@
 import Foundation
 
 final class TabBarInteractor {
+    
+    let _apiService = APIService()
 }
 
 // MARK: - Extensions -
 
 extension TabBarInteractor: TabBarInteractorInterface {
+    
+    func fetchRequests(with userId: String, completion: @escaping (Result<[RescueRequest]>) -> Void) {
+        _apiService.fetchRequests(with: userId, completion: completion)
+    }
 }

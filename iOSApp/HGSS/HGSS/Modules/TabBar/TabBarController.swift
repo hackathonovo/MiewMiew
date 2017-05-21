@@ -19,6 +19,7 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _setupTabBar()
+        presenter.viewDidLoad()
     }
     
     fileprivate func _setupTabBar() {
@@ -29,4 +30,18 @@ final class TabBarController: UITabBarController {
 // MARK: - Extensions -
 
 extension TabBarController: TabBarViewInterface {
+    
+    func setNotificitionsCount(to value: Int) {
+        if let item = tabBar.items?[2] {
+            item.badgeValue = String(value)
+        }
+    }
+}
+
+
+extension TabBarController: UITabBarControllerDelegate {
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        item.badgeValue = nil
+    }
 }

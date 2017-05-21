@@ -11,9 +11,15 @@
 import Foundation
 
 final class NotificationsInteractor {
+    
+    let _apiService = APIService()
 }
 
 // MARK: - Extensions -
 
 extension NotificationsInteractor: NotificationsInteractorInterface {
+    
+    func fetchRequests(with userId: String, completion: @escaping (Result<[RescueRequest]>) -> Void) {
+        _apiService.fetchRequests(with: userId, completion: completion)
+    }
 }

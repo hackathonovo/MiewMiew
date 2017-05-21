@@ -17,10 +17,12 @@ protocol TabBarWireframeInterface: WireframeInterface {
 }
 
 protocol TabBarViewInterface: ViewInterface {
+    func setNotificitionsCount(to value: Int)
 }
 
 protocol TabBarPresenterInterface: PresenterInterface {
 }
 
 protocol TabBarInteractorInterface: InteractorInterface {
+    func fetchRequests(with userId: String, completion: @escaping (Result<[RescueRequest]>) -> Void)
 }

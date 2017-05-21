@@ -21,17 +21,18 @@ protocol NotificationsWireframeInterface: WireframeInterface {
 
 protocol NotificationsViewInterface: ViewInterface {
     func reloadView()
-    
+    func showPlaceholder()
+    func hidePlaceholder()
 }
 
 protocol NotificationsPresenterInterface: PresenterInterface {
     
     func numberOfItems() -> Int
-    func item(at indexPath: IndexPath) -> Int
+    func item(at indexPath: IndexPath) -> RescueRequest
     func didSelectItem(at indexPath: IndexPath)
-    
     func didSelectedMessages()
 }
 
 protocol NotificationsInteractorInterface: InteractorInterface {
+    func fetchRequests(with userId: String, completion: @escaping (Result<[RescueRequest]>) -> Void)
 }

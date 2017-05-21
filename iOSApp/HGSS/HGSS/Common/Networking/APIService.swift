@@ -153,6 +153,26 @@ class APIService {
         }
     }
     
+    func fetchRequests(with userId: String, completion: @escaping (Result<[RescueRequest]>) -> Void) {
+        Alamofire
+            .request(CBaseUrl.appendingPathComponent("/RescuerActions/fetchMineRequests/\(userId)"), method: .get, encoding: JSONEncoding.default, headers: _headers())
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                    if let _value = value as? [UnboxableDictionary], let action: [RescueRequest] = try? unbox(dictionaries: _value) {
+                        completion(.success(action))
+                    } else if let _value = value as? UnboxableDictionary, let error: APIError = try? unbox(dictionary: _value) {
+                        completion(.failure(error))
+                    } else {
+                        completion(.failure(APIError(message: "Error did occured")))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+        }
+    }
+    
     func _headers() -> [String: String]{
         if let token = UserDefaults.standard.value(forKey: Constants.UserDefaults.userToken) {
             return ["Authorization": "Bearer \(token)"]

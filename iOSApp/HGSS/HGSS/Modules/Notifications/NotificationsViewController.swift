@@ -19,12 +19,25 @@ final class NotificationsViewController: UIViewController {
     
     @IBOutlet weak var notificationsTableView: UITableView!
     
+    var placeholderView: UIView?
+    
     // MARK: - Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Notifications"
         _setupNavigationBar()
+        
+        notificationsTableView.delegate = self
+        notificationsTableView.dataSource = self
+        
+        placeholderView = Bundle.main.loadNibNamed("NoNotifView", owner: self, options: nil)?.first as? UIView
+        placeholderView?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear(animated: animated)
     }
     
     fileprivate func _setupNavigationBar() {
@@ -44,6 +57,21 @@ extension NotificationsViewController: NotificationsViewInterface {
     func reloadView() {
         
     }
+    
+    func showPlaceholder() {
+        if let _view = placeholderView {
+            view.addSubview(_view)
+            _view.didMoveToSuperview()
+            view.bringSubview(toFront: _view)
+        }
+    }
+    
+    func hidePlaceholder() {
+        if let _view = placeholderView {
+            _view.removeFromSuperview()
+            view.sendSubview(toBack: _view)
+        }
+    }
 }
 
 extension NotificationsViewController: TabBarItemSetupable {
@@ -52,5 +80,18 @@ extension NotificationsViewController: TabBarItemSetupable {
         tabBarItem.image = UIImage.fontAwesomeIcon(name: .bell, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
         tabBarItem.selectedImage = UIImage.fontAwesomeIcon(name: .bell, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
         tabBarItem.title = "Notifications"
+    }
+}
+
+extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfItems()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationsTableViewCell", for: indexPath)
+        cell.textLabel?.text = presenter.item(at: indexPath).akcijaSpasavanja?.name
+        return cell
     }
 }
