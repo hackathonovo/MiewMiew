@@ -22,6 +22,8 @@ namespace MiewMiew.Dto
 		public int? Razina { get; set; }
 		public double? Latitude { get; set; }
 		public double? Longitude { get; set; }
+		public string Sms { get; set; }
+
 		public IEnumerable<AvailableDto> Dostupan { get; set; }
 		public IEnumerable<VjestineKorisnika> Vjestine { get; set; }
 		public Collection<UnavailableDto> Nedostupan{ get; set; }

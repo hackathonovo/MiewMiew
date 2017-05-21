@@ -53,6 +53,11 @@ namespace MiewMiew.RescueAction
 				.Where(a => a.VoditeljId == userId || a.Sudionici.Any(s => s.KorisnikId == userId && s.Prihvatio == true ));
 		}
 
+		public IEnumerable<Sudionici> GetMineRequests(string userdId)
+		{
+			return _context.Sudionici.Include(s => s.AkcijaSpasavanja).Where(s => s.KorisnikId == userdId && s.Prihvatio != null && !(bool)s.Prihvatio);
+		}
+
 
 		public AkcijaSpasavanje AddAction(AkcijaSpasavanje action, string identityName)
 		{
@@ -71,6 +76,24 @@ namespace MiewMiew.RescueAction
 			action.Vrijeme = DateTime.Now;
 			Commit();
 			return action;
+		}
+
+		public Sudionici AcceptMyInvitation(string userId, int actionId)
+		{
+			var invitation = _context.Sudionici.SingleOrDefault(s => s.KorisnikId == userId && s.AkcijaSpasavanjaId == actionId);
+			if (invitation != null)
+			{
+				invitation.Prihvatio = true;
+				Commit();
+			}
+			return invitation;
+		}
+
+		public void UpdateActionStatus(int actionId, RescueTypeEnum rescueTypeEnum)
+		{
+			var action = GetActionById(actionId);
+			action.FazaZivotnogCiklusa = (int)rescueTypeEnum;
+			Commit();
 		}
 
 

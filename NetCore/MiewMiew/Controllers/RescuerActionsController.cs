@@ -54,6 +54,30 @@ namespace MiewMiew.Controllers
 			return Ok(Mapper.Map<IEnumerable<AkcijaSpasavanje>, IEnumerable<RescueActionDto>>(actions));
 		}
 
+		[HttpGet("fetchMineRequests/{userId}")]
+		[Produces(typeof(SudioniciDto))]
+		public IActionResult Fetch_mine_Requests(string userId)
+		{
+			return Ok(Mapper.Map<IEnumerable<Sudionici>, IEnumerable<SudioniciDto>>(_rescuersService.GetMineRequests(userId)));
+		}
+
+		[HttpPost("acceptMyRequest/{userId}/{actionId}")]
+		public IActionResult AcceptMine(string userId,int actionId)
+		{
+			var result = _rescuersService.AcceptMyInvitation(userId, actionId);
+			if (result != null)
+			{
+				return Ok(Mapper.Map < Sudionici, SudioniciDto > (result));
+			}
+			return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.NotExist));
+		}
+		[HttpPost("changeActionStatus/{actionId}/{rescueTypeEnum}")]
+		public IActionResult ChangeActionStatus(int actionId, RescueTypeEnum rescueTypeEnum)
+		{
+			_rescuersService.UpdateActionStatus(actionId, rescueTypeEnum);
+			return Ok();
+		}
+
 		[HttpPost("save")]
 		[Authorize("Bearer")]
 		[Produces(typeof(RescueActionDto))]

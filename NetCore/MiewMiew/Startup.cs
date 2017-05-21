@@ -179,6 +179,9 @@ namespace MiewMiew
 
 			Mapper.Initialize(config =>
 			{
+				config.CreateMap<Sudionici, SudioniciDto>()
+					.ForMember(s => s.AkcijaSpasavanje,
+						s => s.MapFrom(am => Mapper.Map<AkcijaSpasavanje, RescueActionDto>(am.AkcijaSpasavanja)));
 				config.CreateMap<UserInfoDto, AspNetUsers>().ReverseMap();
 				config.CreateMap<VjestinaDto, VjestineKorisnika>()
 					.ReverseMap()
