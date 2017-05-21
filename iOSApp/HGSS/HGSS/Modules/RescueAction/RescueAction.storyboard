@@ -237,6 +237,7 @@
                     <connections>
                         <outlet property="actionNameField" destination="SLD-td-NvZ" id="O56-cV-Juz"/>
                         <outlet property="addLocationButton" destination="W7R-6X-TQo" id="utI-9F-YDa"/>
+                        <outlet property="createEditButton" destination="pKO-kQ-Prr" id="5py-dx-8rs"/>
                         <outlet property="descriptionField" destination="9O2-eQ-ovd" id="00B-fa-oxP"/>
                         <outlet property="mapView" destination="1pZ-wD-QsV" id="xci-8q-qcJ"/>
                         <outlet property="pursuitSwitch" destination="eMb-ij-T5g" id="ye1-wa-aUV"/>

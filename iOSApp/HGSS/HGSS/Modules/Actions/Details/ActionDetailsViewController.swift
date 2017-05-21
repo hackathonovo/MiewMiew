@@ -10,6 +10,7 @@
 
 import UIKit
 import GoogleMaps
+import FontAwesome_swift
 
 final class ActionDetailsViewController: UIViewController {
     
@@ -28,12 +29,20 @@ final class ActionDetailsViewController: UIViewController {
     
     // MARK: - Lifecycle -
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter.viewDidLoad()
-        
+    override func viewDidLoad() {        
         title = "Action details"
+        _setupNavigationBar()
         _setupMap()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear(animated: animated)
+    }
+    
+    fileprivate func _setupNavigationBar() {
+        let editImage = UIImage.fontAwesomeIcon(name: .edit, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: editImage, style: .plain, target: self, action: #selector(didSelectEditAction))
     }
     
     fileprivate func _setupMap() {
@@ -44,6 +53,10 @@ final class ActionDetailsViewController: UIViewController {
     
     @IBAction func didSelectShowMembersAction(_ sender: Any) {
         
+    }
+    
+    func didSelectEditAction() {
+        presenter.didSelectEditAction()
     }
 }
 

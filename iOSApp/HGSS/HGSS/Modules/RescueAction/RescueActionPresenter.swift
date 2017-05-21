@@ -18,15 +18,20 @@ final class RescueActionPresenter {
     fileprivate weak var _delegate: RescueActionDelegate?
     fileprivate var _action: RescueAction
     fileprivate var _rescueTypes: [RescueType]
+    fileprivate var _isEditing: Bool!
 
     // MARK: - Lifecycle -
 
-    init(wireframe: RescueActionWireframeInterface, view: RescueActionViewInterface, interactor: RescueActionInteractorInterface, delegate: RescueActionDelegate?) {
+    init(wireframe: RescueActionWireframeInterface, view: RescueActionViewInterface, interactor: RescueActionInteractorInterface, action: RescueAction?, delegate: RescueActionDelegate?) {
         _wireframe = wireframe
         _view = view
         _interactor = interactor
         _delegate = delegate
-        _action = RescueAction()
+        _isEditing = action != nil ? true : false
+        _action = action != nil ? action! : RescueAction()
+        if !_isEditing {
+            _action.pursuit = 1
+        }
         _rescueTypes = []
         
         _interactor.getRescueTypes { [weak self] (result) in
@@ -39,12 +44,25 @@ final class RescueActionPresenter {
             }
         }
     }
-
+    
+    fileprivate func _setupView() {
+        let buttonTitle = _isEditing == true ? "Save" : "Create"
+        _view?.setupButton(with: buttonTitle)
+        if !_isEditing {
+            _view?.setupNavigationBar()
+        } else {
+            _view?.setupView(with: _action)
+        }
+    }
 }
 
 // MARK: - Extensions -
 
 extension RescueActionPresenter: RescueActionPresenterInterface {
+    
+    func viewDidLoad() {
+        _setupView()
+    }
     
     func didSelectCloseAction() {
         _wireframe.dismiss(animated: true)
@@ -56,8 +74,12 @@ extension RescueActionPresenter: RescueActionPresenterInterface {
             guard let _self = self else { return }
             _self._wireframe.hideLoading()
             switch result {
-            case .success(_):
-                _self._delegate?.didCreateAction()
+            case .success(let action):
+                if _self._isEditing {
+                    _self._delegate?.didEditAction(action)
+                } else {
+                    _self._delegate?.didCreateAction()
+                }
                 _self._wireframe.dismiss(animated: true)
             case .failure(let error):
                 _self._wireframe.showAlert(with: error.localizedDescription, with: nil)

@@ -20,6 +20,7 @@ final class RescueActionViewController: UIViewController {
     @IBOutlet weak var pursuitSwitch: UISwitch!
     @IBOutlet weak var rescueTypeButton: UIButton!
     @IBOutlet weak var rescueTypeField: UITextField!
+    @IBOutlet weak var createEditButton: UIButton!
     
     fileprivate var _picker = UIPickerView()
     
@@ -31,17 +32,12 @@ final class RescueActionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "New rescue action"
-        _setupNavigationBar()
+        presenter.viewDidLoad()
+        title = "Rescue action"
         _setupPicker()
         
         actionNameField.delegate = self
         descriptionField.delegate = self
-    }
-    
-    fileprivate func _setupNavigationBar() {
-        let closeImage = UIImage.fontAwesomeIcon(name: .close, textColor: UIColor.flatWhite, size: CGSize(width: 32, height: 32))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: closeImage, style: .plain, target: self, action: #selector(didSelectCloseAction))
     }
     
     fileprivate func _setupPicker() {
@@ -88,15 +84,21 @@ final class RescueActionViewController: UIViewController {
 // MARK: - Extensions -
 
 extension RescueActionViewController: RescueActionViewInterface {
-}
-
-
-extension RescueActionViewController: TabBarItemSetupable {
     
-    func setupTabBarItem() {
-        tabBarItem.image = UIImage.fontAwesomeIcon(name: .map, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
-        tabBarItem.selectedImage = UIImage.fontAwesomeIcon(name: .map, textColor: UIColor.blue, size: CGSize(width: 32, height: 32))
-        tabBarItem.title = "Rescue"
+    func setupButton(with title: String) {
+        createEditButton.setTitle(title, for: .normal)
+    }
+    
+    func setupNavigationBar() {
+        let closeImage = UIImage.fontAwesomeIcon(name: .close, textColor: UIColor.flatWhite, size: CGSize(width: 32, height: 32))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: closeImage, style: .plain, target: self, action: #selector(didSelectCloseAction))
+    }
+    
+    func setupView(with action: RescueAction) {
+        actionNameField.text = action.name
+        descriptionField.text = action.actionDescription
+        pursuitSwitch.isOn = action.pursuit == 1
+        rescueTypeField.text = action.rescueType
     }
 }
 

@@ -71,13 +71,17 @@ extension ActionsPresenter: ActionsPresenterInterface {
     }
     
     func didSelectAddAction() {
-        _wireframe.navigate(to: .addAction(delegate: self))
+        _wireframe.navigate(to: .addAction(action: nil, delegate: self))
     }
 }
 
 extension ActionsPresenter: RescueActionDelegate {
     
     func didCreateAction() {
+        
+    }
+    
+    func didEditAction(_ action: RescueAction) {
         
     }
 }

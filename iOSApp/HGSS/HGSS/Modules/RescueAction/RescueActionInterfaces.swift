@@ -10,6 +10,7 @@ import UIKit
 
 protocol RescueActionDelegate: class {
     func didCreateAction()
+    func didEditAction(_ action: RescueAction)
 }
 
 enum RescueActionNavigationOption {
@@ -20,6 +21,9 @@ protocol RescueActionWireframeInterface: WireframeInterface {
 }
 
 protocol RescueActionViewInterface: ViewInterface {
+    func setupButton(with title: String)
+    func setupNavigationBar()
+    func setupView(with action: RescueAction)
 }
 
 protocol RescueActionPresenterInterface: PresenterInterface {

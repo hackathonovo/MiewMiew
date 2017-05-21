@@ -27,14 +27,27 @@ final class ActionDetailsPresenter {
         _interactor = interactor
         _action = action
     }
-
 }
 
 // MARK: - Extensions -
 
 extension ActionDetailsPresenter: ActionDetailsPresenterInterface {
     
-    func viewDidLoad() {
+    func viewWillAppear(animated: Bool) {
         _view?.setupView(with: _action)
+    }
+    
+    func didSelectEditAction() {
+        _wireframe.navigate(to: .editAction(action: _action, delegate: self))
+    }
+}
+
+extension ActionDetailsPresenter: RescueActionDelegate {
+    
+    func didCreateAction() {
+    }
+    
+    func didEditAction(_ action: RescueAction) {
+        _action = action
     }
 }

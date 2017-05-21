@@ -12,7 +12,7 @@ import UIKit
 
 enum ActionsNavigationOption {
     case details(RescueAction)
-    case addAction(delegate: RescueActionDelegate)
+    case addAction(action: RescueAction?, delegate: RescueActionDelegate)
     case login
 }
 

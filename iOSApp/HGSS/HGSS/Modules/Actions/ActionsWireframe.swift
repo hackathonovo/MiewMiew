@@ -43,10 +43,10 @@ extension ActionsWireframe: ActionsWireframeInterface {
         case .details(let action):
             let wireframe = ActionDetailsWireframe(navigationController: navigationController)
             wireframe.show(with: .push, action: action)
-        case .addAction(let delegate):
+        case .addAction(let action, let delegate):
             let navigationController = UINavigationController()
             let wireframe = RescueActionWireframe(navigationController: navigationController)
-            wireframe.show(with: .present(fromViewController: self.navigationController), animated: true, delegate: delegate)
+            wireframe.show(with: .present(fromViewController: self.navigationController), animated: true, action: action, delegate: delegate)
         case .login:
             let navigationController = UINavigationController()
             let wireframe = LoginWireframe(navigationController: navigationController)
