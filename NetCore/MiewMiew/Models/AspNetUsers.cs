@@ -43,6 +43,7 @@ namespace MiewMiew.Models
         public int? Razina { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public string Sms { get; set; }
 
         public virtual ICollection<AkcijaSpasavanje> AkcijaSpasavanje { get; set; }
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }

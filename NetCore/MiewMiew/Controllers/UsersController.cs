@@ -1,12 +1,18 @@
-﻿using AutoMapper;
+﻿using System.Collections.Specialized;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiewMiew.Dto;
 using MiewMiew.Helpers;
 using MiewMiew.Models;
 using MiewMiew.Repository;
+using MiewMiew.RescueAction;
 using MiewMiew.Rescuer.Model;
 using MiewMiew.Services.Interfaces;
+using Newtonsoft.Json;
 using Shared.Dto.RequestDto;
 using Shared.Dto.ResponseDto;
 
@@ -19,11 +25,13 @@ namespace MiewMiew.Controllers
 	{
 		private readonly IMembershipService _membershipService;
 		private readonly IUserRepository _userRepository;
+		private readonly IRescuersService _rescuersService;
 
-		public UsersController(IMembershipService membershipService, IUserRepository userRepository)
+		public UsersController(IMembershipService membershipService, IUserRepository userRepository, IRescuersService rescuersService)
 		{
 			_membershipService = membershipService;
 			_userRepository = userRepository;
+			_rescuersService = rescuersService;
 		}
 
 
@@ -81,6 +89,28 @@ namespace MiewMiew.Controllers
 			}
 			return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.ValidationError,
 				"Vrijeme od,Vrijeme do i korisnik su obavezna polja"));
+		}
+
+		[HttpPost("sendSms/{userId}/{actionId}")]
+		[Produces(typeof(MessageDto))]
+		public async Task<IActionResult> SendSms(string userId, int actionId)
+		{
+			var user = _userRepository.GetUserById(userId);
+			var action = _rescuersService.GetActionById(actionId);
+			if (user.Sms != null)
+			{
+				var content = new SmsDto
+				{
+					message = "HGSS: Please respond if you are available for action: "+ action.Naziv + " in " + action.NazivLokacije,
+					phone = user.Sms
+				};
+				var httpContent = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+
+				var result = await new HttpClient().PostAsync("https://textbelt.com/text", httpContent);
+				return Ok(result);
+			}
+
+			return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.ValidationError, "User has no sms"));
 		}
 
 

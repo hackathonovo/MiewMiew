@@ -184,6 +184,8 @@ namespace MiewMiew.Models
 
 				entity.Property(e => e.Salt).HasMaxLength(500);
 
+				entity.Property(e => e.Sms).HasColumnType("varchar(50)");
+
 				entity.Property(e => e.UserName).HasMaxLength(256);
 			});
 
