@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using MiewMiew.Models;
 
 namespace MiewMiew.Repository
@@ -10,5 +12,8 @@ namespace MiewMiew.Repository
 		void AddUser(AspNetUsers user);
 		void AddAvailableTimeForUser(Dostupan available);
 		void AddUnavailableTimeForUser(Nedostupan unavailable);
+		void AddSpecijalnostToUser(int specijalnostId, string userId);
+		IEnumerable<AspNetUsers> GetAll();
+		bool IsUserUnavailable(string userId, DateTime dateTime);
 	}
 }

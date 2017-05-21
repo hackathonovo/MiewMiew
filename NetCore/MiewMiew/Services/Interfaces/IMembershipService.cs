@@ -1,4 +1,5 @@
-﻿using Shared.Dto.RequestDto;
+﻿using MiewMiew.Dto;
+using Shared.Dto.RequestDto;
 using Shared.Dto.ResponseDto;
 
 namespace MiewMiew.Services.Interfaces

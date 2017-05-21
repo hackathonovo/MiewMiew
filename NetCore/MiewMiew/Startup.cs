@@ -104,6 +104,7 @@ namespace MiewMiew
 			services.AddScoped<IEncryptionService, EncryptionService>();
 			services.AddScoped<IWebSocketDatabaseManager, WebSocketDatabaseManager>();
 			services.AddScoped<IRescuersService, RescuersService>();
+			services.AddScoped<IRescuePickerAlgorithm, RescuerPickerAlgorithm>();
 
 
 			services.AddSwaggerGen();
@@ -179,14 +180,27 @@ namespace MiewMiew
 			Mapper.Initialize(config =>
 			{
 				config.CreateMap<UserInfoDto, AspNetUsers>().ReverseMap();
-				config.CreateMap<UserDto, AspNetUsers>().ReverseMap()
-					.ForMember(a => a.Dostupan, a => a.MapFrom(am => am.Dostupan != null ? Mapper.Map<IEnumerable<Dostupan>, IEnumerable<AvailableDto>>(am.Dostupan) : null))
-					.ForMember(a => a.Nedostupan, a => a.MapFrom(am => am.Nedostupan!= null ? Mapper.Map<IEnumerable<Nedostupan>, IEnumerable<UnavailableDto>>(am.Nedostupan) : null));
+				config.CreateMap<VjestinaDto, VjestineKorisnika>()
+					.ReverseMap()
+					.ForMember(a => a.VjestinaNaziv, a => a.MapFrom(am => am.Specijalnost.Naziv));
+				config.CreateMap<UserDto, AspNetUsers>()
+					.ReverseMap()
+					.ForMember(a => a.Dostupan,
+						a => a.MapFrom(am => am.Dostupan != null
+							? Mapper.Map<IEnumerable<Dostupan>, IEnumerable<AvailableDto>>(am.Dostupan)
+							: null))
+					.ForMember(a => a.Nedostupan,
+						a => a.MapFrom(am => am.Nedostupan != null
+							? Mapper.Map<IEnumerable<Nedostupan>, IEnumerable<UnavailableDto>>(am.Nedostupan)
+							: null))
+					.ForMember(a => a.Vjestine,
+						a => a.MapFrom(am => am.VjestineKorisnika != null
+							? Mapper.Map<IEnumerable<VjestineKorisnika>, IEnumerable<VjestinaDto>>(am.VjestineKorisnika): null));
 				config.CreateMap<AvailableDto, Dostupan>().ReverseMap();
 			 	config.CreateMap<UnavailableDto, Nedostupan>().ReverseMap();
 
 				config.CreateMap<AkcijaSpasavanje, RescueActionDto>()
-					.ForMember(a => a.RescueLiveCycle, a => a.MapFrom(am => ((RescueCycleTypeEnum) am.FazaZivotnogCiklusa).ToString()))
+					.ForMember(a => a.RescueLiveCycle, a => a.MapFrom(am => am.FazaZivotnogCiklusa != null ? ((RescueCycleTypeEnum)am.FazaZivotnogCiklusa).ToString() : null))
 					.ForMember(a => a.RescueType, a => a.MapFrom(am => am.VrstaSpasavanja.Vrsta))
 					.ForMember(a => a.User, a => a.MapFrom(am => am.Voditelj != null ? Mapper.Map<AspNetUsers, UserDto>(am.Voditelj) : null));
 

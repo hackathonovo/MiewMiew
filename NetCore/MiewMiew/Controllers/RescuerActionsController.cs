@@ -9,6 +9,7 @@ using MiewMiew.Helpers;
 using MiewMiew.Models;
 using MiewMiew.RescueAction;
 using MiewMiew.RescueAction.Models;
+using MiewMiew.Services;
 
 namespace MiewMiew.Controllers
 {
@@ -17,10 +18,12 @@ namespace MiewMiew.Controllers
 	public class RescuerActionsController : Controller
 	{
 		private readonly IRescuersService _rescuersService;
+		private readonly IRescuePickerAlgorithm _rescuePickerAlgorithm;
 
-		public RescuerActionsController(IRescuersService rescuersService)
+		public RescuerActionsController(IRescuersService rescuersService, IRescuePickerAlgorithm rescuePickerAlgorithm)
 		{
 			_rescuersService = rescuersService;
+			_rescuePickerAlgorithm = rescuePickerAlgorithm;
 		}
 
 		[Produces(typeof(IEnumerable<RescueActionDto>))]
@@ -47,7 +50,7 @@ namespace MiewMiew.Controllers
 		[Produces(typeof(IEnumerable<RescueActionDto>))]
 		public IActionResult Fetch_mine(string userId)
 		{
-			var actions = _rescuersService.GetActionByUserId(userId);
+			var actions = _rescuersService.GetActionsByUserId(userId);
 			return Ok(Mapper.Map<IEnumerable<AkcijaSpasavanje>, IEnumerable<RescueActionDto>>(actions));
 		}
 
@@ -62,8 +65,6 @@ namespace MiewMiew.Controllers
 				return BadRequest(ErrorMessageCreator.GenerateErrorMessage(ErrorType.ValidationError,
 					"Naziv, opis, potraga are required fields"));
 			}
-			Enum.TryParse(dto.RescueType, out RescueTypeEnum type);
-			action.VrstaSpasavanjaId = (int) type;
 			AkcijaSpasavanje actionNew = null;
 
 			if (dto.Id != 0)
@@ -75,6 +76,16 @@ namespace MiewMiew.Controllers
 				actionNew = _rescuersService.AddAction(action, User.Identity.Name);
 			}
 			return Ok(Mapper.Map<AkcijaSpasavanje, RescueActionDto>(actionNew));
+		}
+
+		[HttpGet("getAvailableUsers/{actionId}")]
+	//	[Produces(typeof(IEnumerable<RescueActionDto>))]
+		public IActionResult GenerateUsersForAction(int actionId)
+		{
+			var result = _rescuePickerAlgorithm.FindBestUsers(0, 0, actionId);
+
+			
+			return Ok(Mapper.Map<IEnumerable<AspNetUsers>, IEnumerable<UserDto>>(result));
 		}
 	}
 }

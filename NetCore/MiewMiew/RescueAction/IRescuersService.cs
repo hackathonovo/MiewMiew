@@ -12,6 +12,7 @@ namespace MiewMiew.RescueAction
 		AkcijaSpasavanje GetActionById(int id);
 		AkcijaSpasavanje AddAction(AkcijaSpasavanje action, string identityName);
 		AkcijaSpasavanje EditAction(RescueActionDto dto, int id);
-		IEnumerable<AkcijaSpasavanje> GetActionByUserId(string userId);
+		IEnumerable<AkcijaSpasavanje> GetActionsByUserId(string userId);
+		IEnumerable<AkcijaSpasavanje> GetAllActionsActiveForUser(string userId);
 	}
 }

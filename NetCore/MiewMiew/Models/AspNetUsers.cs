@@ -41,8 +41,8 @@ namespace MiewMiew.Models
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public int? Razina { get; set; }
-        public decimal? Latitude { get; set; }
-        public decimal? Longitude { get; set; }
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
 
         public virtual ICollection<AkcijaSpasavanje> AkcijaSpasavanje { get; set; }
         public virtual ICollection<AspNetUserClaims> AspNetUserClaims { get; set; }

@@ -33,12 +33,19 @@ namespace MiewMiew.RescueAction
 			                                            a.VrstaSpasavanjaId != (int) RescueCycleTypeEnum.FinishedSuccessfully);
 		}
 
+		public IEnumerable<AkcijaSpasavanje> GetAllActionsActiveForUser(string userId)
+		{
+			var actions = GetActionsByUserId(userId);
+			return actions.Where(a => a.VrstaSpasavanjaId != (int) RescueCycleTypeEnum.FinishedFailed ||
+									  a.VrstaSpasavanjaId != (int) RescueCycleTypeEnum.FinishedSuccessfully);
+		}
+
 		public AkcijaSpasavanje GetActionById(int id)
 		{
 			return _context.AkcijaSpasavanje.Include(a => a.Voditelj).Include(a => a.VrstaSpasavanja).SingleOrDefault(a => a.Id == id);
 		}
 
-		public IEnumerable<AkcijaSpasavanje> GetActionByUserId(string userId)
+		public IEnumerable<AkcijaSpasavanje> GetActionsByUserId(string userId)
 		{
 			return _context.AkcijaSpasavanje.Include(a => a.Voditelj)
 				.Include(a => a.VrstaSpasavanja)

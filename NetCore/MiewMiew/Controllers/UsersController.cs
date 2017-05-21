@@ -40,6 +40,7 @@ namespace MiewMiew.Controllers
 			return Ok(result);
 		}
 
+
 		[HttpPost("register")]
 		[Produces(typeof(MessageDto))]
 		public IActionResult Register([FromBody] RegisterDto registerDto)

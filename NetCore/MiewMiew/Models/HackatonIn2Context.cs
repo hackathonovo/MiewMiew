@@ -15,7 +15,6 @@ namespace MiewMiew.Models
 		public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
 		public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
 		public virtual DbSet<Dostupan> Dostupan { get; set; }
-		public virtual DbSet<KompetencijeKorisnika> KompetencijeKorisnika { get; set; }
 		public virtual DbSet<Nedostupan> Nedostupan { get; set; }
 		public virtual DbSet<Poruka> Poruka { get; set; }
 		public virtual DbSet<Socket> Socket { get; set; }
@@ -25,14 +24,13 @@ namespace MiewMiew.Models
 		public virtual DbSet<Sudionici> Sudionici { get; set; }
 		public virtual DbSet<VjestineKorisnika> VjestineKorisnika { get; set; }
 		public virtual DbSet<VrstaSpasavanja> VrstaSpasavanja { get; set; }
-
+		public virtual DbSet<ZonePretrage> ZonePretrage { get; set; }
 
 		public HackatonIn2Context(DbContextOptions<HackatonIn2Context> options)
 			: base(options)
 		{
 
 		}
-
 
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -176,10 +174,6 @@ namespace MiewMiew.Models
 
 				entity.Property(e => e.Ime).HasMaxLength(50);
 
-				entity.Property(e => e.Latitude).HasColumnType("decimal");
-
-				entity.Property(e => e.Longitude).HasColumnType("decimal");
-
 				entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
 
 				entity.Property(e => e.NormalizedUserName)
@@ -201,17 +195,6 @@ namespace MiewMiew.Models
 					.WithMany(p => p.Dostupan)
 					.HasForeignKey(d => d.KorisnikId)
 					.HasConstraintName("FK_Dostupan_AspNetUsers_Id");
-			});
-
-			modelBuilder.Entity<KompetencijeKorisnika>(entity =>
-			{
-				entity.Property(e => e.Id).HasColumnName("id");
-
-				entity.Property(e => e.Kompetencija).HasColumnName("kompetencija");
-
-				entity.Property(e => e.Korisnik)
-					.HasColumnName("korisnik")
-					.HasMaxLength(450);
 			});
 
 			modelBuilder.Entity<Nedostupan>(entity =>
@@ -342,6 +325,16 @@ namespace MiewMiew.Models
 				entity.Property(e => e.Vrsta)
 					.IsRequired()
 					.HasMaxLength(50);
+			});
+
+			modelBuilder.Entity<ZonePretrage>(entity =>
+			{
+				entity.Property(e => e.Naziv).HasMaxLength(250);
+
+				entity.HasOne(d => d.AkcijaSpasavanja)
+					.WithMany(p => p.ZonePretrage)
+					.HasForeignKey(d => d.AkcijaSpasavanjaId)
+					.HasConstraintName("FK_ZonePretrage_AkcijaSpasavanje_id");
 			});
 		}
 	}

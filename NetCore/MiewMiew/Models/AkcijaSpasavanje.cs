@@ -9,6 +9,7 @@ namespace MiewMiew.Models
         {
             Poruka = new HashSet<Poruka>();
             Sudionici = new HashSet<Sudionici>();
+            ZonePretrage = new HashSet<ZonePretrage>();
         }
 
         public int Id { get; set; }
@@ -26,6 +27,7 @@ namespace MiewMiew.Models
 
         public virtual ICollection<Poruka> Poruka { get; set; }
         public virtual ICollection<Sudionici> Sudionici { get; set; }
+        public virtual ICollection<ZonePretrage> ZonePretrage { get; set; }
         public virtual AspNetUsers Voditelj { get; set; }
         public virtual VrstaSpasavanja VrstaSpasavanja { get; set; }
     }

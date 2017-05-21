@@ -23,6 +23,7 @@ namespace MiewMiew.Dto
 		public double? Latitude { get; set; }
 		public double? Longitude { get; set; }
 		public IEnumerable<AvailableDto> Dostupan { get; set; }
+		public IEnumerable<VjestineKorisnika> Vjestine { get; set; }
 		public Collection<UnavailableDto> Nedostupan{ get; set; }
 	}
 }

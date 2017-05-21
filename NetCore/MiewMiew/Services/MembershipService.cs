@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
 using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
+using MiewMiew.Dto;
 using MiewMiew.Helpers;
 using MiewMiew.Models;
 using MiewMiew.Repository;
 using MiewMiew.Services.Interfaces;
 using Shared.Dto;
-using Shared.Dto.RequestDto;
 using Shared.Dto.ResponseDto;
 using SL.Core.Authentication;
 using SL.Core.Service.Interfaces;
@@ -59,12 +60,16 @@ namespace MiewMiew.Services
 
 
 			var passwordSalt = _encryptionService.CreateSalt();
-			var user = CreateUser(registerDto.Username, registerDto.Password, passwordSalt, registerDto.Email, registerDto.Ime, registerDto.Prezime);
+			var user = CreateUser(registerDto.Username, registerDto.Password, passwordSalt, registerDto.Email, registerDto.Ime, registerDto.Prezime, registerDto.Razina);
 			_userRepository.AddUser(user);
+			if (registerDto.VjestineKorisnikaId != null)
+			{
+				SaveUserSpecijalnosti(user.Id, registerDto.VjestineKorisnikaId);
+			}
 			return new MessageDto(true,  "Successful registration");
 		}
 
-		private AspNetUsers CreateUser(string username, string password, string salt, string email, string ime, string prezime)
+		private AspNetUsers CreateUser(string username, string password, string salt, string email, string ime, string prezime, int razina)
 		{
 			var user = new AspNetUsers
 			{
@@ -74,7 +79,8 @@ namespace MiewMiew.Services
 				PasswordHash = _encryptionService.EncryptPassword(password, salt),
 				Created = DateTime.Now,
 				Ime = ime,
-				Prezime = prezime
+				Prezime = prezime,
+				Razina = razina
 			};
 			return user;
 		}
@@ -85,6 +91,15 @@ namespace MiewMiew.Services
 			SecurityToken validatedToken;
 			handler.ValidateToken(token, Startup.tokenValidationParametars, out validatedToken);
 			return validatedToken?.Id;
+		}
+
+
+		private void SaveUserSpecijalnosti(string userId, IEnumerable<int> specijalnostId)
+		{
+			foreach (var i in specijalnostId)
+			{
+				_userRepository.AddSpecijalnostToUser(i, userId);
+			}
 		}
 
 

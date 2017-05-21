@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 
-namespace Shared.Dto.RequestDto
+namespace MiewMiew.Dto
 {
 	public class RegisterDto
 	{
@@ -13,5 +13,9 @@ namespace Shared.Dto.RequestDto
 		public string Ime { get; set; }
 
 		public string Prezime { get; set; }
+
+		public int Razina { get; set; }
+
+		public IEnumerable<int> VjestineKorisnikaId { get; set; }
 	}
 }
