@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +19,7 @@ import hr.miewmiew.MiewMiew.dbmodel.jpa.VrstaspasavanjaEntity;
 import hr.miewmiew.MiewMiew.dtomodel.VrstaspasavanjaEntityDto;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/vrstespasavanja")
 public class VrstaspasavanjaController {
 	
@@ -42,4 +45,38 @@ public class VrstaspasavanjaController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@RequestMapping(value = "/Update", method = RequestMethod.POST)
+	public ResponseEntity<VrstaspasavanjaEntityDto> update(HttpServletRequest request,
+			@RequestBody VrstaspasavanjaEntityDto vrstaspasavanjaDto) {
+		try {
+			
+			VrstaspasavanjaEntity vrstaSpasavanja = new VrstaspasavanjaEntity();
+			vrstaSpasavanja.setId(vrstaspasavanjaDto.getId());
+			vrstaSpasavanja.setVrsta(vrstaspasavanjaDto.getVrsta());
+			VrstaspasavanjaEntity vrstaspasavanjaDtoReturned = vrstaspasavanjaJpaRepository.save(vrstaSpasavanja);
+			
+			return new ResponseEntity<VrstaspasavanjaEntityDto>(
+					new VrstaspasavanjaEntityDto(vrstaspasavanjaDtoReturned), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@RequestMapping(value = "/Add", method = RequestMethod.POST)
+	public ResponseEntity<VrstaspasavanjaEntityDto> add(HttpServletRequest request,
+			@RequestBody VrstaspasavanjaEntityDto vrstaspasavanjaDto) {
+		try {
+			
+			VrstaspasavanjaEntity vrstaSpasavanja = new VrstaspasavanjaEntity();
+			vrstaSpasavanja.setVrsta(vrstaspasavanjaDto.getVrsta());
+			VrstaspasavanjaEntity vrstaspasavanjaDtoReturned = vrstaspasavanjaJpaRepository.save(vrstaSpasavanja);
+			
+			return new ResponseEntity<VrstaspasavanjaEntityDto>(
+					new VrstaspasavanjaEntityDto(vrstaspasavanjaDtoReturned), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 }

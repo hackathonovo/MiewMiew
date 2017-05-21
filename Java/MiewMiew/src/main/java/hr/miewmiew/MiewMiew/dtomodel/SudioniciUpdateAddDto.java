@@ -12,12 +12,16 @@ public class SudioniciUpdateAddDto {
 	
 	private Double longitude;
 	
-	public SudioniciUpdateAddDto(String korisnikid, Integer akcijaspasavanjaid, Double latitude, Double longitude) {
+	private Boolean prihvatio;
+	
+	public SudioniciUpdateAddDto(String korisnikid, Integer akcijaspasavanjaid, Double latitude, Double longitude,
+			Boolean prihvatio) {
 		super();
 		this.korisnikid = korisnikid;
 		this.akcijaspasavanjaid = akcijaspasavanjaid;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.prihvatio = prihvatio;
 	}
 	
 	public SudioniciUpdateAddDto() {
@@ -29,6 +33,7 @@ public class SudioniciUpdateAddDto {
 		this.akcijaspasavanjaid = sudionik.getAkcijaspasavanjaid();
 		this.latitude = sudionik.getLatitude();
 		this.longitude = sudionik.getLongitude();
+		this.prihvatio = sudionik.getPrihvatio();
 	}
 	
 	public String getKorisnikid() {
@@ -61,6 +66,14 @@ public class SudioniciUpdateAddDto {
 	
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+	
+	public Boolean getPrihvatio() {
+		return prihvatio;
+	}
+	
+	public void setPrihvatio(Boolean prihvatio) {
+		this.prihvatio = prihvatio;
 	}
 	
 }

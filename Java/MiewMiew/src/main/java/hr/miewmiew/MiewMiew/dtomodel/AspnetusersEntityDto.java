@@ -1,8 +1,6 @@
 package hr.miewmiew.MiewMiew.dtomodel;
 
-import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 import hr.miewmiew.MiewMiew.dbmodel.jpa.AspnetusersEntity;
 
@@ -36,7 +34,7 @@ public class AspnetusersEntityDto {
 	
 	// private Boolean twofactorenabled;
 	
-	private String username;
+	private String userName;
 	
 	// private String salt;
 	
@@ -48,9 +46,9 @@ public class AspnetusersEntityDto {
 	
 	private Integer razina;
 	
-	private BigDecimal latitude;
+	private Double latitude;
 	
-	private BigDecimal longitude;
+	private Double longitude;
 	
 	// private List<AkcijaspasavanjeEntityDto> listOfAkcijaspasavanje;
 	
@@ -68,7 +66,7 @@ public class AspnetusersEntityDto {
 	
 	// private List<PorukaEntityDto> listOfPoruka2;
 	
-	private List<VjestinekorisnikaEntityDto> listOfVjestinekorisnika;
+	// private List<VjestinekorisnikaEntityDto> listOfVjestinekorisnika;
 	
 	// private List<SocketconnectionEntityDto> listOfSocketconnection;
 	
@@ -84,7 +82,7 @@ public class AspnetusersEntityDto {
 		this.id = aspnetusers.getId();
 		this.email = aspnetusers.getEmail();
 		this.phonenumber = aspnetusers.getPhonenumber();
-		this.username = aspnetusers.getUsername();
+		this.userName = aspnetusers.getUsername();
 		this.created = aspnetusers.getCreated();
 		this.ime = aspnetusers.getIme();
 		this.prezime = aspnetusers.getPrezime();
@@ -205,12 +203,12 @@ public class AspnetusersEntityDto {
 	// this.twofactorenabled = twofactorenabled;
 	// }
 	
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 	
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String username) {
+		this.userName = username;
 	}
 	
 	// public String getSalt() {
@@ -253,19 +251,19 @@ public class AspnetusersEntityDto {
 		this.razina = razina;
 	}
 	
-	public BigDecimal getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 	
-	public void setLatitude(BigDecimal latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 	
-	public BigDecimal getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 	
-	public void setLongitude(BigDecimal longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 	
@@ -338,13 +336,14 @@ public class AspnetusersEntityDto {
 	// this.listOfPoruka2 = listOfPoruka2;
 	// }
 	
-	public List<VjestinekorisnikaEntityDto> getListOfVjestinekorisnika() {
-		return listOfVjestinekorisnika;
-	}
-	
-	public void setListOfVjestinekorisnika(List<VjestinekorisnikaEntityDto> listOfVjestinekorisnika) {
-		this.listOfVjestinekorisnika = listOfVjestinekorisnika;
-	}
+	// public List<VjestinekorisnikaEntityDto> getListOfVjestinekorisnika() {
+	// return listOfVjestinekorisnika;
+	// }
+	//
+	// public void setListOfVjestinekorisnika(List<VjestinekorisnikaEntityDto>
+	// listOfVjestinekorisnika) {
+	// this.listOfVjestinekorisnika = listOfVjestinekorisnika;
+	// }
 	
 	// public List<SocketconnectionEntityDto> getListOfSocketconnection() {
 	// return listOfSocketconnection;

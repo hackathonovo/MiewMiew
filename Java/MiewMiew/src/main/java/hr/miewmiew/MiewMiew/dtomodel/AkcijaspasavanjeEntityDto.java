@@ -1,11 +1,8 @@
 package hr.miewmiew.MiewMiew.dtomodel;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import hr.miewmiew.MiewMiew.dbmodel.jpa.AkcijaspasavanjeEntity;
-import hr.miewmiew.MiewMiew.dbmodel.jpa.PorukaEntity;
 
 public class AkcijaspasavanjeEntityDto {
 	
@@ -29,13 +26,13 @@ public class AkcijaspasavanjeEntityDto {
 	
 	private String nazivlokacije;
 	
-	private List<SudioniciEntityDto> listOfSudionici;
+	// private List<SudioniciEntityDto> listOfSudionici;
 	
-	private AspnetusersEntityDto aspnetusers;
+	private String voditeljId;
 	
-	private VrstaspasavanjaEntityDto vrstaspasavanja;
+	private Integer vrstaspasavanjaId;
 	
-	private List<PorukaEntityDto> listOfPoruka;
+	// private List<PorukaEntityDto> listOfPoruka;
 	
 	public AkcijaspasavanjeEntityDto() {
 		super();
@@ -51,14 +48,19 @@ public class AkcijaspasavanjeEntityDto {
 		this.longitude = a.getLongitude();
 		this.latitude = a.getLatitude();
 		this.nazivlokacije = a.getNazivlokacije();
-		AspnetusersEntityDto aspnetusersEntitiyDto = new AspnetusersEntityDto(a.getAspnetusers());
-		this.aspnetusers = aspnetusersEntitiyDto;
-		this.vrstaspasavanja = new VrstaspasavanjaEntityDto(a.getVrstaspasavanja());
-		List<PorukaEntityDto> listaPoruka = new ArrayList<>();
-		for (PorukaEntity p : a.getListOfPoruka()) {
-			listaPoruka.add(new PorukaEntityDto(p));
-		}
-		this.listOfPoruka = listaPoruka;
+		this.voditeljId = a.getAspnetusers().getId();
+		this.vrstaspasavanjaId = a.getVrstaspasavanja().getId();
+		
+		// AspnetusersEntityDto aspnetusersEntitiyDto = new
+		// AspnetusersEntityDto(a.getAspnetusers());
+		// this.aspnetusers = aspnetusersEntitiyDto;
+		// this.vrstaspasavanja = new
+		// VrstaspasavanjaEntityDto(a.getVrstaspasavanja());
+		// List<PorukaEntityDto> listaPoruka = new ArrayList<>();
+		// for (PorukaEntity p : a.getListOfPoruka()) {
+		// listaPoruka.add(new PorukaEntityDto(p));
+		// }
+		// this.listOfPoruka = listaPoruka;
 		this.radius = a.getRadius();
 	}
 	
@@ -134,37 +136,39 @@ public class AkcijaspasavanjeEntityDto {
 		this.nazivlokacije = nazivlokacije;
 	}
 	
-	public List<SudioniciEntityDto> getListOfSudionici() {
-		return listOfSudionici;
-	}
-	
-	public void setListOfSudionici(List<SudioniciEntityDto> listOfSudionici) {
-		this.listOfSudionici = listOfSudionici;
-	}
-	
-	public AspnetusersEntityDto getAspnetusers() {
-		return aspnetusers;
-	}
-	
-	public void setAspnetusers(AspnetusersEntityDto aspnetusers) {
-		this.aspnetusers = aspnetusers;
-	}
-	
-	public VrstaspasavanjaEntityDto getVrstaspasavanja() {
-		return vrstaspasavanja;
-	}
-	
-	public void setVrstaspasavanja(VrstaspasavanjaEntityDto vrstaspasavanja) {
-		this.vrstaspasavanja = vrstaspasavanja;
-	}
-	
-	public List<PorukaEntityDto> getListOfPoruka() {
-		return listOfPoruka;
-	}
-	
-	public void setListOfPoruka(List<PorukaEntityDto> listOfPoruka) {
-		this.listOfPoruka = listOfPoruka;
-	}
+	// public List<SudioniciEntityDto> getListOfSudionici() {
+	// return listOfSudionici;
+	// }
+	//
+	// public void setListOfSudionici(List<SudioniciEntityDto> listOfSudionici)
+	// {
+	// this.listOfSudionici = listOfSudionici;
+	// }
+	//
+	// public AspnetusersEntityDto getAspnetusers() {
+	// return aspnetusers;
+	// }
+	//
+	// public void setAspnetusers(AspnetusersEntityDto aspnetusers) {
+	// this.aspnetusers = aspnetusers;
+	// }
+	//
+	// public VrstaspasavanjaEntityDto getVrstaspasavanja() {
+	// return vrstaspasavanja;
+	// }
+	//
+	// public void setVrstaspasavanja(VrstaspasavanjaEntityDto vrstaspasavanja)
+	// {
+	// this.vrstaspasavanja = vrstaspasavanja;
+	// }
+	//
+	// public List<PorukaEntityDto> getListOfPoruka() {
+	// return listOfPoruka;
+	// }
+	//
+	// public void setListOfPoruka(List<PorukaEntityDto> listOfPoruka) {
+	// this.listOfPoruka = listOfPoruka;
+	// }
 	
 	public Double getRadius() {
 		return radius;
@@ -172,6 +176,22 @@ public class AkcijaspasavanjeEntityDto {
 	
 	public void setRadius(Double radius) {
 		this.radius = radius;
+	}
+	
+	public String getVoditeljId() {
+		return voditeljId;
+	}
+	
+	public void setVoditeljId(String voditeljId) {
+		this.voditeljId = voditeljId;
+	}
+	
+	public Integer getVrstaspasavanjaId() {
+		return vrstaspasavanjaId;
+	}
+	
+	public void setVrstaspasavanjaId(Integer vrstaspasavanjaId) {
+		this.vrstaspasavanjaId = vrstaspasavanjaId;
 	}
 	
 }

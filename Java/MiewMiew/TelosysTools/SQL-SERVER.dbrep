@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Telosys Database Repository --><root>
-<tableList databaseId="0" databaseName="SQL-SERVER" databaseProductName="Microsoft SQL Server" generation="2017-05-20 23:49:33">
+<tableList databaseId="0" databaseName="SQL-SERVER" databaseProductName="Microsoft SQL Server" generation="2017-05-21 07:37:34">
 <table catalog="HackatonIn2" databaseType="TABLE" javaBean="Akcijaspasavanje" name="AkcijaSpasavanje" schema="dbo">
 <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Naziv" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="naziv" javaType="java.lang.String" jdbcTypeCode="-9" label="Naziv" maxLength="50" notNull="false" selected="true"/>
@@ -21,6 +21,7 @@
 <fkcol colname="VrstaSpasavanjaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="AkcijaSpasavanje" tableref="VrstaSpasavanja" updaterule="1"/>
 </fk>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Sudionici_AkcijaSpasavanje_id" id="LINK_FK_FK_Sudionici_AkcijaSpasavanje_id_I" inverseSideOf="LINK_FK_FK_Sudionici_AkcijaSpasavanje_id_O" javaName="listOfSudionici" javaType="java.util.List" joinTableName="" mappedBy="akcijaspasavanje" optional="UNDEFINED" owningSide="false" sourceTableName="AkcijaSpasavanje" targetEntity="Sudionici" targetTableName="Sudionici" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_ZonePretrage_AkcijaSpasavanje_id" id="LINK_FK_FK_ZonePretrage_AkcijaSpasavanje_id_I" inverseSideOf="LINK_FK_FK_ZonePretrage_AkcijaSpasavanje_id_O" javaName="listOfZonepretrage" javaType="java.util.List" joinTableName="" mappedBy="akcijaspasavanje" optional="UNDEFINED" owningSide="false" sourceTableName="AkcijaSpasavanje" targetEntity="Zonepretrage" targetTableName="ZonePretrage" used="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Poruka_AkcijaSpasavanje_id" id="LINK_FK_FK_Poruka_AkcijaSpasavanje_id_I" inverseSideOf="LINK_FK_FK_Poruka_AkcijaSpasavanje_id_O" javaName="listOfPoruka" javaType="java.util.List" joinTableName="" mappedBy="akcijaspasavanje" optional="UNDEFINED" owningSide="false" sourceTableName="AkcijaSpasavanje" targetEntity="Poruka" targetTableName="Poruka" used="true"/>
 <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_VrstaSpasavanja_id" id="LINK_FK_FK_AkcijaSpasavanje_VrstaSpasavanja_id_O" inverseSideOf="" javaName="vrstaspasavanja" javaType="Vrstaspasavanja" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="AkcijaSpasavanje" targetEntity="Vrstaspasavanja" targetTableName="VrstaSpasavanja" used="true">
 <joinColumns>
@@ -129,8 +130,9 @@
 <column dbComment="" dbDefaultValue="" dbName="Ime" dbNotNull="false" dbPosition="18" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="ime" javaType="java.lang.String" jdbcTypeCode="-9" label="Ime" maxLength="50" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Prezime" dbNotNull="false" dbPosition="19" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="prezime" javaType="java.lang.String" jdbcTypeCode="-9" label="Prezime" maxLength="50" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Razina" dbNotNull="false" dbPosition="20" dbSize="10" dbTypeName="int" inputType="number" javaName="razina" javaType="java.lang.Integer" jdbcTypeCode="4" label="Razina" notNull="false" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="21" dbSize="18" dbTypeName="decimal" inputType="number" javaName="latitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Latitude" notNull="false" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="22" dbSize="18" dbTypeName="decimal" inputType="number" javaName="longitude" javaType="java.math.BigDecimal" jdbcTypeCode="3" label="Longitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="21" dbSize="53" dbTypeName="float" inputType="number" javaName="latitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Latitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="22" dbSize="53" dbTypeName="float" inputType="number" javaName="longitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Longitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Sms" dbNotNull="false" dbPosition="23" dbSize="50" dbTypeName="varchar" inputType="text" javaName="sms" javaType="java.lang.String" jdbcTypeCode="12" label="Sms" maxLength="50" notNull="false" selected="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_AspNetUsers_Id" id="LINK_FK_FK_AkcijaSpasavanje_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_AkcijaSpasavanje_AspNetUsers_Id_O" javaName="listOfAkcijaspasavanje" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Dostupan_AspNetUsers_Id" id="LINK_FK_FK_Dostupan_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_Dostupan_AspNetUsers_Id_O" javaName="listOfDostupan" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Dostupan" targetTableName="Dostupan" used="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Sudionici_AspNetUsers_Id" id="LINK_FK_FK_Sudionici_AspNetUsers_Id_I" inverseSideOf="LINK_FK_FK_Sudionici_AspNetUsers_Id_O" javaName="listOfSudionici" javaType="java.util.List" joinTableName="" mappedBy="aspnetusers" optional="UNDEFINED" owningSide="false" sourceTableName="AspNetUsers" targetEntity="Sudionici" targetTableName="Sudionici" used="true"/>
@@ -158,11 +160,6 @@
 <joinColumn insertable="false" name="KorisnikId" nullable="true" referencedColumnName="Id" unique="false" updatable="false"/>
 </joinColumns>
 </link>
-</table>
-<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Kompetencijekorisnika" name="KompetencijeKorisnika" schema="dbo">
-<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbName="korisnik" dbNotNull="false" dbPosition="2" dbSize="450" dbTypeName="nvarchar" inputType="" javaName="korisnik" javaType="java.lang.String" jdbcTypeCode="-9" label="Korisnik" maxLength="450" notNull="false" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbName="kompetencija" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="int" inputType="number" javaName="kompetencija" javaType="java.lang.Integer" jdbcTypeCode="4" label="Kompetencija" notNull="false" selected="true"/>
 </table>
 <table catalog="HackatonIn2" databaseType="TABLE" javaBean="Nedostupan" name="Nedostupan" schema="dbo">
 <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
@@ -269,6 +266,7 @@
 <column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="AkcijaSpasavanjaId" dbNotNull="true" dbPosition="2" dbPrimaryKey="true" dbSize="10" dbTypeName="int" inputType="number" javaName="akcijaspasavanjaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Akcijaspasavanjaid" notNull="true" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="3" dbSize="53" dbTypeName="float" inputType="number" javaName="latitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Latitude" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="4" dbSize="53" dbTypeName="float" inputType="number" javaName="longitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Longitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Prihvatio" dbNotNull="false" dbPosition="5" dbSize="1" dbTypeName="bit" inputType="checkbox" javaName="prihvatio" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Prihvatio" notNull="false" selected="true"/>
 <fk name="FK_Sudionici_AkcijaSpasavanje_id">
 <fkcol colname="AkcijaSpasavanjaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="Sudionici" tableref="AkcijaSpasavanje" updaterule="1"/>
 </fk>
@@ -312,6 +310,21 @@
 <column dbComment="" dbDefaultValue="" dbName="Vrsta" dbNotNull="true" dbPosition="2" dbSize="50" dbTypeName="nvarchar" inputType="" javaName="vrsta" javaType="java.lang.String" jdbcTypeCode="-9" label="Vrsta" maxLength="50" notEmpty="true" notNull="true" selected="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id" id="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id_I" inverseSideOf="LINK_FK_FK_SpecijalnostiVrstaSpasavanja_VrstaSpasavanja_id_O" javaName="listOfSpecijalnostivrstaspasavanja" javaType="java.util.List" joinTableName="" mappedBy="vrstaspasavanja" optional="UNDEFINED" owningSide="false" sourceTableName="VrstaSpasavanja" targetEntity="Specijalnostivrstaspasavanja" targetTableName="SpecijalnostiVrstaSpasavanja" used="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_AkcijaSpasavanje_VrstaSpasavanja_id" id="LINK_FK_FK_AkcijaSpasavanje_VrstaSpasavanja_id_I" inverseSideOf="LINK_FK_FK_AkcijaSpasavanje_VrstaSpasavanja_id_O" javaName="listOfAkcijaspasavanje" javaType="java.util.List" joinTableName="" mappedBy="vrstaspasavanja" optional="UNDEFINED" owningSide="false" sourceTableName="VrstaSpasavanja" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true"/>
+</table>
+<table catalog="HackatonIn2" databaseType="TABLE" javaBean="Zonepretrage" name="ZonePretrage" schema="dbo">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="Id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="int identity" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Naziv" dbNotNull="false" dbPosition="2" dbSize="250" dbTypeName="nvarchar" inputType="" javaName="naziv" javaType="java.lang.String" jdbcTypeCode="-9" label="Naziv" maxLength="250" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Latitude" dbNotNull="false" dbPosition="3" dbSize="53" dbTypeName="float" inputType="number" javaName="latitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Latitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Longitude" dbNotNull="false" dbPosition="4" dbSize="53" dbTypeName="float" inputType="number" javaName="longitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Longitude" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="AkcijaSpasavanjaId" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="int" inputType="number" javaName="akcijaspasavanjaid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Akcijaspasavanjaid" notNull="false" selected="true"/>
+<fk name="FK_ZonePretrage_AkcijaSpasavanje_id">
+<fkcol colname="AkcijaSpasavanjaId" colref="id" deferrable="7" deleterule="1" sequence="1" tablename="ZonePretrage" tableref="AkcijaSpasavanje" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_ZonePretrage_AkcijaSpasavanje_id" id="LINK_FK_FK_ZonePretrage_AkcijaSpasavanje_id_O" inverseSideOf="" javaName="akcijaspasavanje" javaType="Akcijaspasavanje" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="ZonePretrage" targetEntity="Akcijaspasavanje" targetTableName="AkcijaSpasavanje" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="AkcijaSpasavanjaId" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
 </table>
 </tableList>
 </root>

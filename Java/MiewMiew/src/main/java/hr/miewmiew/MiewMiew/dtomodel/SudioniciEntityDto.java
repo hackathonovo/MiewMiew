@@ -10,6 +10,8 @@ public class SudioniciEntityDto {
 	
 	private Double longitude;
 	
+	private Boolean prihvatio;
+	
 	// private AspnetusersEntityDto aspnetusers;
 	
 	// private AkcijaspasavanjeEntityDto akcijaspasavanje;
@@ -24,6 +26,7 @@ public class SudioniciEntityDto {
 				sudionikReturned.getAkcijaspasavanjaid());
 		this.latitude = sudionikReturned.getLatitude();
 		this.longitude = sudionikReturned.getLongitude();
+		this.prihvatio = sudionikReturned.getPrihvatio();
 	}
 	
 	public SudioniciEntityKeyDto getCompositePrimaryKey() {
@@ -48,6 +51,14 @@ public class SudioniciEntityDto {
 	
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
+	}
+	
+	public Boolean getPrihvatio() {
+		return prihvatio;
+	}
+	
+	public void setPrihvatio(Boolean prihvatio) {
+		this.prihvatio = prihvatio;
 	}
 	
 	// public AspnetusersEntityDto getAspnetusers() {
