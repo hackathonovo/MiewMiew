@@ -34,7 +34,7 @@ final class MapViewController: UIViewController {
     }
     
     fileprivate func _setupNavigationBar() {
-        navigationController?.navigationBar.isTranslucent = false
+//        navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Map"
     }
     
@@ -81,7 +81,7 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let camera = GMSCameraPosition.camera(withLatitude: locations.last!.coordinate.latitude,
                                             longitude: locations.last!.coordinate.longitude,
-                                            zoom: 10)
+                                            zoom: 6)
         mapView?.animate(to: camera)
     }
 }
